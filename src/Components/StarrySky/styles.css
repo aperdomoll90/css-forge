@@ -1,0 +1,111 @@
+:root{
+    --twinkleSVGSize:3.5rem;
+
+    --twinklingSkyBackgroundColor:#01001f;
+    --twinklingSkySVGColor:#01001ff1;
+    
+    --twinklingSkyDarkGradientColor:#00000a;
+    --twinklingSkyDarkGradientTranspColor:#00000ab9;
+    /* --twinklingSkySVGColor:#01001ff1; */
+
+
+    --twinklingTime:10s;
+
+
+}
+
+StarrySky {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+
+@keyframes move-twink-back {
+    0% {
+        transform: translateY(-50vh) translateX(50vw);
+      }
+      100% {
+        transform: translateY(50vh) translateX(-50vh);
+    }
+  }
+
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.stars,
+.clouds {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+
+.stars {
+  background:  var(--twinklingSkyBackgroundColor) url(https://firebasestorage.googleapis.com/v0/b/cssforge.appspot.com/o/Global%20Images%2Fstars.png?alt=media&token=417eaa54-7836-4722-9fdd-2ae9ceaf68f4) repeat top center;
+  z-index: 0;
+}
+
+ i {
+    width: var(--twinkleSVGSize);
+    height: var(--twinkleSVGSize);
+    border-radius: 50%;
+    position: absolute;
+    top: - var(--twinkleSVGSize);
+    background: var(--twinklingSkySVGColor);
+    box-shadow: 0px 0px 15px var(--twinklingSkySVGColor), 0px 0px 12px 7px var(--twinklingSkySVGColor);
+    animation: move-twink-back var(--twinklingTime) linear infinite;
+}
+
+i::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top:25%;
+    left:-110%;
+    background: var(--twinklingSkySVGColor);
+    box-shadow: 0px 0px 15px var(--twinklingSkySVGColor), 0px 0px 12px 7px var(--twinklingSkySVGColor);
+}
+
+i::after{
+    content: '';
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    position: absolute;
+    top:130%;
+    left:-10%;
+    background: var(--twinklingSkySVGColor);
+    box-shadow: 0px 0px 15px var(--twinklingSkySVGColor), 0px 0px 12px 7px var(--twinklingSkySVGColor);
+
+}
+
+/* .clouds {
+  background: transparent url(./nebula.png) center;
+  background-repeat: repeat;
+  background-size: cover;
+  z-index: 3;
+  animation: move-clouds-back 200s linear infinite;
+opacity: 0.2;
+} */

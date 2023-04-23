@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkillBar component should match snapshots 1`] = `
+<div>
+  <div
+    class="skill"
+  >
+    <div
+      class="skill-name"
+    >
+      string
+    </div>
+    <div
+      class="skill-bar"
+    >
+      <div
+        class="skill-per"
+        per="10%"
+        style="max-width: 10%;"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextColorHover component should match snapshots 1`] = `
+<div>
+  <div
+    id="mouseOverTextWrapper"
+  >
+    <div
+      class="mouseOverTextContainer"
+      style="--maskX: 0; --maskY: 0;"
+    >
+      <div
+        class="mouseOverTextTitleWrapper"
+      >
+        <h1 />
+      </div>
+      <div
+        class="mouseOverTextTitleWrapper mouseOverTexCloneWrapper"
+      >
+        <h1 />
+      </div>
+    </div>
+  </div>
+</div>
+`;

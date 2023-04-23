@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleButton component should match snapshots 1`] = `
+<div>
+  <div
+    class="fieldLocation"
+  >
+    <div
+      class="ToggleButtonWrapper"
+    >
+      <div
+        class="ToggleButton"
+      >
+        <span />
+        <span />
+        <span />
+      </div>
+      <div
+        class="ToggleButtonDropDown"
+      >
+        <p>
+          <ion-icon
+            name="home-outline"
+          />
+           Home
+        </p>
+        <p>
+          <ion-icon
+            name="chatbubble-outline"
+          />
+           Messages
+        </p>
+        <p>
+          <ion-icon
+            name="person-outline"
+          />
+           Profile
+        </p>
+        <p>
+          <ion-icon
+            name="settings-outline"
+          />
+           Settings
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carrousel component should match snapshots 1`] = `
+<div>
+  <div
+    class="sc-bgqQcB gZxamG carrousel-wrapper-className"
+    data-testid="carrousel-wrapper-testId"
+    height="70%"
+    id="carrousel-wrapper"
+    width="95vw"
+  >
+    <button
+      aria-label="Previous slide"
+      class="sc-fFGjHI sc-dicizt kciuDk jCXwCt"
+      data-testid="left-button-container"
+      orientation="[object Object]"
+    >
+      ❮
+    </button>
+    <button
+      aria-label="Next slide"
+      class="sc-fFGjHI sc-iVCKna kciuDk ieyeCm"
+      data-testid="right-button-container"
+      orientation="[object Object]"
+    >
+      ❯
+    </button>
+    <div
+      class="sc-gTRrQi bkHQDV card-container-className"
+      color="blue"
+      orientation="[object Object]"
+    >
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card0"
+      >
+        <div>
+          First card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card1"
+      >
+        <div>
+          card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card2"
+      >
+        <div>
+          card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card3"
+      >
+        <div>
+          card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card4"
+      >
+        <div>
+          card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card5"
+      >
+        <div>
+          card
+        </div>
+      </div>
+      <div
+        class="sc-ewnqHT fLsiAa card"
+        id="card6"
+      >
+        <div>
+          Last card
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

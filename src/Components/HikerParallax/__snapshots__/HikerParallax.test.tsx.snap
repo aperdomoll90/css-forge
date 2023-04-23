@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HikerParallax component should match snapshots 1`] = `
+<div>
+  <section
+    id="hiker-parallax-wrapper"
+  >
+    <div
+      class="hiker-parallax"
+    >
+      <img
+        alt="hiker"
+        class="hiker translate contentOnLoadAnimation"
+        data-speed="0.3"
+        src="hiker.png"
+      />
+      <img
+        alt="mountain forest"
+        class="plane2 translate contentOnLoadAnimation"
+        data-speed="-0.7"
+        src="plane2.png"
+      />
+      <img
+        alt="medium mountain"
+        class="plane3 translate contentOnLoadAnimation"
+        data-speed="-0.4"
+        src="plane3.png"
+      />
+      <img
+        alt="High mountain peeks covered in snow"
+        class="backgroundMountain contentOnLoadAnimation"
+        src="plane4.png"
+      />
+      <img
+        alt="sky"
+        class="sky translate contentOnLoadAnimation"
+        data-speed="-0.3"
+        src="space.jpeg"
+      />
+    </div>
+  </section>
+</div>
+`;

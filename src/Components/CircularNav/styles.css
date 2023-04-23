@@ -1,0 +1,97 @@
+.circularNavWrapper {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 7.5rem);
+  z-index: 1000;
+}
+
+.circularNavMenu {
+  width: 15rem;
+  height: 4rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+}
+
+.circularNavActive {
+  height: 15rem;
+}
+
+@media (max-width: 850px) {
+  .circularNavWrapper {
+    top: -20px;
+    left: calc(50% - 7.5rem);
+    transform: scale(80%);
+  }
+  .circularNavActive {
+    height: 15rem;
+  }
+}
+@media (max-width: 500px) {
+  .circularNavWrapper {
+    transform: scale(90%);
+  }
+}
+
+.circularNavMenu li {
+  position: absolute;
+  left: 0;
+  list-style: none;
+  font-size: 1.6em;
+  color: #fff;
+  transform-origin: 7.5rem;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+  transform: rotate(0deg) translateX(6rem);
+}
+
+.circularNavMenu.circularNavActive li {
+  transform: rotate(calc(360deg / 8 * var(--i)));
+}
+
+
+.circularNavToggle {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  font-size: 3em;
+  color: #000;
+  transition: 1.25s;
+}
+.circularNavToggle:hover {
+  color: darkblue;
+  background: rgb(155, 153, 153);
+}
+
+.circularNavMenu.circularNavActive .circularNavToggle {
+  transform: rotate(315deg);
+}
+
+.circularNavMenu li a {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  transition: 0.5s;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+  transform: rotate(calc(360deg / -8 * var(--i)));
+
+}
+.circularNavMenu li a:hover {
+  color: rgb(63, 63, 214);
+  background: rgba(155, 153, 153, 0.856);
+}
