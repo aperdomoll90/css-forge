@@ -12,12 +12,16 @@ exports[`TextColorHover component should match snapshots 1`] = `
       <div
         class="mouseOverTextTitleWrapper"
       >
-        <h1 />
+        <h1>
+          test
+        </h1>
       </div>
       <div
         class="mouseOverTextTitleWrapper mouseOverTexCloneWrapper"
       >
-        <h1 />
+        <h1>
+          test
+        </h1>
       </div>
     </div>
   </div>

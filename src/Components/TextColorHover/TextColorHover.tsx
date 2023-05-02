@@ -7,9 +7,9 @@ export interface TextColorHoverPropsTypes {
 
 function TextColorHover({text}:TextColorHoverPropsTypes) {
   const [coords, setCoords] = useState({ x: 0, y: 0 })
-  const ref = useRef <HTMLInputElement | null>()
+  const ref = useRef <any>()
   const {x,y} = coords
-  const maskStyle = {
+  const maskStyle : any = {
       '--maskX':x,
       '--maskY':y,
   }

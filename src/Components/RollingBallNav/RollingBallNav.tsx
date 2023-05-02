@@ -1,10 +1,23 @@
 import { useEffect } from 'react';
 import './styles.css'
 
+declare global {
+    namespace JSX {
+      interface IntrinsicElements {
+        ['ion-icon']: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      }
+    }
+}
+declare module 'react' {
+    interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+      // extends React's HTMLAttributes
+      name?: string
+    }
+  }
 
 function RollingBallNav() {
 useEffect(()=>{
-    const list =document.querySelectorAll('.rollingBallNavList')
+    const list = document.querySelectorAll('.rollingBallNavList')
     function activeLink(){
         list.forEach((item)=> item.classList.remove('rollingBallNavActive'))
         this.classList.add('rollingBallNavActive')
@@ -43,7 +56,7 @@ useEffect(()=>{
         </a>
     </li>
     <li className='rollingBallNavList'>
-        <a to="#">
+        <a href="#">
             <span className="rollingBallNavIcon"><ion-icon name="settings-outline"/></span>
             <span className="rollingBallNavText">Settings</span>
         </a>

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CvDownload component should match snapshots 1`] = `
+<div>
+  <div
+    id="cv-download-wrapper"
+  >
+    <img
+      id="cv-download-page"
+      src="page.svg"
+    />
+    <img
+      id="cv-download-banner"
+      src="CvBanner.svg"
+    />
+    <div
+      id="cv-download-arrow-circle"
+    >
+      <div
+        id="cv-download-arrow"
+      />
+    </div>
+    <p
+      id="cv-download-label"
+    >
+      DOWNLOAD
+    </p>
+  </div>
+</div>
+`;

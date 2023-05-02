@@ -17,8 +17,8 @@ export const devices = {
 }
 // DESIGN  ELEMENTS
 export const Wrapper = styled.div`
-  height: ${({ height }) => (height ? height : '100%')};
-  width: ${({ width }) => (width ? width : '100%')};
+  height: ${({ height }:any) => (height ? height : '100%')};
+  width: ${({ width }:any) => (width ? width : '100%')};
   position: relative;
   margin-top:20vh;
   display: flex;
@@ -47,9 +47,9 @@ export const CardContainer = styled.div`
   scroll-snap-align: center;
   scroll-behavior: smooth;
   cursor: ew-resize;
-  background: ${({ color }) => color && color};
-  flex-direction: ${({ orientation }) => (orientation && typeof orientation === 'object' ? orientation.default : orientation)};
-  ${({ orientation }) =>
+  background: ${({ color }:any) => color && color};
+  flex-direction: ${({ orientation }:any) => (orientation && typeof orientation === 'object' ? orientation.default : orientation)};
+  ${({ orientation }:any) =>
     orientation &&
     typeof orientation === 'object' &&
     `
@@ -87,9 +87,9 @@ outline: 1px solid black;
 
 /* CONTROLS SIZE OF THE CARDS USING THE cardsPerView PROP */
 
-${({ cardsPerView }) => (cardsPerView && typeof cardsPerView === 'object' ? `flex: 0 0 ${100 / cardsPerView.default}%;` : `flex: 0 0 ${100 / cardsPerView}%;`)}
+${({ cardsPerView }:any) => (cardsPerView && typeof cardsPerView === 'object' ? `flex: 0 0 ${100 / cardsPerView.default}%;` : `flex: 0 0 ${100 / cardsPerView}%;`)}
     
-    ${({ cardsPerView }) =>
+    ${({ cardsPerView }:any) =>
       cardsPerView &&
       typeof cardsPerView === 'object' &&
       `

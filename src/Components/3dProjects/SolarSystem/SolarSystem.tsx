@@ -26,7 +26,6 @@ import callistoImage from './media/callisto.jpeg'
 import titanImage from './media/titan.jpeg'
 
 // import Astronaut from './media/astronaut/Astronaut'
-
 function SolarSystem() {
   useEffect(() => {
     const scene = new THREE.Scene()
@@ -55,7 +54,7 @@ function SolarSystem() {
     camera.position.set(650, 940, 650)
     scene.add(camera)
 
-    const cameraTrack = new THREE.CubicBezierCurve3(new THREE.Vector3(650, 940, 650), new THREE.Vector3(-450, 140, 440))
+    // const cameraTrack = new THREE.CubicBezierCurve3(new THREE.Vector3(650, 940, 650), new THREE.Vector3(-450, 140, 440))
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> helper tools <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -71,12 +70,12 @@ function SolarSystem() {
       const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffffaf, transparent: true })
       const star = new THREE.Mesh(starGeometry, starMaterial)
       const [x, y, z] = Array(3)
-        .fill()
+        .fill(undefined)
         .map(() => THREE.MathUtils.randFloatSpread(100))
       star.position.set(x, y, z)
       scene.add(star)
     }
-    Array(500).fill().forEach(addStar)
+    Array(500).fill(undefined).forEach(addStar)
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Objects <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -86,12 +85,12 @@ function SolarSystem() {
     const sun = new THREE.Mesh(sunGeo, sunMat)
     scene.add(sun)
 
-    function addAsteroidsField(location, spread) {
+    function addAsteroidsField(location: number, spread: number) {
       const asteroidGeometry = new THREE.SphereGeometry(THREE.MathUtils.randFloatSpread(1.2), 24, 24)
       const asteroidMaterial = new THREE.MeshStandardMaterial({ color: 0x838579 })
       const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial)
       const [x, y, z] = Array(3)
-        .fill()
+        .fill(undefined)
         .map(() => THREE.MathUtils.randFloatSpread(spread))
       asteroid.position.set(x + location, y, z)
 
@@ -101,8 +100,14 @@ function SolarSystem() {
       scene.add(orbit)
     }
 
+    interface createPlanetPropsTypes {
+      size: number,
+      texture: any,
+      position: number,
+      ring: any,
+    }
 
-    function createPlanet(size, texture, position, ring) {
+    function createPlanet(size: number, texture:any, position: number, ring?:any) {
       // create planet
       const geo = new THREE.SphereGeometry(size, 30, 30)
       const surfaceImage = new THREE.TextureLoader().load(texture)
@@ -125,13 +130,12 @@ function SolarSystem() {
         ringMesh.rotation.x = -0.5 * Math.PI
       }
 
-
       scene.add(orbit)
       planet.position.x = position
       return { planet, orbit }
     }
 
-    const createMoon = (parent, size, surface, position, offsetX) => {
+    const createMoon = (parent:any, size:number, surface:any, position:any, offsetX:number) => {
       const moonGeo = new THREE.SphereGeometry(size, 64, 32)
       const moonSurface = new THREE.TextureLoader().load(surface)
       const moonMesh = new THREE.MeshStandardMaterial({ map: moonSurface })
@@ -190,14 +194,14 @@ function SolarSystem() {
     const uranusMoons = () => {
       createMoon(uranus, THREE.MathUtils.randFloatSpread(2), titanImage, THREE.MathUtils.randInt(8, 10), THREE.MathUtils.randInt(-6, 6))
     }
-    Array(14).fill().forEach(uranusMoons)
+    Array(14).fill(undefined).forEach(uranusMoons)
 
-     // Neptune moons
+    // Neptune moons
 
-     const neptuneMoons = () => {
+    const neptuneMoons = () => {
       createMoon(neptune, THREE.MathUtils.randFloatSpread(2), titanImage, THREE.MathUtils.randInt(8, 10), THREE.MathUtils.randInt(-6, 6))
     }
-    Array(14).fill().forEach(neptuneMoons)
+    Array(14).fill(undefined).forEach(neptuneMoons)
     //  Asteroids
     const innerBelt = () => {
       addAsteroidsField(95, 10)
@@ -205,8 +209,8 @@ function SolarSystem() {
     const outerBelt = () => {
       addAsteroidsField(256, 20)
     }
-    Array(500).fill().forEach(innerBelt)
-    Array(3000).fill().forEach(outerBelt)
+    Array(500).fill(undefined).forEach(innerBelt)
+    Array(3000).fill(undefined).forEach(outerBelt)
 
     // >>>>>>>>>>>>>>>>>>>>>>>>> To Render and Animate <<<<<<<<<<<<<<<<<<<<
     function animate() {
@@ -261,16 +265,16 @@ function SolarSystem() {
     }
     animate()
 
-    function moveCamera() {
-      const t = window.pageYOffset
-      const cameraPos = cameraTrack.getPoint(t * 0.00055)
-      camera.position.set(cameraPos.x, cameraPos.y, cameraPos.z)
-      // controls.target.set(-44.019061742668356, -4.426043710749285, -23.87192455239471)
-      // camera.rotate.z = t * -0.5
-      // controls.target.set(-550, 550, 0);
-      // console.log('controls.target', controls)
-    }
-    document.body.onscroll = moveCamera
+    // function moveCamera() {
+    //   const t = window.pageYOffset
+    //   const cameraPos = cameraTrack.getPoint(t * 0.00055)
+    //   camera.position.set(cameraPos.x, cameraPos.y, cameraPos.z)
+    //   // controls.target.set(-44.019061742668356, -4.426043710749285, -23.87192455239471)
+    //   // camera.rotate.z = t * -0.5
+    //   // controls.target.set(-550, 550, 0);
+    //   // console.log('controls.target', controls)
+    // }
+    // document.body.onscroll = moveCamera
 
     window.addEventListener('resize', function () {
       camera.aspect = window.innerWidth / window.innerHeight

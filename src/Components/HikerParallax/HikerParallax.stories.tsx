@@ -12,7 +12,23 @@ export default {
 
 const HikerParallaxTemplate: StoryFn = () => (
   <StorybookContainer>
-    <HikerParallax />
+    <div
+      style={{
+        position: 'relative',
+        width: '100vw',
+        minHeight: '200vh',
+        overflow: 'scroll',
+        background:'yellow',
+      }}>
+      <HikerParallax />
+      <div
+      style={{
+        position: 'relative',
+        width: '100vw',
+        minHeight: '100vh',
+        background:'red',
+      }}/>
+    </div>
   </StorybookContainer>
 )
 

@@ -17,6 +17,7 @@ function SkillBar({ level, label }: skillBarPropsTypes) {
 
   return (
     <div className='skill'>
+      
       <div className='skill-name'>{label}</div>
       <div className='skill-bar'>
         <div className='skill-per' per={`${level}%`} style={skillWidth}></div>

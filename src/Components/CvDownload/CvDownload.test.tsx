@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react'
-import TextColorHover from './TextColorHover'
+import CvDownload from './CvDownload'
 
-describe('TextColorHover component', () => {
-  // const { axe, toHaveNoViolations } = require('jest-axe')
-  // expect.extend(toHaveNoViolations)
-  const props = { text: 'test' }
-  const renderComponent = () => render(<TextColorHover {...props} />)
+describe('CvDownload component', () => {
+ 
+  const renderComponent = () =>
+    render(
+      <CvDownload />
+    )
   it('should match snapshots', () => {
     const { container } = renderComponent()
     expect(container).toMatchSnapshot()

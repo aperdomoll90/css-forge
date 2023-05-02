@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 
-function getPrevElement(list) {
+function getPrevElement(list:any) {
     const sibling = list[0].previousElementSibling
   
     if (sibling instanceof HTMLElement) {
@@ -11,7 +11,7 @@ function getPrevElement(list) {
     return sibling
   }
   
-  function getNextElement(list) {
+  function getNextElement(list:any) {
     const sibling = list[list.length - 1].nextElementSibling
   
     if (sibling instanceof HTMLElement) {
@@ -31,7 +31,7 @@ function getPrevElement(list) {
       const update = () => {
         const rect = element.getBoundingClientRect()
   
-        const visibleElements = Array.from(element.children).filter(child => {
+        const visibleElements:any  = Array.from(element.children).filter(child => {
           const childRect = child.getBoundingClientRect()
   
           return childRect.left >= rect.left && childRect.right <= rect.right

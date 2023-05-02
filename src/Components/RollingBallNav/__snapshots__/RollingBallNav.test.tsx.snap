@@ -93,7 +93,7 @@ exports[`RollingBallNav component should match snapshots 1`] = `
           class="rollingBallNavList"
         >
           <a
-            to="#"
+            href="#"
           >
             <span
               class="rollingBallNavIcon"

@@ -2,9 +2,16 @@ import { useRef, useState, useEffect } from 'react'
 import { gsap, Elastic } from 'gsap'
 import './styles.css'
 
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    // extends React's HTMLAttributes
+    preserveAspectRatio?: string
+  }
+}
+
 function BouncyLine() {
   const [coords, setCoords] = useState({ x: 0, y: 0 })
-  const ref = useRef<HTMLInputElement>()
+  const ref = useRef()
 
   const handleMouseMov = (e: React.ChangeEvent<HTMLInputElement>) => {
     const width = ref.current.clientWidth
@@ -59,7 +66,7 @@ function BouncyLine() {
   // },[])
 
   return (
-    <div id='BouncyLineWrapper' preserveAspectRatio='xMidYMid meet' onMouseMove={handleMouseMov} onMouseOut={handleMouseOut} ref={ref}>
+    <div id='BouncyLineWrapper' preserveAspectRatio='xMidYMid meet' onMouseMove={handleMouseMov as any} onMouseOut={handleMouseOut as any} ref={ref as any}>
       <svg viewBox='0 0 500 500'>
         <path d='M250,0 Q250,250 250,500' />
       </svg>

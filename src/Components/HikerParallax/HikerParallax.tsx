@@ -12,12 +12,12 @@ function HikerParallax() {
       let scroll = window.pageYOffset
       let screenWidth = window.screen.width
 
-      const translate = document.querySelectorAll('.translate')
-      const backgroundMountain = document.querySelector('.backgroundMountain')
-      const shadow = document.querySelector('.heroShadow')
+      const translate = document.querySelectorAll('.translate') as any
+      const backgroundMountain = document.querySelector('.backgroundMountain') as any
+      const shadow = document.querySelector('.heroShadow') as any
 
       // >>>>>>>>>>>>>>>>>>> TRANSLATE Y
-      translate.forEach(element => {
+      translate.forEach((element: any) => {
         let speed = element.dataset.speed
         element.style.transform = `translateY(${scroll * speed}px)`
       })
@@ -39,15 +39,14 @@ function HikerParallax() {
     })
   }, [])
   return (
-    <section id='hiker-parallax-wrapper'>
-      <div className='hiker-parallax'>
-        <img src={hiker} className='hiker translate contentOnLoadAnimation' data-speed='0.3' alt='hiker' />
-        <img src={plane2} className='plane2 translate contentOnLoadAnimation' data-speed='-0.7' alt='mountain forest' />
-        <img src={plane3} className='plane3 translate contentOnLoadAnimation' data-speed='-0.4' alt='medium mountain' />
-        <img src={backgroundMountain} className='backgroundMountain contentOnLoadAnimation' alt='High mountain peeks covered in snow' />
-        <img src={sky} className='sky translate contentOnLoadAnimation' data-speed='-0.3' alt='sky' />
-      </div>
-    </section>
+    <div id='hiker-parallax'>
+      <p>test</p>
+      {/* <img src={hiker} className='hiker translate' data-speed='0.3' alt='hiker' />
+      <img src={plane2} className='plane2 translate' data-speed='-0.7' alt='mountain forest' />
+      <img src={plane3} className='plane3 translate' data-speed='-0.4' alt='medium mountain' />
+      <img src={backgroundMountain} className='backgroundMountain' alt='High mountain peeks covered in snow' /> */}
+      <img src={sky} className='sky translate' data-speed='-0.3' alt='sky' />
+    </div>
   )
 }
 
