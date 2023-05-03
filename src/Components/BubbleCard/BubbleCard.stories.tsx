@@ -26,5 +26,7 @@ export const BubbleCardComponent = BubbleCardTemplate.bind({})
 BubbleCardComponent.args = {
   label: 'Shoes',
   imgUrl: shoe,
-  content:'Dummy website using shoes as a theme',
+  content: 'Dummy website using shoes as a theme',
+  demoUrl: 'https://ingots.web.app/fishing',
+  codeUrl: 'https://github.com/aperdomoll90/ingots/tree/main/src/Archives/SvgPathOnScroll',
 }

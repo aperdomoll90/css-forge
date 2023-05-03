@@ -7,11 +7,23 @@ export const rotateElement = (event: MouseEvent, element: Element | null) => {
   const middleY = window.innerHeight / 2
 
   //get offset from middle
-  const offsetX = ((x - middleX) / middleX) * 25
-  const offsetY = ((y - middleY) / middleY) * 25
+  const offsetX = ((x - middleX) / middleX) * 15
+  const offsetY = ((y - middleY) / middleY) * 15
   console.log('element', element)
   if (element) {
     element.style.setProperty('--rotateX', -1 * offsetY + 'deg')
     element.style.setProperty('--rotateY', offsetX + 'deg')
   }
 }
+
+// export const wobbleElement = (event: MouseEvent, elements:NodeListOf<Element>) => {
+//     const width = window.innerWidth
+//     const height = window.innerHeight
+
+//     elements.forEach(wobble => {
+//         const speed = wobble.getAttribute('data-speed')
+//         const x = (event.nativeEvent.offsetX / width) * speed
+//         const y = (event.nativeEvent.offsetY / height) * speed
+//         wobble.style.transform = `translateX(${x}%) translateY(${y}%) `
+//       })
+// }

@@ -2,6 +2,7 @@
   --bubble-card-background: #1c2942;
   --bubble-card-border: #67df6f47;
   --bubble-card-bubble: #67df6e;
+  --bubble-card-button-active: #2c5d30;
   --bubble-card-shadow: #00000033;
   --bubble-card-background-letters: #bbbbbb0b;
   --bubble-card-white: #f2f2f2;
@@ -54,7 +55,6 @@
   border-radius: 1rem;
   z-index: 11;
   overflow: hidden;
-  /* transition: 0.5s ease-in-out; */
   -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0004);
   transform-style: preserve-3d;
   transform: perspective(5000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
@@ -62,7 +62,6 @@
 
 .perspectiveCard-content:hover {
   border: 0.1rem solid var(--bubble-card-border);
-  /* transform: scale(1.05); */
 }
 .perspectiveCard-content::before,
 .perspectiveCard-content::after {
@@ -191,8 +190,8 @@ h1 {
 .perspectiveCard-btn {
   padding: 1rem 2rem;
   background-color: unset;
-  border: none;
   outline: none;
+  border:none;
   border-radius: 2rem;
   color: var(--bubble-card-white);
   cursor: pointer;
@@ -200,9 +199,20 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.perspectiveCard-btn:hover {
+  background-color: var(--bubble-card-button-active);
+  outline: none;
+  transition: 0.5s ease-in-out;
+
+}
+
 .perspectiveCard-success {
   background-color: var(--bubble-card-bubble);
 }
 .perspectiveCard-border {
-  border: 0.1rem solid var(--bubble-card-bubble);
+  outline: 0.1rem solid var(--bubble-card-bubble);
+}
+
+.perspectiveCard-link {
+  text-decoration: none;
 }

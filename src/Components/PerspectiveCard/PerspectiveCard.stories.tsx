@@ -26,5 +26,7 @@ export const PerspectiveCardComponent = PerspectiveCardTemplate.bind({})
 PerspectiveCardComponent.args = {
   label: 'Shoes',
   imgUrl: shoe,
-  content:'This card follows the pointer',
+  content: 'This card follows the pointer',
+  demoUrl: 'https://ingots.web.app/fishing',
+  codeUrl: 'https://github.com/aperdomoll90/ingots/tree/main/src/Archives/SvgPathOnScroll',
 }

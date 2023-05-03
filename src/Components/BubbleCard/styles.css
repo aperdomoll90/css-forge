@@ -117,7 +117,8 @@
   transform: translateX(-15rem);
   /* opacity: 0; */
 }
-.bubbleCard-img {
+
+.bubbleCard-img-container {
   width: 70%;
   height: auto;
   position: absolute;
@@ -126,8 +127,11 @@
   z-index: 20;
   transition: 1s ease-in-out;
 }
+.bubbleCard-img {
+  width: 100%;
+}
 
-.bubbleCard-content:hover .bubbleCard-img {
+.bubbleCard-content:hover .bubbleCard-img-container{
   transform: scale(0.8) translateX(-3rem) translateY(-5rem);
 }
 
@@ -207,4 +211,8 @@ h1 {
 }
 .bubbleCard-border {
   border: 0.1rem solid var(--bubble-card-bubble);
+}
+
+.bubbleCard-link {
+  text-decoration: none;
 }
