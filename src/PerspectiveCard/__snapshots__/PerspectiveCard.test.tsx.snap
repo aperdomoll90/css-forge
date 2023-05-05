@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PerspectiveCard component should match snapshots 1`] = `
+<div>
+  <div
+    class="perspectiveCard-wrapper"
+  >
+    <div
+      class="perspectiveCard-content"
+    >
+      <div
+        class="perspectiveCard-marquee"
+      >
+        label
+      </div>
+      <img
+        alt="label-image"
+        class="perspectiveCard-img"
+        src="shoe.png"
+      />
+      <h1
+        class="perspectiveCard-title"
+      >
+        label
+      </h1>
+      <div
+        class="perspectiveCard-body"
+      >
+        <p
+          class="perspectiveCard-content-text"
+        >
+          This card follows the pointer
+        </p>
+      </div>
+      <div
+        class="perspectiveCard-footer"
+      >
+        <a
+          class="perspectiveCard-link"
+          href="https://ingots.web.app/fishing"
+          target="_blank"
+        >
+          <button
+            class="perspectiveCard-btn perspectiveCard-success"
+          >
+            Demo
+          </button>
+        </a>
+        <a
+          class="perspectiveCard-link"
+          href="https://github.com/aperdomoll90/ingots/tree/main/src/Archives/SvgPathOnScroll"
+          target="_blank"
+        >
+          <button
+            class="perspectiveCard-btn perspectiveCard-border"
+          >
+            Github
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

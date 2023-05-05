@@ -1,0 +1,256 @@
+:root {
+  --bubble-card-background: #1c2942;
+  --bubble-card-border: #67df6f47;
+  --bubble-card-bubble: #67df6e;
+  --bubble-card-shadow: #00000033;
+  --bubble-card-background-letters: #bbbbbb0b;
+  --bubble-card-white: #f2f2f2;
+  /* --secondary-color: #161d26;
+  --magic-mint: #b5ffe1;
+  --violet-color: #541388;
+  --gamboge: #e59500;
+  --amaranth: #d93654;
+  --transparent-metal: #15151596;
+  --metal: #151515; */
+}
+
+.bubbleCard-wrapper {
+  width: 17rem;
+  height: 23rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.bubbleCard-wrapper::before {
+  content: '';
+  width: 17rem;
+  height: 15rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 57%;
+  transition: 0.5s ease-in-out;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.174), transparent);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  -webkit-transform: perspective(5000px) translateX(-1.9rem) rotateY(-20deg) rotateX(-75deg);
+          transform: perspective(5000px) translateX(-1.9rem) rotateY(-20deg) rotateX(-75deg);
+}
+
+.bubbleCard-wrapper:hover::before {
+  -webkit-transform: translateY(-5rem) translateX(1.9rem);
+          transform: translateY(-5rem) translateX(1.9rem);
+  opacity: 0;
+}
+.bubbleCard-content {
+  width: 17rem;
+  height: 23rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0.1rem solid transparent;
+  box-shadow: 0 0.2rem 0.6rem #00000033;
+  box-shadow: 0 0.2rem 0.6rem var(--bubble-card-shadow);
+  background: #1c2942;
+  background: var(--bubble-card-background);
+  border-radius: 1rem;
+  z-index: 11;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: perspective(5000px) rotateY(20deg) rotateX(20deg);
+          transform: perspective(5000px) rotateY(20deg) rotateX(20deg);
+}
+
+.bubbleCard-content:hover {
+  border: 0.1rem solid #67df6f47;
+  border: 0.1rem solid var(--bubble-card-border);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.bubbleCard-content::before,
+.bubbleCard-content::after {
+  content: '';
+  position: absolute;
+  z-index: 5;
+  background: #67df6e;
+  background: var(--bubble-card-bubble);
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+}
+
+.bubbleCard-content::before {
+  width: 9rem;
+  height: 9rem;
+  top: -6%;
+  right: -6%;
+  transition: 1s ease-in-out;
+}
+
+.bubbleCard-content:hover::before {
+  -webkit-transform: scale(1.8);
+          transform: scale(1.8);
+  /* background: red; */
+}
+
+.bubbleCard-content::after {
+  width: 5rem;
+  height: 5rem;
+  bottom: -6%;
+  left: -6%;
+}
+
+.bubbleCard-content:hover::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  /* background: red; */
+}
+
+.bubbleCard-marquee {
+  position: absolute;
+  top: 40%;
+  left: -15%;
+  z-index: 0;
+  font-size: 11rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+  color: #bbbbbb0b;
+  color: var(--bubble-card-background-letters);
+  text-shadow: 0 0.2rem 2rem #00000033;
+  text-shadow: 0 0.2rem 2rem var(--bubble-card-shadow);
+  transition: 1s ease-in-out;
+}
+
+.bubbleCard-content:hover .bubbleCard-marquee {
+  -webkit-transform: translateX(-15rem);
+          transform: translateX(-15rem);
+  /* opacity: 0; */
+}
+
+.bubbleCard-img-container {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  bottom: 25%;
+  left: 15%;
+  z-index: 20;
+  transition: 1s ease-in-out;
+}
+.bubbleCard-img {
+  width: 100%;
+}
+
+.bubbleCard-content:hover .bubbleCard-img-container{
+  -webkit-transform: scale(0.8) translateX(-3rem) translateY(-5rem);
+          transform: scale(0.8) translateX(-3rem) translateY(-5rem);
+}
+
+.bubbleCard-title {
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+  position: absolute;
+  bottom: 13%;
+  right: 25%;
+  text-shadow: 0 0 0.5rem #00000085;
+  transition: 1s ease-in-out;
+}
+
+.bubbleCard-content:hover .bubbleCard-title {
+  -webkit-transform: scale(0.8) translateX(4rem) translateY(-6rem);
+          transform: scale(0.8) translateX(4rem) translateY(-6rem);
+}
+
+.bubbleCard-body {
+  width: 100%;
+  height: 10rem;
+  position: relative;
+  bottom: -100%;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.9s ease-in-out;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.bubbleCard-content-text {
+  margin: 0.5rem 1.5rem;
+  position: absolute;
+  top: 1rem;
+  font-weight: 400;
+}
+.bubbleCard-content:hover .bubbleCard-body {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.bubbleCard-body p,
+h1 {
+  font-family: sans-serif;
+  color: #f2f2f2;
+  color: var(--bubble-card-white);
+}
+
+.bubbleCard-footer {
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  bottom: -3.5rem;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  transition: 0.9s ease-in-out;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.bubbleCard-content:hover .bubbleCard-footer {
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
+}
+.bubbleCard-btn {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  background-color: initial;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  color: #f2f2f2;
+  color: var(--bubble-card-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bubbleCard-success {
+  background-color: #67df6e;
+  background-color: var(--bubble-card-bubble);
+}
+.bubbleCard-border {
+  border: 0.1rem solid #67df6e;
+  border: 0.1rem solid var(--bubble-card-bubble);
+}
+
+.bubbleCard-link {
+  text-decoration: none;
+}
+.storybook-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #363c37;
+}
+
+/*# sourceMappingURL=BubbleCard-BubbleCard-stories.7e554e9f.chunk.css.map*/

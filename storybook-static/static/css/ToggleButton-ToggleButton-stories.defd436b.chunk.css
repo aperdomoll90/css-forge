@@ -1,0 +1,131 @@
+.fieldLocation {
+  position: absolute;
+  top: calc(50% - 180px);
+  left: calc(50% - 125px);
+}
+.ToggleButtonWrapper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 250px;
+  height: 318px;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.ToggleButton {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  cursor: pointer;
+  transition: 1.5s;
+  -webkit-transform: scale(50%);
+          transform: scale(50%);
+  z-index: 4;
+}
+
+.ToggleButtonActive {
+  -webkit-transform: scale(50%) translateX(370px);
+          transform: scale(50%) translateX(370px);
+}
+
+.ToggleButton span {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background: #1863ff;
+  transition: 0.5s;
+}
+
+.ToggleButton span:nth-child(1) {
+  width: 25px;
+  left: 15px;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+}
+.ToggleButtonActive span:nth-child(1) {
+  width: 40px;
+  -webkit-transform: translateY(0px) rotate(45deg);
+          transform: translateY(0px) rotate(45deg);
+  transition-delay: 0.125s;
+}
+
+.ToggleButton span:nth-child(2) {
+  width: 15px;
+  left: 15px;
+  -webkit-transform: translateY(15px);
+          transform: translateY(15px);
+}
+.ToggleButtonActive span:nth-child(2) {
+  width: 40px;
+  -webkit-transform: translateY(0px) rotate(315deg);
+          transform: translateY(0px) rotate(315deg);
+  transition-delay: 0.25s;
+}
+
+.ToggleButtonActive span:nth-child(3) {
+  -webkit-transform: translateX(60px);
+          transform: translateX(60px);
+}
+
+.ToggleButtonDropDown {
+  width: 200px;
+  height: 250px;
+  padding-left: 40px;
+  border-radius: 10px;
+  position: absolute;
+  top: -89%;
+  left: -20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.157);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  transition: 0.9s;
+  transition-delay: 0.25s;
+  outline: 2px solid #1863ff;
+  outline-offset: -10px;
+}
+
+.ToggleButtonDropDown p {
+  color: #0b0b0b;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: 0.5s;
+}
+.ToggleButtonDropDown p:hover {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.ToggleButtonDropDownActive {
+  -webkit-transform: translateX(60px) translateY(130%);
+          transform: translateX(60px) translateY(130%);
+  background: rgba(255, 255, 255, 0.842);
+}
+
+.storybook-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #363c37;
+}
+
+/*# sourceMappingURL=ToggleButton-ToggleButton-stories.defd436b.chunk.css.map*/

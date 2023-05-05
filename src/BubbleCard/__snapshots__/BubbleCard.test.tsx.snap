@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BubbleCard component should match snapshots 1`] = `
+<div>
+  <div
+    class="bubbleCard-wrapper"
+  >
+    <div
+      class="bubbleCard-content"
+    >
+      <div
+        class="bubbleCard-marquee "
+      >
+        <div
+          class="wobble"
+          data-speed="-255"
+        >
+          label
+        </div>
+      </div>
+      <div
+        class="bubbleCard-img-container"
+      >
+        <img
+          alt="label-image"
+          class="bubbleCard-img wobble"
+          data-speed="-25"
+          src="shoe.png"
+        />
+      </div>
+      <h1
+        class="bubbleCard-title"
+      >
+        label
+      </h1>
+      <div
+        class="bubbleCard-body"
+      >
+        <p
+          class="bubbleCard-content-text"
+        >
+          This card follows the pointer
+        </p>
+      </div>
+      <div
+        class="bubbleCard-footer"
+      >
+        <a
+          class="bubbleCard-link"
+          href="https://ingots.web.app/fishing"
+          target="_blank"
+        >
+          <button
+            class="bubbleCard-btn bubbleCard-success"
+          >
+            Demo
+          </button>
+        </a>
+        <a
+          class="bubbleCard-link"
+          href="https://github.com/aperdomoll90/ingots/tree/main/src/Archives/SvgPathOnScroll"
+          target="_blank"
+        >
+          <button
+            class="bubbleCard-btn bubbleCard-border"
+          >
+            Github
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

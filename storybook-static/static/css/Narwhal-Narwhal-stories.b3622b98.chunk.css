@@ -1,0 +1,260 @@
+.narwhalArea {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 10px;
+  background-color: rgba(108, 108, 248, 0.445);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.466);
+}
+
+.shade{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.733);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.shade:hover{
+    opacity: 1;
+}
+
+/* .mainBody{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top:calc(50% - 100px); 
+    left:calc(50% - 100px); 
+    border-radius: 50%;
+    background-color: rgb(163, 163, 245);
+} */
+
+.fullNarwhal {
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 5%;
+  -webkit-animation: floating 2s infinite ease-in-out alternate;
+          animation: floating 2s infinite ease-in-out alternate;
+}
+@-webkit-keyframes floating {
+  0% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+}
+@keyframes floating {
+  0% {
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+}
+
+.narwhalBody {
+  z-index: 5;
+  width: 200px;
+  position: absolute;
+  right: 0;
+}
+
+.flipper {
+  z-index: 7;
+  width: 35px;
+  position: absolute;
+  top: 90px;
+  right: 80px;
+  -webkit-animation: leftFlipping 2s infinite ease-in-out alternate;
+          animation: leftFlipping 2s infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes leftFlipping {
+  0% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  50% {
+    -webkit-transform: rotate(21deg);
+            transform: rotate(21deg);
+  }
+}
+
+@keyframes leftFlipping {
+  0% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  50% {
+    -webkit-transform: rotate(21deg);
+            transform: rotate(21deg);
+  }
+}
+
+.flipperRight {
+  width: 40px;
+  position: absolute;
+  top: 90px;
+  right: 0px;
+  -webkit-transform: scaleX(-1) rotate(11deg);
+          transform: scaleX(-1) rotate(11deg);
+  z-index: 0;
+  -webkit-animation: rightFlipping 2s infinite ease-in-out alternate;
+          animation: rightFlipping 2s infinite ease-in-out alternate;
+}
+@-webkit-keyframes rightFlipping {
+  0% {
+    -webkit-transform: scaleX(-1) rotate(-21deg);
+            transform: scaleX(-1) rotate(-21deg);
+  }
+  50% {
+    -webkit-transform: scaleX(-1) rotate(-1deg);
+            transform: scaleX(-1) rotate(-1deg);
+  }
+}
+@keyframes rightFlipping {
+  0% {
+    -webkit-transform: scaleX(-1) rotate(-21deg);
+            transform: scaleX(-1) rotate(-21deg);
+  }
+  50% {
+    -webkit-transform: scaleX(-1) rotate(-1deg);
+            transform: scaleX(-1) rotate(-1deg);
+  }
+}
+
+.fin {
+  width: 83px;
+  position: absolute;
+  left: 2px;
+  top: 36px;
+  z-index: 4;
+  -webkit-transform: rotate(9deg);
+          transform: rotate(9deg);
+  -webkit-animation: tailFlipping 2s infinite ease-in-out alternate;
+          animation: tailFlipping 2s infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes tailFlipping {
+  /* 0% {
+    transform: skewY(10deg);
+  } */
+  50% {
+    -webkit-transform: skewY(20deg);
+            transform: skewY(20deg);
+  }
+}
+
+@keyframes tailFlipping {
+  /* 0% {
+    transform: skewY(10deg);
+  } */
+  50% {
+    -webkit-transform: skewY(20deg);
+            transform: skewY(20deg);
+  }
+}
+
+.narwhalShadow {
+  z-index: 0;
+  width: 110px;
+  height: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.671);
+  -webkit-animation: narwhalShadow 2s infinite ease-in-out alternate;
+          animation: narwhalShadow 2s infinite ease-in-out alternate;
+}
+@-webkit-keyframes narwhalShadow {
+  0% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+  50% {
+    -webkit-transform: scale(60%);
+            transform: scale(60%);
+    opacity: 60%;
+  }
+}
+@keyframes narwhalShadow {
+  0% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+  50% {
+    -webkit-transform: scale(60%);
+            transform: scale(60%);
+    opacity: 60%;
+  }
+}
+
+.blinkers {
+  z-index: 9;
+  width: 52px;
+  position: absolute;
+  right: 20px;
+  top: 74.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-animation: blinking 2s infinite ease-in-out alternate;
+          animation: blinking 2s infinite ease-in-out alternate;
+}
+
+.narwhalCircle {
+  width: 11.5px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #b6eaff;
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  50% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes blinking {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  50% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+.storybook-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #363c37;
+}
+
+/*# sourceMappingURL=Narwhal-Narwhal-stories.b3622b98.chunk.css.map*/

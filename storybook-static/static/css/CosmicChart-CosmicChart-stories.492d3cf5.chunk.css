@@ -1,0 +1,541 @@
+:root {
+  --sunSize: 6vh;
+  --sunCoreSize: calc(var(--sunSize) - 1.2rem);
+  --moonSize: calc(var(--planetSize) / 3.5);
+  --planetSize: calc(var(--sunSize) - 1vh);
+
+  --outerHaloSize: calc(var(--sunSize) + 2.5rem);
+  --middleHaloSize: calc(var(--sunSize) + 0.8rem);
+
+  --planetOrbitSize: calc(var(--planetSize) + 2rem);
+
+  --innerOrbitSize: calc(var(--sunSize) + var(--planetOrbitSize) + 7vh);
+  --outerOrbitSize: calc(var(--innerOrbitSize) * 1.8);
+
+  --innerOrbitalTime: 55s;
+  --outerOrbitalTime: calc(var(--innerOrbitalTime) * 2);
+  --planetOrbitalTime: 12s;
+  --planetAntiOrbitalTime: calc(var(--innerOrbitalTime) / 1.5);
+
+  --dashedChartColor: #ffffff86;
+  --centerSunColor: #f9dc96;
+  --middleSunColor: #67564b;
+  --outerSunColor: #4a3c3f;
+
+  --planetColor:#b942d6;
+  --planetDarkColor:#732985a2;
+  --planetMiddleColor:#7329856b;
+  --planetLightColor:#b842d667;
+
+  --moonColor:#9cc0cb;
+  --darkMoonColor:rgba(255, 255, 255, 0.233);
+  --middleMoonColor:rgba(255, 255, 255, 0.171);
+  --lightMoonColor:rgba(255, 255, 255, 0.075);
+}
+
+.navigationChart {
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.navigationChart * {
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashedChart {
+  outline: 2px dashed #ffffff86;
+  outline: 2px dashed var(--dashedChartColor);
+}
+
+.outerOrbit {
+  width: calc(calc(6vh + calc(calc(6vh - 1vh) + 2rem) + 7vh) * 1.8);
+  width: var(--outerOrbitSize);
+  height: calc(calc(6vh + calc(calc(6vh - 1vh) + 2rem) + 7vh) * 1.8);
+  height: var(--outerOrbitSize);
+  border-radius: 50%;
+  margin-top: 10vh;
+  -webkit-animation: orbitalMovement calc(55s * 2) linear infinite;
+          animation: orbitalMovement calc(55s * 2) linear infinite;
+  -webkit-animation: orbitalMovement var(--outerOrbitalTime) linear infinite;
+          animation: orbitalMovement var(--outerOrbitalTime) linear infinite;
+}
+
+.planet {
+  width: calc(6vh - 1vh);
+  width: var(--planetSize);
+  height: calc(6vh - 1vh);
+  height: var(--planetSize);
+  border-radius: 50%;
+  position: absolute;
+  top: calc((calc(6vh - 1vh) * -1) / 2);
+  top: calc((var(--planetSize) * -1) / 2);
+  background: #b942d6;
+  background: var(--planetColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 0 0 2px var(--planetDarkColor), 0 0 0 4px var(--planetMiddleColor),0 0 0 8px var(--planetLightColor); */
+}
+
+.planetRotation{
+  position: absolute;
+  -webkit-animation: antiOrbitalMovement calc(55s * 2) linear infinite;
+          animation: antiOrbitalMovement calc(55s * 2) linear infinite;
+  -webkit-animation: antiOrbitalMovement var(--outerOrbitalTime) linear infinite;
+          animation: antiOrbitalMovement var(--outerOrbitalTime) linear infinite;
+  z-index: 100;
+}
+.innerOrbitPlanetRotation{
+  position: absolute;
+  -webkit-animation: antiOrbitalMovement calc(55s / 1.5) linear infinite;
+          animation: antiOrbitalMovement calc(55s / 1.5) linear infinite;
+  -webkit-animation: antiOrbitalMovement var(--planetAntiOrbitalTime) linear infinite;
+          animation: antiOrbitalMovement var(--planetAntiOrbitalTime) linear infinite;
+  z-index: 100;
+}
+
+.rougePlanetSystem {
+  position: absolute !important;
+  top: 3rem !important;
+  left: 3rem;
+}
+
+.planetOrbit {
+  min-width: calc(calc(6vh - 1vh) + 2rem);
+  min-width: var(--planetOrbitSize);
+  min-height: calc(calc(6vh - 1vh) + 2rem);
+  min-height: var(--planetOrbitSize);
+  border-radius: 50%;
+  position: relative;
+  -webkit-animation: orbitalMovement 12s linear infinite;
+          animation: orbitalMovement 12s linear infinite;
+  -webkit-animation: orbitalMovement var(--planetOrbitalTime) linear infinite;
+          animation: orbitalMovement var(--planetOrbitalTime) linear infinite;
+}
+
+.planetOrbitSecondary {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+.planetOrbit::before {
+  content: '';
+  width: calc(calc(6vh - 1vh) / 3.5);
+  width: var(--moonSize);
+  height: calc(calc(6vh - 1vh) / 3.5);
+  height: var(--moonSize);
+  border-radius: 50%;
+  position: absolute;
+  top: -0.45rem;
+  background: #9cc0cb;
+  background: var(--moonColor);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.233), 0 0 0 9px rgba(255, 255, 255, 0.171),0 0 0 15px rgba(255, 255, 255, 0.075);
+  box-shadow: 0 0 0 5px var(--darkMoonColor), 0 0 0 9px var(--middleMoonColor),0 0 0 15px var(--lightMoonColor);
+
+}
+
+.innerOrbit {
+  width: calc(6vh + calc(calc(6vh - 1vh) + 2rem) + 7vh);
+  width: var(--innerOrbitSize);
+  height: calc(6vh + calc(calc(6vh - 1vh) + 2rem) + 7vh);
+  height: var(--innerOrbitSize);
+  border-radius: 50%;
+  -webkit-animation: orbitalMovement 55s linear infinite;
+          animation: orbitalMovement 55s linear infinite;
+  -webkit-animation: orbitalMovement var(--innerOrbitalTime) linear infinite;
+          animation: orbitalMovement var(--innerOrbitalTime) linear infinite;
+}
+
+.sun {
+  width: 6vh;
+  width: var(--sunSize);
+  height: 6vh;
+  height: var(--sunSize);
+  border-radius: 50%;
+  position: relative;
+}
+
+.sunCore {
+  width: calc(6vh - 1.2rem);
+  width: var(--sunCoreSize);
+  height: calc(6vh - 1.2rem);
+  height: var(--sunCoreSize);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 11;
+  background: #f9dc96;
+}
+
+.middleHalo {
+  width: calc(6vh + 0.8rem);
+  width: var(--middleHaloSize);
+  height: calc(6vh + 0.8rem);
+  height: var(--middleHaloSize);
+  position: absolute;
+  z-index: 2;
+  fill: #67564b;
+  fill: var(--middleSunColor);
+  stroke: #67564b;
+  stroke: var(--middleSunColor);
+  -webkit-animation: haloMovement 12s linear infinite;
+          animation: haloMovement 12s linear infinite;
+  -webkit-animation: haloMovement var(--planetOrbitalTime) linear infinite;
+          animation: haloMovement var(--planetOrbitalTime) linear infinite;
+}
+
+.outerHalo {
+  width: calc(6vh + 2.5rem);
+  width: var(--outerHaloSize);
+  height: calc(6vh + 2.5rem);
+  height: var(--outerHaloSize);
+  position: absolute;
+  z-index: 1;
+  fill: #4a3c3f;
+  fill: var(--outerSunColor);
+  stroke: #4a3c3f;
+  stroke: var(--outerSunColor);
+}
+
+@-webkit-keyframes orbitalMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitalMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes antiOrbitalMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes antiOrbitalMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes haloMovement {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes haloMovement {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+/* // Large devices (desktops, 992px and up)  */
+@media (min-width: 992px) {
+  :root {
+    --sunSize: 12vh;
+    --innerOrbitSize: calc(var(--sunSize) + var(--planetOrbitSize) + 9vh);
+    --outerOrbitSize: calc(var(--innerOrbitSize) * 1.8);
+    --planetSize: calc(var(--sunSize) - 1.4vh);
+    --planetOrbitSize: calc(var(--planetSize) + 3.5rem);
+  }
+
+  .navigationChart {
+    width: 65vw;
+    height: 95vh;
+  }
+
+  .outerOrbit {
+    margin-top: 2vh !important;
+    margin-left: 10vw !important;
+  }
+
+  .planetOrbit::before {
+    top: -0.75rem;
+  }
+
+  .rougePlanetSystem {
+    top: auto !important;
+    bottom: 5rem;
+    left: 3.5rem;
+  }
+}
+
+:root {
+  --cliffSize: calc(var(--sphereCircleSize) - 30%);
+
+  --plantColor: #512f69;
+  --flowerColor: #ac88cd;
+  --hillTwoColor: #6a3e7e;
+  --hillThreeColor: #6b3883;
+  --hillFourColor: #8149a1;
+  --cliffColor: #824885;
+
+  --nightSkyColor: #7060b0;
+  --daySkyColor: #ab889a;
+
+  --planetMoonColor: #f1e6fd;
+  --planetMoonInnerHalo: #f1e6fd3a;
+  --planetMoonOuterHalo: #f1e6fd0e;
+  --planetSunColor: #fcf4cd;
+  --middlePlanetSunColor: #ceb9b5;
+  --outerPlanetSunColor: #ba9ea5;
+}
+
+.planetCircleWrapping {
+  border-radius: 50%;
+  position: absolute;
+  background: #7060b0 url(https://firebasestorage.googleapis.com/v0/b/cssforge.appspot.com/o/Global%20Images%2Fstars.png?alt=media&token=417eaa54-7836-4722-9fdd-2ae9ceaf68f4) cover no-repeat;
+  background: var(--nightSkyColor) url(https://firebasestorage.googleapis.com/v0/b/cssforge.appspot.com/o/Global%20Images%2Fstars.png?alt=media&token=417eaa54-7836-4722-9fdd-2ae9ceaf68f4) cover no-repeat;
+  overflow: hidden;
+  z-index: 1;
+  transition: 1s ease-in-out;
+}
+
+.planetCircleWrapping:hover {
+  background: #ab889a;
+  background: var(--daySkyColor);
+}
+.planetCircleWrapping:hover .dayRotation {
+  -webkit-transform: rotate(140deg);
+          transform: rotate(140deg);
+}
+
+.planetCircleWrapping:hover .dayRotation::before {
+    opacity: 0;
+  }
+
+.planetCircleWrapping:hover .dayRotation::after {
+  opacity: 1;
+}
+
+.planetCircleWrapping svg {
+  position: absolute;
+  bottom: -8%;
+  left: 0;
+}
+
+.dayRotation {
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  transition: 2s ease-in-out;
+}
+
+.dayRotation::before {
+  content: '';
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  z-index: 2;
+  background: #f1e6fd;
+  background: var(--planetMoonColor);
+  box-shadow: 0 0 0 2px #f1e6fd3a, 0 0 0 5px #f1e6fd0e;
+  box-shadow: 0 0 0 2px var(--planetMoonInnerHalo), 0 0 0 5px var(--planetMoonOuterHalo);
+  transition: 2s ease-in-out;
+}
+
+.dayRotation::after {
+  content: '';
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0%;
+  left: 30%;
+  z-index: 2;
+  background: #fcf4cd;
+  background: var(--planetSunColor);
+  box-shadow: 0 0 0 2px #ceb9b5, 0 0 0 5px #ba9ea5;
+  box-shadow: 0 0 0 2px var(--middlePlanetSunColor), 0 0 0 5px var(--outerPlanetSunColor);
+  opacity: 0;
+  transition: 2s ease-in-out;
+}
+
+.clift {
+  width: 25% !important;
+  left: -2% !important;
+  z-index: 1;
+  fill: #824885;
+  fill: var(--cliffColor);
+}
+
+.hillFour {
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  fill: #8149a1;
+  fill: var(--hillFourColor);
+}
+
+.cactusRight {
+  width: auto;
+  height: 30%;
+  right: 15%;
+  left: auto !important;
+  bottom: 22% !important;
+  z-index: 3;
+  fill: #512f69;
+  fill: var(--plantColor);
+}
+.cactusRightFlower {
+  width: auto;
+  max-height: 5%;
+  right: 21%;
+  left: auto !important;
+  bottom: 52% !important;
+  z-index: 2;
+  fill: #ac88cd;
+  fill: var(--flowerColor);
+}
+
+.hillThree {
+  width: 100%;
+  height: auto;
+  z-index: 4;
+  fill: #6b3883;
+  fill: var(--hillThreeColor);
+}
+
+.plantLeft {
+  width: auto;
+  height: 8%;
+  left: 15% !important;
+  bottom: 22% !important;
+  z-index: 4;
+  fill: #512f69;
+  fill: var(--plantColor);
+}
+
+.cactusLeft {
+  width: auto;
+  height: 30%;
+  left: 35% !important;
+  bottom: 15% !important;
+  z-index: 4;
+  fill: #512f69;
+  fill: var(--plantColor);
+}
+
+.cactusFlowerRight {
+  width: auto;
+  max-height: 5%;
+  left: 46% !important;
+  bottom: 44% !important;
+  z-index: 3;
+  fill: #ac88cd;
+  fill: var(--flowerColor);
+}
+.cactusFlowerLeft {
+  width: auto;
+  max-height: 5%;
+  left: 34% !important;
+  bottom: 35% !important;
+  z-index: 3;
+  fill: #ac88cd;
+  fill: var(--flowerColor);
+}
+
+.hillTwo {
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  fill: #6a3e7e;
+  fill: var(--hillTwoColor);
+}
+
+.plantRight {
+  width: auto;
+  height: 9%;
+  right: 26%;
+  left: auto !important;
+  bottom: 11% !important;
+  z-index: 5;
+  fill: #512f69;
+  fill: var(--plantColor);
+}
+.hillOne {
+  width: 100%;
+  height: auto;
+  z-index: 6;
+  fill: #512f69;
+  fill: var(--plantColor);
+}
+
+@-webkit-keyframes dayRotationMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(1800deg);
+            transform: rotate(1800deg);
+  }
+}
+
+@keyframes dayRotationMovement {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(1800deg);
+            transform: rotate(1800deg);
+  }
+}
+
+.storybook-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #363c37;
+}
+
+/*# sourceMappingURL=CosmicChart-CosmicChart-stories.492d3cf5.chunk.css.map*/
