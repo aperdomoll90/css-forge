@@ -1,19 +1,28 @@
-#cv-download-wrapper {
+.cv-download-wrapper {
   height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
-#cv-download-page {
+.cv-download-page {
   height: 100%;
 }
-#cv-download-banner {
+.cv-download-banner {
   width: 120%;
+  color: rgb(0, 0, 255);
   position: absolute;
 }
-
-#cv-download-arrow-circle {
+.cv-download-banner-path {
+  fill: var(--color);
+}
+.cv-download-banner-underbanner {
+  fill: var(--underBanner);
+}
+.cv-download-banner-letters{
+  fill: white;
+}
+.cv-download-arrow-circle {
   height: 28%;
   width: 35%;
   border-radius: 50%;
@@ -23,41 +32,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #71bd55;
+  background: var(--color);
   box-shadow: -2px -2px 10px 2px rgba(0, 0, 0, 0.406);
-  transition: 1.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
-#cv-download-arrow {
+.cv-download-arrow {
   transform: scale(0.45);
   min-height: 4rem;
   min-width: 4rem;
   background: #f5f6f6;
   filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.481));
   clip-path: polygon(18% 60%, 34% 60%, 34% 0, 68% 0, 68% 60%, 84% 60%, 52% 100%);
-  transition: 1.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
-#cv-download-wrapper:hover #cv-download-arrow-circle {
-  background: #3b632e;
+.cv-download-wrapper:hover .cv-download-arrow-circle {
+  background: var(--buttonHover);
   transform: rotate(-360deg) scale(3);
   bottom: 30%;
   right: 30%;
   box-shadow: -2px -2px 10px 10px rgba(0, 0, 0, 0.615);
 }
 
-#cv-download-label{
-    font-size: 100%;
-    font-weight: 600;
-    color: white;
-    position: absolute;
-    bottom: -50%;
-    letter-spacing: 3px;
-    opacity: 0;
-    transition: 1s ease-in-out;
+.cv-download-label {
+  font-size: 100%;
+  font-weight: 600;
+
+  color: var(--labelColor);
+  position: absolute;
+  bottom: -50%;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
 }
 
-#cv-download-wrapper:hover #cv-download-label{
-    bottom: -35%; 
-    opacity: 1;
+.cv-download-wrapper:hover .cv-download-label {
+  bottom: -35%;
+  opacity: 1;
 }

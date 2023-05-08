@@ -1,11 +1,9 @@
 import { render } from '@testing-library/react'
 import { BubbleCard } from './BubbleCard'
-import shoe from './media/shoe.png'
+import shoe from '../media/shoe.png'
 import { BubbleCardPropsType } from './BubbleCard.types'
 
 describe('BubbleCard component', () => {
-  // const { axe, toHaveNoViolations } = require('jest-axe')
-  // expect.extend(toHaveNoViolations)
   const props: BubbleCardPropsType = {
     label: 'label',
     imgUrl: shoe,
@@ -19,9 +17,4 @@ describe('BubbleCard component', () => {
     const { container } = renderComponent()
     expect(container).toMatchSnapshot()
   })
-  //   it('should demonstrate ADA compliance on this component', async () => {
-  //     const { container } = renderComponent()
-  //     const results = await axe(container)
-  //     expect(container).toHaveNoViolations()
-  //   })
 })

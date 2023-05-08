@@ -1,10 +1,3 @@
-.circularNavWrapper {
-  position: absolute;
-  top: 10px;
-  left: calc(50% - 7.5rem);
-  z-index: 1000;
-}
-
 .circularNavMenu {
   width: 15rem;
   height: 4rem;
@@ -19,28 +12,11 @@
   height: 15rem;
 }
 
-@media (max-width: 850px) {
-  .circularNavWrapper {
-    top: -20px;
-    left: calc(50% - 7.5rem);
-    transform: scale(80%);
-  }
-  .circularNavActive {
-    height: 15rem;
-  }
-}
-@media (max-width: 500px) {
-  .circularNavWrapper {
-    transform: scale(90%);
-  }
-}
-
 .circularNavMenu li {
   position: absolute;
   left: 0;
   list-style: none;
   font-size: 1.6em;
-  color: #fff;
   transform-origin: 7.5rem;
   transition: 0.5s;
   transition-delay: calc(0.1s * var(--i));
@@ -50,7 +26,6 @@
 .circularNavMenu.circularNavActive li {
   transform: rotate(calc(360deg / 8 * var(--i)));
 }
-
 
 .circularNavToggle {
   width: 3.5rem;
@@ -65,11 +40,9 @@
   background: #fff;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
   font-size: 3em;
-  color: #000;
   transition: 1.25s;
 }
 .circularNavToggle:hover {
-  color: darkblue;
   background: rgb(155, 153, 153);
 }
 
@@ -85,13 +58,51 @@
   justify-content: center;
   align-items: center;
   background: #fff;
-  color: #000;
   transition: 0.5s;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
   transform: rotate(calc(360deg / -8 * var(--i)));
-
 }
 .circularNavMenu li a:hover {
-  color: rgb(63, 63, 214);
   background: rgba(155, 153, 153, 0.856);
+}
+
+/*  Iconography */
+.circularNavToggle-icon {
+  height: 80%;
+  width: 80%;
+}
+.circularNavMenu-icon svg {
+  height: 70%;
+  width: 70%;
+}
+
+.circularNavToggle-icon path,
+.circularNavMenu-icon path,
+.circularNavMenu-icon rect,
+.circularNavMenu-icon circle {
+  stroke-width: 40;
+  stroke: var(--color);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: transparent;
+}
+
+.circularNavToggle-icon:hover path,
+.circularNavMenu-icon:hover path,
+.circularNavToggle-icon:hover rect,
+.circularNavToggle-icon:hover circle {
+  stroke: var(--hoverColor);
+}
+
+.circularNavToggle-icon:target path,
+.circularNavMenu-icon:target path,
+.circularNavToggle-icon:target rect,
+.circularNavToggle-icon:target circle {
+  stroke: var(--pressColor);
+}
+
+@media (max-width: 850px) {
+  .circularNavActive {
+    height: 15rem;
+  }
 }

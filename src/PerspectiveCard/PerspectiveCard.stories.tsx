@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { PerspectiveCardPropsType } from './PerspectiveCard.types'
 import { PerspectiveCard } from './PerspectiveCard'
 import StorybookContainer from '../StorybookContainer'
-import shoe from './media/shoe.png'
+import shoe from '../media/shoe.png'
 
 export default {
   title: 'Cards',

@@ -1,110 +1,108 @@
-.ChevronCard {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    margin: 3rem 1.2rem;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+.chevronCard {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 3rem 1.2rem;
+  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0004);
+}
+
+.chevronCard .box {
+  position: relative;
+  width: 15rem;
+  height: 18rem;
+  margin: 0 5px;
+  border-radius: 20px;
+  background: linear-gradient(var(--direction), var(--color) 25%, white 25%, white 50%, var(--color) 50%, var(--color) 75%, white 75%, white 100%);
+  background-size: 12rem 12rem;
+  animation: animatedCardBackground 1s linear infinite;
+  animation-play-state: paused;
+  transition: filter 1s;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.chevronCard .box:hover {
+  animation-play-state: running;
+}
+
+@keyframes animatedCardBackground {
+  0% {
+    background-position: 0;
   }
-  
-  .ChevronCard .box {
-    position: relative;
-    width: 15rem;
-    height: 18rem;
-    margin: 0 5px;
-    border-radius: 20px;
-    background: linear-gradient(var(--direction), var(--color) 25%, white 25%, white 50%, var(--color) 50%, var(--color) 75%, white 75%, white 100%);
-    background-size: 7.5rem 7.5rem;
-    filter: grayscale(0.7);
-    animation: animatedCardBackground 1s linear infinite;
-    animation-play-state: paused;
-    transition: filter 1s;
-    display: flex;
-    justify-content: center;
-    /* align-items: flex-end; */
+  100% {
+    background-position: 12rem;
   }
-  /* Opposite way */
-  /* .ChevronCard .box:nth-child(2) {
-    background: linear-gradient(135deg, var(--transcolor) 25%, var(--transWhite) 25%, var(--transWhite) 50%, var(--transcolor) 50%, var(--transcolor) 75%, var(--transWhite) 75%, var(--transWhite) 100%);
-    background-size: 60px 60px;
-  } */
-  .ChevronCard .box:hover {
-    animation-play-state: running;
-    filter: grayscale(0);
+}
+
+.chevronCard-label {
+  font-size: 1.2rem;
+  width: 90%;
+  position: absolute;
+  top: 7rem;
+  left: -100%;
+  background: rgba(255, 255, 255, 0.455);
+  transition: 0.5s;
+  opacity: 0;
+  color: var(--labelColor);
+}
+.chevronCard:hover .chevronCard-label {
+  transform: translateX(120%);
+  opacity: 1;
+}
+
+.chevronCardPicture {
+  width: 97%;
+  position: absolute;
+  bottom: 3rem;
+  left: 1rem;
+  transition: 0.7s;
+}
+
+.chevronCard:hover .chevronCardPicture {
+  width: 75%;
+  transform: translateY(3rem) translateX(3rem);
+}
+
+.chevronCard a {
+  min-width: 5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  outline: 2px solid var(--buttonColor);
+  box-shadow: 0 0 5px black;
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-shadow: 0 0 5px black;
+  color: var(--buttonColor);
+  letter-spacing: 0.2rem;
+  z-index: 50;
+  transition: 0.5s;
+  opacity: 0;
+  position: absolute;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chevronCard:hover a {
+  transform: translateY(-19rem);
+  opacity: 1;
+}
+
+.chevronCard a:hover {
+  color: var(--buttonHover);
+  outline: 3px solid var(--buttonHover);
+  background: rgba(101, 100, 100, 0.384);
+}
+
+@media (min-width: 768px) {
+  .chevronCard {
+    margin: unset;
   }
-  
-  @keyframes animatedCardBackground {
-    0% {
-      background-position: 0;
-    }
-    100% {
-      background-position: 7.5rem;
-    }
+  .chevronCard .box {
+    width: 17rem;
+    height: 23rem;
   }
-  .ChevronCard .box p {
-    width: 120%;
-    height: 4rem;
-    position: absolute;
-    bottom: -3.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    color: white;
-    text-shadow: 0.5px 0.5px rgb(44, 43, 43);
-    font-weight: 600;
-    transition: 0.7s;
-    z-index: 50;
-    opacity: 0;
-    transition: 1.5s;
-    background: linear-gradient( to bottom, rgba(122, 8, 8, 0.864), transparent);
-    border-radius: 10px 10px 0 0;
-  }
-  
-  .ChevronCard:hover .box p {
-    font-size: 1.5rem;
-    opacity: 1;
-    transform: translateY(-.5rem);
-  }
-  .ChevronCardPicture {
-    height: 97%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: height 0.7s;
-    filter: grayscale(0);
-  }
-  
-  .ChevronCard:hover .ChevronCardPicture {
-    height: 115%;
-  }
-  
-  .ChevronCard a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: white;
-    z-index: 50;
-    letter-spacing: 0.2rem;
-    position: absolute;
-    margin-bottom: 1rem;
-    outline: 2px solid white;
-    padding: 0.5rem;
-    border-radius: 10px;
-  }
-  
-  .ChevronCard a:hover {
-    transition: 0.7s;
-    color: var(--linkGray);
-    outline: 2px solid var(--linkGray);
-  }
-  
-  @media (min-width: 768px) {
-    .ChevronCard {
-      margin: unset;
-    }
-    .ChevronCard .box {
-      width: 17rem;
-      height: 23rem;
-    }
-  }
-  
+}

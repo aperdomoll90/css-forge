@@ -1,17 +1,21 @@
 import React from 'react'
 import './styles.css'
 import page from './media/page.svg'
-import banner from './media/CvBanner.svg'
+import { DownloadBanner } from './media/CvBanner'
+import { CvDownloadPropsType } from './CvDownload.types'
+import { LightenDarkenColor } from '../utils/ColorManipulation'
 
-export const CvDownload: React.FC<{}> =()=> {
+export const CvDownload: React.FC<CvDownloadPropsType> = ({ color, buttonHover, labelColor, linkUrl }) => {
   return (
-    <div id='cv-download-wrapper'>
-      <img src={page} id='cv-download-page' />
-      <img src={banner} id='cv-download-banner' />
-      <div id='cv-download-arrow-circle'>
-        <div id='cv-download-arrow' />
-          </div>
-          <p id='cv-download-label'>DOWNLOAD</p>
+    <div
+      className='cv-download-wrapper'
+      style={{ '--color': color ? color : '#71bd55', '--underBanner': color ? LightenDarkenColor(color, -80) : LightenDarkenColor('#71bd55', -80), '--buttonHover': buttonHover ? buttonHover : 'green', '--labelColor': labelColor ? labelColor : 'white' } as React.CSSProperties}>
+      <img src={page} className='cv-download-page' />
+      {DownloadBanner}
+      <a href={linkUrl} target='_blank' className='cv-download-arrow-circle'>
+        <div className='cv-download-arrow' />
+      </a>
+      <p className='cv-download-label'>DOWNLOAD</p>
     </div>
   )
 }

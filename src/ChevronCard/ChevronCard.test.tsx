@@ -1,13 +1,19 @@
 import { render } from '@testing-library/react'
-import {ChevronCard} from './ChevronCard'
-import ben from './media/ben.png'
+import { ChevronCard } from './ChevronCard'
+import shoe from '../media/shoe.png'
+import { ChevronCardPropsType } from './ChevronCard.types'
 
 describe('ChevronCard component', () => {
-  // const { axe, toHaveNoViolations } = require('jest-axe')
-  // expect.extend(toHaveNoViolations)
-  const props = {
+  const props:ChevronCardPropsType = {
+    color: 'blue',
+    direction: '45deg',
     label: 'label',
-    imgUrl: ben,
+    labelColor: 'red',
+    buttonLabel: 'Buy Now',
+    imgUrl: shoe,
+    linkUrl: 'string',
+    buttonColor: 'white',
+    buttonHover: 'yellow',
   }
 
   const renderComponent = () => render(<ChevronCard {...props} />)
@@ -15,9 +21,4 @@ describe('ChevronCard component', () => {
     const { container } = renderComponent()
     expect(container).toMatchSnapshot()
   })
-  //   it('should demonstrate ADA compliance on this component', async () => {
-  //     const { container } = renderComponent()
-  //     const results = await axe(container)
-  //     expect(container).toHaveNoViolations()
-  //   })
 })

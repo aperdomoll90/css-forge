@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { PerspectiveCard } from './PerspectiveCard'
-import shoe from './media/shoe.png'
+import shoe from '../media/shoe.png'
 import { PerspectiveCardPropsType } from './PerspectiveCard.types'
 
 describe('PerspectiveCard component', () => {

@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
-import {CvDownload} from './CvDownload'
+import { CvDownload } from './CvDownload'
 import StorybookContainer from '../StorybookContainer'
+import { CvDownloadPropsType } from './CvDownload.types'
 
 export default {
   title: 'Buttons',
@@ -8,13 +9,23 @@ export default {
   parameters: {
     jest: ['CvDownload.test.tsx'],
   },
+  argTypes: {
+    color: { options: ['', '#ff0000', 'rgb(0, 0, 255)', '#1c2942'], control: { type: 'radio' } },
+    buttonHover: { options: ['', '#ff0000', 'rgb(0, 0, 255)', '#1c2942'], control: { type: 'radio' } },
+    labelColor: { options: ['#fff', '#418440', '#1c2942'], control: { type: 'radio' } },
+  },
 } as Meta
 
-const CvDownloadTemplate: StoryFn = args => (
+const CvDownloadTemplate: StoryFn<CvDownloadPropsType> = args => (
   <StorybookContainer>
     <CvDownload {...args} />
   </StorybookContainer>
 )
 
 export const CvDownloadComponent = CvDownloadTemplate.bind({})
-CvDownloadComponent.args = {}
+CvDownloadComponent.args = {
+  linkUrl: 'test',
+  color: '',
+  buttonHover: '',
+  labelColor: '',
+}

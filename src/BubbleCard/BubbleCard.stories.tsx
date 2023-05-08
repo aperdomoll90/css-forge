@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BubbleCard } from './BubbleCard'
 import { BubbleCardPropsType } from './BubbleCard.types'
-import shoe from './media/shoe.png'
+import shoe from '../media/shoe.png'
 import StorybookContainer from '../StorybookContainer'
 
 export default {

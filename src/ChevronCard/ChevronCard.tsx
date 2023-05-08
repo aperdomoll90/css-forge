@@ -1,17 +1,16 @@
-import { ChevronCardPropsType, styleVariableType } from './ChevronCard.types'
+import { ChevronCardPropsType } from './ChevronCard.types'
 import './styles.css'
 
-export const ChevronCard: React.FC<ChevronCardPropsType> = ({ color, label, imgUrl, linkUrl }) => {
-  let styleVariable: any = color === 'red' ? { '--color': `red`, '--direction': '-45deg' } : { '--color': '#002366', '--direction': `45deg` }
-
+export const ChevronCard: React.FC<ChevronCardPropsType> = ({ color, buttonColor, buttonHover, buttonLabel, label,labelColor, imgUrl, linkUrl, direction }) => {
+  const styleProps = { '--color': color, '--buttonColor': buttonColor, '--buttonHover': buttonHover, '--direction': direction , '--labelColor': labelColor}
   return (
-    <div className='ChevronCard'>
-      <div className='box' style={styleVariable}>
-        <p>{label}</p>
-        <img alt='profile of barber' src={imgUrl} className='ChevronCardPicture' />
+    <div className='chevronCard' style={styleProps as React.CSSProperties}>
+      <div className='box'>
+        <div className="chevronCard-label">{label}</div>
+        <img alt='profile of barber' src={imgUrl} className='chevronCardPicture' />
       </div>
       <a target='_blank' href={linkUrl}>
-        Book Now
+        {buttonLabel}
       </a>
     </div>
   )

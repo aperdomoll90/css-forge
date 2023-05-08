@@ -3,25 +3,28 @@
 exports[`ChevronCard component should match snapshots 1`] = `
 <div>
   <div
-    class="crewCard"
+    class="chevronCard"
+    style="--color: blue; --buttonColor: white; --buttonHover: yellow; --direction: 45deg; --labelColor: red;"
   >
     <div
       class="box"
-      style="--color: #002366; --direction: 45deg;"
     >
-      <p>
+      <div
+        class="chevronCard-label"
+      >
         label
-      </p>
+      </div>
       <img
         alt="profile of barber"
-        class="crewCardPicture"
-        src="ben.png"
+        class="chevronCardPicture"
+        src="shoe.png"
       />
     </div>
     <a
+      href="string"
       target="_blank"
     >
-      Book Now
+      Buy Now
     </a>
   </div>
 </div>

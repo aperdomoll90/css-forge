@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
 import './styles.css'
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      ['ion-icon']: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-    }
-  }
-}
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    // extends React's HTMLAttributes
-    name?: string
-  }
-}
+// declare global {
+//   namespace JSX {
+//     interface IntrinsicElements {
+//       ['ion-icon']: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+//     }
+//   }
+// }
+// declare module 'react' {
+//   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+//     // extends React's HTMLAttributes
+//     name?: string
+//   }
+// }
 
 export const RollingBallNav: React.FC<{}> = () => {
   useEffect(() => {

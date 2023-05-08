@@ -1,9 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
-import {ChevronCard} from './ChevronCard'
+import { ChevronCard } from './ChevronCard'
 import { ChevronCardPropsType } from './ChevronCard.types'
 import StorybookContainer from '../StorybookContainer'
-import ben from './media/ben.png'
-
+import shoe from '../media/shoe.png'
 
 export default {
   title: 'Cards',
@@ -12,12 +11,16 @@ export default {
     jest: ['ChevronCard.test.tsx'],
   },
   argTypes: {
-    color: { options: ['red', ''], control: { type: 'radio' } },
-    label: { options: ['Sea', 'Forest', 'Mountain',], control: { type: 'radio' } },
+    color: { options: ['red', 'blue', '#1c2942'], control: { type: 'radio' } },
+    buttonColor: { options: ['red', 'blue', '#1c2942','white'], control: { type: 'radio' } },
+    buttonHover: { options: ['red', 'blue', '#1c2942','white'], control: { type: 'radio' } },
+    labelColor: { options: ['red', 'blue', '#1c2942','white'], control: { type: 'radio' } },
+    label: { options: ['Sea', 'Forest', 'Mountain'], control: { type: 'radio' } },
+    direction: { options: ['45deg', '-45deg'], control: { type: 'radio' } },
   },
 } as Meta
 
-const ChevronCardTemplate: StoryFn<ChevronCardPropsType> = (args) => (
+const ChevronCardTemplate: StoryFn<ChevronCardPropsType> = args => (
   <StorybookContainer>
     <ChevronCard {...args} />
   </StorybookContainer>
@@ -25,6 +28,13 @@ const ChevronCardTemplate: StoryFn<ChevronCardPropsType> = (args) => (
 
 export const ChevronCardComponent = ChevronCardTemplate.bind({})
 ChevronCardComponent.args = {
-  label: 'label',
-  imgUrl: ben,
+  color: 'blue',
+  direction: '45deg',
+  label: 'Shoes for running in the moon',
+  labelColor: 'red',
+  buttonLabel: 'Buy Now',
+  imgUrl: shoe,
+  linkUrl: 'string',
+  buttonColor: 'white',
+  buttonHover: 'yellow',
 }

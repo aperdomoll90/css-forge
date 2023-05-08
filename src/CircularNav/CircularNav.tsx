@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import './styles.css'
+import { AddIcon } from '../IconCollection/IconCollection'
+import { CircularNavPropsTypes, MenuItemsArrayPropsTypes } from './CircularNav.types'
 
-export const CircularNav : React.FC<{}> = () => {
+export const CircularNav: React.FC<CircularNavPropsTypes> = ({ MenuItemsArray, color, hoverColor, pressColor }) => {
   useEffect(() => {
     let toggle = document.querySelector('.circularNavToggle') as HTMLElement
     let menu = document.querySelector('.circularNavMenu') as HTMLElement
@@ -12,50 +14,20 @@ export const CircularNav : React.FC<{}> = () => {
 
   return (
     <div className='circularNavWrapper'>
-      <div className='circularNavMenu'>
+      <div className='circularNavMenu' style={{ '--color': color, '--hoverColor': hoverColor, '--pressColor': pressColor } as React.CSSProperties}>
         <div className='circularNavToggle'>
-          <ion-icon name='add-outline' />
+          <div className='circularNavToggle-icon'>{AddIcon}</div>
         </div>
-        <li style={{ '--i': 0 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='home-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 1 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='person-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 2 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='settings-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 3 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='mail-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 4 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='key-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 5 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='videocam-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 6 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='water-outline' />
-          </a>
-        </li>
-        <li style={{ '--i': 7 } as React.CSSProperties}>
-          <a href='#'>
-            <ion-icon name='paw-outline' />
-          </a>
-        </li>
+        {MenuItemsArray &&
+          MenuItemsArray.map((item: MenuItemsArrayPropsTypes, index: number) => {
+            return (
+              <li className='circularNavMenu-icon' style={{ '--i': index } as React.CSSProperties}>
+                <a href={item.link} className='circularNavMenu-icon'>
+                  {item.icon}
+                </a>
+              </li>
+            )
+          })}
       </div>
     </div>
   )

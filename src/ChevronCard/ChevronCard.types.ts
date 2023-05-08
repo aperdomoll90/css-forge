@@ -1,11 +1,11 @@
 export interface ChevronCardPropsType {
-  color?: 'red' | undefined
+  color: string
+  buttonColor: string
+  buttonHover: string
   label: string
+  labelColor: string
+  buttonLabel: string
   imgUrl: string
   linkUrl?: string
-}
-
-export interface styleVariableType {
-  '--color': string
-  '--direction': string
+  direction: '45deg' | '-45deg'
 }
