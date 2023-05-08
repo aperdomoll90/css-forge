@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { CircularNav } from './CircularNav'
-import { AtomIcon, BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, PlanetIcon, ProfileIcon } from '../IconCollection/IconCollection'
+import { BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, PlanetIcon, ProfileIcon } from '../IconCollection/IconCollection'
 import StorybookContainer from '../StorybookContainer'
-import { CircularNavPropsTypes, MenuItemsArrayPropsTypes } from './CircularNav.types'
+import { CircularNavPropsTypes } from './CircularNav.types'
+import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 
 export default {
   title: 'Navigation Bars',

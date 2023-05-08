@@ -1,0 +1,61 @@
+.slicerButton-wrapper {
+  position: relative;
+}
+
+h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  font-size: var(--fontSize);
+  font-weight: 900;
+  color: transparent;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+h2 span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color);
+  transition: 0.5s;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  overflow: hidden;
+}
+h2:hover span:nth-child(1) {
+  color: var(--colorHover);
+  transform: translateX(-10px);
+}
+
+h2 span:nth-child(2) {
+  position: absolute;
+  top: -0.01;
+  left: 0;
+  color: var(--color);
+  transition: 0.5s;
+  clip-path: polygon(0 49.8%, 100% 49.8%, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+h2:hover span:nth-child(2) {
+  color: var(--colorHover);
+  transform: translateX(10px);
+}
+
+/* @media only screen and (max-width: 1625px) {
+  h2 {
+    font-size: var(--fontSize)
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  h2 {
+    font-size: var(--fontSize);
+
+  }
+  h2 {
+    font-size: var(--fontSize);
+
+  }
+} */

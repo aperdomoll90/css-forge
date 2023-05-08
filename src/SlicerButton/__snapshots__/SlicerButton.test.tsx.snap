@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SlicerButton component should match snapshots 1`] = `
+<div>
+  <a
+    href="#testAddress"
+  >
+    <div
+      class="slicerButton-wrapper"
+      style="--fontSize: 2rem; --color: red; --colorHover: yellow;"
+    >
+      <h2>
+        Button
+        <span>
+           
+          Button
+        </span>
+        <span>
+           
+          Button
+        </span>
+      </h2>
+    </div>
+  </a>
+</div>
+`;
