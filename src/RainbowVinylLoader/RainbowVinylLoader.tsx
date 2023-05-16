@@ -1,4 +1,5 @@
 import './styles.css'
+import '../utils/GlobalStyles.css'
 
 export const RainbowVinylLoader: React.FC<{}> = () => {
   return (

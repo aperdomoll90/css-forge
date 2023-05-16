@@ -1,22 +1,13 @@
 :root {
-  --bubble-card-background: #1c2942;
-  --bubble-card-border: #67df6f47;
-  --bubble-card-bubble: #67df6e;
   --bubble-card-shadow: #00000033;
   --bubble-card-background-letters: #bbbbbb0b;
   --bubble-card-white: #f2f2f2;
-  /* --secondary-color: #161d26;
-  --magic-mint: #b5ffe1;
-  --violet-color: #541388;
-  --gamboge: #e59500;
-  --amaranth: #d93654;
-  --transparent-metal: #15151596;
-  --metal: #151515; */
+  --title-font-size: ;
 }
 
 .bubbleCard-wrapper {
-  width: 17rem;
-  height: 23rem;
+  width: var(--width);
+  height: var(--height);
   position: relative;
   display: flex;
   align-items: center;
@@ -25,13 +16,13 @@
 
 .bubbleCard-wrapper::before {
   content: '';
-  width: 17rem;
-  height: 15rem;
+  width: var(--width);
+  height: calc(var(--width) / 1.2);
   border-radius: 1rem;
   position: absolute;
   top: 57%;
   transition: 0.5s ease-in-out;
-  animation-delay: .2s;
+  animation-delay: 0.2s;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.174), transparent);
   transform-style: preserve-3d;
   filter: blur(15px);
@@ -43,14 +34,14 @@
   opacity: 0;
 }
 .bubbleCard-content {
-  width: 17rem;
-  height: 23rem;
+  width: var(--width);
+  height: var(--height);
   position: absolute;
   top: 0;
   left: 0;
   border: 0.1rem solid transparent;
   box-shadow: 0 0.2rem 0.6rem var(--bubble-card-shadow);
-  background: var(--bubble-card-background);
+  background: var(--primaryColor);
   border-radius: 1rem;
   z-index: 11;
   overflow: hidden;
@@ -61,42 +52,42 @@
 }
 
 .bubbleCard-content:hover {
-  border: 0.1rem solid var(--bubble-card-border);
+  border: 0.1rem solid var(--secondaryColor);
   transform: scale(1.05);
 }
 .bubbleCard-content::before,
 .bubbleCard-content::after {
   content: '';
   position: absolute;
-  z-index: 5;
-  background: var(--bubble-card-bubble);
+  z-index: 2;
+  background: var(--secondaryColor);
   border-radius: 50%;
   transition: 0.5s ease-in-out;
 }
 
 .bubbleCard-content::before {
-  width: 9rem;
-  height: 9rem;
+  width: calc(var(--width) / 1.8);
+  height: calc(var(--height) / 2.2);
+  /* width: 9rem;
+  height: 9rem; */
   top: -6%;
   right: -6%;
   transition: 1s ease-in-out;
 }
 
 .bubbleCard-content:hover::before {
-  transform: scale(1.8);
-  /* background: red; */
+  transform: scale(1.5);
 }
 
 .bubbleCard-content::after {
-  width: 5rem;
-  height: 5rem;
+  width: calc(var(--width) / 3.5);
+  height: calc(var(--height) / 4.2);
   bottom: -6%;
   left: -6%;
 }
 
 .bubbleCard-content:hover::after {
   transform: scale(0);
-  /* background: red; */
 }
 
 .bubbleCard-marquee {
@@ -119,11 +110,11 @@
 }
 
 .bubbleCard-img-container {
-  width: 70%;
+  width: var(--imgWidth);
   height: auto;
   position: absolute;
-  bottom: 25%;
-  left: 15%;
+  top: var(--imgY);
+  left: var(--imgX);
   z-index: 20;
   transition: 1s ease-in-out;
 }
@@ -131,22 +122,23 @@
   width: 100%;
 }
 
-.bubbleCard-content:hover .bubbleCard-img-container{
-  transform: scale(0.8) translateX(-3rem) translateY(-5rem);
+.bubbleCard-content:hover .bubbleCard-img-container {
+  transform: scale(var(--hoverScale)) translateX(var(--hoverX)) translateY(var(--hoverY));
 }
 
 .bubbleCard-title {
-  font-size: 1.8rem;
+  font-size: calc(var(--height) / 11);
   letter-spacing: 0.2rem;
   position: absolute;
   bottom: 13%;
   right: 25%;
+  z-index: 5;
   text-shadow: 0 0 0.5rem #00000085;
   transition: 1s ease-in-out;
 }
 
 .bubbleCard-content:hover .bubbleCard-title {
-  transform: scale(0.8) translateX(4rem) translateY(-6rem);
+  transform: scale(0.8) translateX(calc(var(--height) / 7)) translateY(calc(var(--height) / -3));
 }
 
 .bubbleCard-body {
@@ -174,14 +166,14 @@
 .bubbleCard-body p,
 h1 {
   font-family: sans-serif;
-  color: var(--bubble-card-white);
+  color: var(--fontColor);
 }
 
 .bubbleCard-footer {
   width: 100%;
-  height: 3rem;
+  height: calc(var(--height) / 8);
   position: absolute;
-  bottom: -3.5rem;
+  bottom: calc(var(--height) / -5);
   left: 0;
   z-index: 20;
   display: flex;
@@ -192,27 +184,47 @@ h1 {
 }
 
 .bubbleCard-content:hover .bubbleCard-footer {
-  transform: translateY(-150%);
+  transform: translateY(calc(var(--height) / -4));
 }
 .bubbleCard-btn {
-  padding: 1rem 2rem;
+  height: 100%;
+  width: calc(var(--width) / 3);
+  /* padding: 15% 80%; */
   background-color: unset;
   border: none;
   outline: none;
   border-radius: 2rem;
-  color: var(--bubble-card-white);
+  color: var(--fontColor);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease-in-out;
 }
+
+.bubbleCard-btn:hover {
+  background-color: var(--buttonActive);
+  outline: 0.1rem solid var(--buttonActive);
+}
+
 .bubbleCard-success {
-  background-color: var(--bubble-card-bubble);
+  background-color: var(--secondaryColor);
+  outline: 0.1rem solid var(--secondaryColor);
 }
 .bubbleCard-border {
-  border: 0.1rem solid var(--bubble-card-bubble);
+  outline: 0.1rem solid var(--secondaryColor);
 }
 
 .bubbleCard-link {
   text-decoration: none;
 }
+
+/* @media (min-width: 768px) {
+  .chevronCard {
+    margin: unset;
+  }
+  .chevronCard .box {
+    width: 17rem;
+    height: var(--height);
+  }
+} */

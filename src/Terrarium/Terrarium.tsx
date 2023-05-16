@@ -1,4 +1,5 @@
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import fishBowlTop from './images/fishBowlTop.png'
 import soil from './images/soil.png'
 import onion from './images/onion.png'

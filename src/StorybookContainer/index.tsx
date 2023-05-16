@@ -1,12 +1,13 @@
 import './styles.css'
+import '../utils/GlobalStyles.css'
 
-type Props = {
+type storybookContainerProps = {
   children: string | JSX.Element | JSX.Element[] | '() => JSX.Element'
-}
-function StorybookContainer({children}:Props) {
-  return (
-    <div className='storybook-container'>{children}</div>
-  )
+  backgroundImage?: boolean
 }
 
-export default  StorybookContainer
+function StorybookContainer({ children, backgroundImage }: storybookContainerProps) {
+  return <div className={`storybook-container ${backgroundImage && 'storybook-container-image'}`}>{children}</div>
+}
+
+export default StorybookContainer

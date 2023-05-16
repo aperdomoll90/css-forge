@@ -1,18 +1,20 @@
 import { render } from '@testing-library/react'
-import {ToggleButton} from './ToggleButton'
+import { ToggleButton } from './ToggleButton'
+import { ToggleButtonPropsType } from './ToggleButton.types'
 
 describe('ToggleButton component', () => {
-  // const { axe, toHaveNoViolations } = require('jest-axe')
-  // expect.extend(toHaveNoViolations)
+  const props: ToggleButtonPropsType = {
+    color: '#fff',
+    buttonHover: 'red',
+    buttonBackgroundColor: 'black',
+    setActive: () => {
+      alert('Button clicked')
+    },
+  }
 
-  const renderComponent = () => render(<ToggleButton />)
+  const renderComponent = () => render(<ToggleButton {...props} />)
   it('should match snapshots', () => {
     const { container } = renderComponent()
     expect(container).toMatchSnapshot()
   })
-  //   it('should demonstrate ADA compliance on this component', async () => {
-  //     const { container } = renderComponent()
-  //     const results = await axe(container)
-  //     expect(container).toHaveNoViolations()
-  //   })
 })

@@ -3,7 +3,7 @@ export type ResponsiveType<T> = {
   [key in ResponsiveOptions]?: T
 }
 
-export interface MenuItemsArrayPropsTypes {
+export interface menuItemsArrayPropsTypes {
   label?: string
   icon: React.SVGProps<SVGSVGElement>
   link: string

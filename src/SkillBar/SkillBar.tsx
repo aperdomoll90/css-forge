@@ -1,5 +1,6 @@
 import { skillBarPropsTypes } from './SkillBar.types'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     // extends React's HTMLAttributes

@@ -1,4 +1,5 @@
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import narwhalBody from './images/narwhalBody.png'
 import flipper from './images/flipper.png'
 import fin from './images/fin.png'

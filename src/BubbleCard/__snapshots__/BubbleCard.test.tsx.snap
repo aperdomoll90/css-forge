@@ -4,6 +4,7 @@ exports[`BubbleCard component should match snapshots 1`] = `
 <div>
   <div
     class="bubbleCard-wrapper"
+    style="--width: 17rem; --height: 23rem; --primaryColor: #1c2942; --secondaryColor: #67df6e; --fontColor: #fff; --buttonActive: #35ad3c; --imgWidth: 70%; --imgY: 3.5rem; --imgX: 1.8rem; --hoverX: -3rem; --hoverY: -5rem; --hoverScale: 0.8;"
   >
     <div
       class="bubbleCard-content"
@@ -15,14 +16,14 @@ exports[`BubbleCard component should match snapshots 1`] = `
           class="wobble"
           data-speed="-255"
         >
-          label
+          Shoes
         </div>
       </div>
       <div
         class="bubbleCard-img-container"
       >
         <img
-          alt="label-image"
+          alt="Shoes-image"
           class="bubbleCard-img wobble"
           data-speed="-25"
           src="shoe.png"
@@ -31,7 +32,7 @@ exports[`BubbleCard component should match snapshots 1`] = `
       <h1
         class="bubbleCard-title"
       >
-        label
+        Shoes
       </h1>
       <div
         class="bubbleCard-body"
@@ -39,7 +40,7 @@ exports[`BubbleCard component should match snapshots 1`] = `
         <p
           class="bubbleCard-content-text"
         >
-          This card follows the pointer
+          Dummy website using shoes as a theme
         </p>
       </div>
       <div

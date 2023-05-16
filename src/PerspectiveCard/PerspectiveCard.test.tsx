@@ -7,9 +7,9 @@ describe('PerspectiveCard component', () => {
   // const { axe, toHaveNoViolations } = require('jest-axe')
   // expect.extend(toHaveNoViolations)
   const props:PerspectiveCardPropsType = {
-    label: 'label',
+    label: 'Shoes',
     imgUrl: shoe,
-    content: 'This card follows the pointer',
+    content: 'Dummy website using shoes as a theme',
     demoUrl: 'https://ingots.web.app/fishing',
     codeUrl: 'https://github.com/aperdomoll90/ingots/tree/main/src/Archives/SvgPathOnScroll',
   }

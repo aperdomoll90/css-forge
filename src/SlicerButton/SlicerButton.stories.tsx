@@ -12,14 +12,14 @@ export default {
   argTypes: {
     label: { options: ['Button', 'Contact me', 'Home'], control: { type: 'radio' } },
     fontSize: { options: ['1rem', '3rem', '5rem'], control: { type: 'radio' } },
-    color: { options: ['#d93654', '#000', 'yellow', 'purple',''], control: { type: 'radio' } },
-    colorHover: { options: ['#d93654', '#000', 'yellow', 'purple',''], control: { type: 'radio' } },
+    color: { options: ['#d93654', '#000', 'yellow', 'purple', ''], control: { type: 'radio' } },
+    colorHover: { options: ['#d93654', '#000', 'yellow', 'purple', ''], control: { type: 'radio' } },
   },
 } as Meta
 
 const SlicerButtonTemplate: StoryFn<SlicerButtonPropsTypes> = args => (
   <StorybookContainer>
-    <div style={{ position: 'absolute', top: '20%', left: 'calc(50% - 7.5rem)' }}>
+    <div className='story-button-container-centered'>
       <SlicerButton {...args} />
     </div>
   </StorybookContainer>

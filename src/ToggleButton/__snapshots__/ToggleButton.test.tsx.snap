@@ -2,48 +2,18 @@
 
 exports[`ToggleButton component should match snapshots 1`] = `
 <div>
-  <div
-    class="fieldLocation"
+  <button
+    class="ToggleButton"
+    style="--size: 2rem; --color: #fff; --buttonHover: red; --buttonBackgroundColor: black; --top: 1rem; --bottom: auto; --left: auto; --right: 1rem;"
   >
-    <div
-      class="ToggleButtonWrapper"
+    <span />
+    <span />
+    <span />
+    <span
+      class="sr-only"
     >
-      <div
-        class="ToggleButton"
-      >
-        <span />
-        <span />
-        <span />
-      </div>
-      <div
-        class="ToggleButtonDropDown"
-      >
-        <p>
-          <ion-icon
-            name="home-outline"
-          />
-           Home
-        </p>
-        <p>
-          <ion-icon
-            name="chatbubble-outline"
-          />
-           Messages
-        </p>
-        <p>
-          <ion-icon
-            name="person-outline"
-          />
-           Profile
-        </p>
-        <p>
-          <ion-icon
-            name="settings-outline"
-          />
-           Settings
-        </p>
-      </div>
-    </div>
-  </div>
+      menu
+    </span>
+  </button>
 </div>
 `;

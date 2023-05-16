@@ -2,8 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ToggleButton } from './ToggleButton'
 import StorybookContainer from '../StorybookContainer'
 import { ToggleButtonPropsType } from './ToggleButton.types'
-import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
-import { BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, PlanetIcon, ProfileIcon } from '../IconCollection/IconCollection'
+import { colorPickerControl, dozen } from '../utils/StoryProps'
 
 export default {
   title: 'Buttons',
@@ -12,50 +11,31 @@ export default {
     jest: ['ToggleButton.test.tsx'],
   },
   argTypes: {
-    color: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
-    buttonHover: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
-    labelColor: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
-    labelColorHover: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
-    buttonBackgroundColor: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
-    menuBackgroundColor: { options: ['', 'black', 'white', 'red', 'blue'], control: { type: 'radio' } },
+    size: { options: dozen, control: { type: 'select' } },
+    top: { options: dozen, control: { type: 'select' } },
+    bottom: { options: dozen, control: { type: 'select' } },
+    left: { options: dozen, control: { type: 'select' } },
+    right: { options: dozen, control: { type: 'select' } },
+    color: colorPickerControl,
+    buttonHover: colorPickerControl,
+    buttonBackgroundColor: colorPickerControl,
+    shadow: { options: [true, false], control: { type: 'radio' } },
+    ariaControls: { options: ['ariaControls', 'ariaControlsTest'], control: { type: 'radio' } },
+    customClass: { options: ['customClass', 'customClassTest'], control: { type: 'radio' } },
   },
 } as Meta
 
-const MenuItemsArray: MenuItemsArrayPropsTypes[] = [
-  {
-    label: 'Home',
-    icon: HomeIcon,
-    link: '#',
-  },
-  {
-    label: 'Settings',
-    icon: GearIcon,
-    link: '#',
-  },
-  {
-    label: 'Analytics',
-    icon: BarIcon,
-    link: '#',
-  },
-  {
-    label: 'Profile',
-    icon: ProfileIcon,
-    link: '#',
-  },
-  {
-    label: 'Code',
-    icon: CodeIcon,
-    link: '#',
-  },
-]
-
 const ToggleButtonTemplate: StoryFn<ToggleButtonPropsType> = args => (
   <StorybookContainer>
-    <ToggleButton {...args} />
+    <div className='story-button-container-centered'>
+      <ToggleButton {...args} />
+    </div>
   </StorybookContainer>
 )
 
 export const ToggleButtonComponent = ToggleButtonTemplate.bind({})
 ToggleButtonComponent.args = {
-  MenuItemsArray: MenuItemsArray,
+  setActive: () => {
+    return
+  },
 }

@@ -1,75 +1,47 @@
 import { useEffect } from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
+import { RollingBallNavPropsTypes } from './RollingBallNav.type'
+import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 
-// declare global {
-//   namespace JSX {
-//     interface IntrinsicElements {
-//       ['ion-icon']: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-//     }
-//   }
-// }
-// declare module 'react' {
-//   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-//     // extends React's HTMLAttributes
-//     name?: string
-//   }
-// }
-
-export const RollingBallNav: React.FC<{}> = () => {
+export const RollingBallNav: React.FC<RollingBallNavPropsTypes> = ({ height, width, menuItemsArray, primaryColor, secondaryColor, hoverColor, pressColor, labelColor }) => {
   useEffect(() => {
-    const list : NodeListOf<Element> = document.querySelectorAll('.rollingBallNavList')
+    const list: NodeListOf<Element> = document.querySelectorAll('.rollingBallNavList')
     list.forEach(activeItem => {
       activeItem.addEventListener('click', () => {
-          list.forEach(listItem => listItem.classList.remove('rollingBallNavActive'))
-          activeItem.classList.add('rollingBallNavActive')
+        list.forEach(listItem => listItem.classList.remove('rollingBallNavActive'))
+        activeItem.classList.add('rollingBallNavActive')
       })
     })
   }, [])
 
+  const stylesProps = {
+    '--width': width ? `${width}rem` : '26rem',
+    '--height': height ? `${height}rem` : '5.4rem',
+    '--primaryColor': primaryColor ? primaryColor : '#222327',
+    '--secondaryColor': secondaryColor ? secondaryColor : '#29fd53',
+    '--labelColor': labelColor ? labelColor : '#222327',
+    '--hoverColor': hoverColor ? hoverColor : '#1c2942',
+    '--pressColor': pressColor ? pressColor : '#1c2942',
+  }
+
   return (
-    <div className='rollingBallNavWrapper'>
+    <div className='rollingBallNavWrapper' style={stylesProps as React.CSSProperties}>
       <div className='rollingBallNav'>
         <ul>
-          <li className='rollingBallNavList rollingBallNavActive'>
-            {/* <a href='#'> */}
-              <span className='rollingBallNavIcon'>
-                <ion-icon name='home-outline' />
-              </span>
-              <span className='rollingBallNavText'>Home</span>
-            {/* </a> */}
-          </li>
-          <li className='rollingBallNavList'>
-            {/* <a href='#'> */}
-              <span className='rollingBallNavIcon'>
-                <ion-icon name='person-outline' />
-              </span>
-              <span className='rollingBallNavText'>Profile</span>
-            {/* </a> */}
-          </li>
-          <li className='rollingBallNavList'>
-            {/* <a href='#'> */}
-              <span className='rollingBallNavIcon'>
-                <ion-icon name='chatbubble-outline' />
-              </span>
-              <span className='rollingBallNavText'>Messages</span>
-            {/* </a> */}
-          </li>
-          <li className='rollingBallNavList'>
-            {/* <a href='#'> */}
-              <span className='rollingBallNavIcon'>
-                <ion-icon name='camera-outline' />
-              </span>
-              <span className='rollingBallNavText'>Photos</span>
-            {/* </a> */}
-          </li>
-          <li className='rollingBallNavList'>
-            {/* <a href='#'> */}
-              <span className='rollingBallNavIcon'>
-                <ion-icon name='settings-outline' />
-              </span>
-              <span className='rollingBallNavText'>Settings</span>
-            {/* </a> */}
-          </li>
+          {menuItemsArray &&
+            menuItemsArray.map((item: menuItemsArrayPropsTypes) => {
+              console.log('item', item)
+              return (
+                <li className='rollingBallNavList'>
+                  {/* <a href={item.link}> */}
+                  <a>
+                    <div className='rollingBallNavIcon'> {item.icon}</div>
+                    <span className='rollingBallNavText'>{item.label}</span>
+                  </a>
+                </li>
+              )
+            })}
           <div className='rollingBallNavIndicator'> </div>
         </ul>
       </div>

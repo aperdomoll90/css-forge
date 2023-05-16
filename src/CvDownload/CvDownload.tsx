@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import page from './media/page.svg'
 import { DownloadBanner } from './media/CvBanner'
 import { CvDownloadPropsType } from './CvDownload.types'

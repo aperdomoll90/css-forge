@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 
 export const StarrySky: React.FC<{}> = () => {
   useEffect(() => {

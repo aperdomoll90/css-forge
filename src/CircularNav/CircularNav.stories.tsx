@@ -1,9 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { CircularNav } from './CircularNav'
-import { BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, PlanetIcon, ProfileIcon } from '../IconCollection/IconCollection'
 import StorybookContainer from '../StorybookContainer'
 import { CircularNavPropsTypes } from './CircularNav.types'
-import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
+import { extendedMenuItemsArray } from '../utils/MenuProps'
 
 export default {
   title: 'Navigation Bars',
@@ -18,49 +17,6 @@ export default {
   },
 } as Meta
 
-const MenuItemsArray: MenuItemsArrayPropsTypes[] = [
-  {
-    label: 'Home',
-    icon: HomeIcon,
-    link: '#',
-  },
-  {
-    label: 'Settings',
-    icon: GearIcon,
-    link: '#',
-  },
-  {
-    label: 'Map',
-    icon: MapIcon,
-    link: '#',
-  },
-  {
-    label: 'Analytics',
-    icon: BarIcon,
-    link: '#',
-  },
-  {
-    label: 'Animations',
-    icon: CameraIcon,
-    link: '#',
-  },
-  {
-    label: 'Profile',
-    icon: ProfileIcon,
-    link: '#',
-  },
-  {
-    label: 'Pets',
-    icon: PawIcon,
-    link: '#',
-  },
-  {
-    label: 'Code',
-    icon: CodeIcon,
-    link: '#',
-  },
-]
-
 const CircularNavTemplate: StoryFn<CircularNavPropsTypes> = args => (
   <StorybookContainer>
     <div style={{ position: 'absolute', top: '20%', left: 'calc(50% - 7.5rem)' }}>
@@ -71,7 +27,7 @@ const CircularNavTemplate: StoryFn<CircularNavPropsTypes> = args => (
 
 export const CircularNavComponent = CircularNavTemplate.bind({})
 CircularNavComponent.args = {
-  MenuItemsArray: MenuItemsArray,
+  menuItemsArray: extendedMenuItemsArray,
   color: 'rgb(28, 28, 28)',
   hoverColor: 'red',
   pressColor: 'yellow',

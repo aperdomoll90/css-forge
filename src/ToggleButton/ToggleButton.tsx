@@ -1,61 +1,42 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import { ToggleButtonPropsType } from './ToggleButton.types'
-import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
 
-export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ MenuItemsArray, color, buttonHover, labelColor, labelColorHover, buttonBackgroundColor, menuBackgroundColor }) => {
-  const [showMenu, setShowMenu] = useState<boolean>()
-  const toggleMenu = () => setShowMenu(value => !value)
-
-  const defaultColor = '#1863ff'
-  const defaultLabelColor = '#000'
-  const defaultLabelColorHover = '#1863ff'
-  const defaultBackgroundColor = '#fff'
+export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, buttonHover, buttonBackgroundColor, shadow, setActive, ariaControls, ariaExpanded, top, bottom, left, right, customClass }) => {
+  const defaultColor = '#fff'
+  const defaultBackgroundColor = '#303030da'
 
   const stylesProps = {
+    '--size': size ? `${size}rem` : '2rem',
     '--color': color ? color : defaultColor,
-    '--buttonHover': buttonHover ? buttonHover : LightenDarkenColor(defaultBackgroundColor, -80),
-    '--labelColor': labelColor ? labelColor : defaultLabelColor,
-    '--labelColorHover': labelColorHover ? labelColorHover : defaultLabelColorHover,
-    '--menuBackgroundColor': menuBackgroundColor ? menuBackgroundColor : defaultBackgroundColor,
+    '--buttonHover': buttonHover ? buttonHover : LightenDarkenColor(buttonBackgroundColor || defaultBackgroundColor, -80),
     '--buttonBackgroundColor': buttonBackgroundColor ? buttonBackgroundColor : defaultBackgroundColor,
+    '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : '',
+    '--top': top ? `${top}rem` : '1rem',
+    '--bottom': bottom ? `${bottom}rem` : 'auto',
+    '--left': left ? `${left}rem` : 'auto',
+    '--right': right ? `${right}rem` : '1rem',
   }
+  const toggleMenu = () => setActive((value: Boolean) => !value)
 
   useEffect(() => {
     let menuToggle = document.querySelector('.ToggleButton') as HTMLElement
-    let menuDropDown = document.querySelector('.ToggleButtonDropDown') as HTMLElement
-    if (menuToggle && menuDropDown) {
+    if (menuToggle) {
       menuToggle.onclick = function () {
         menuToggle.classList.toggle('ToggleButtonActive')
-        menuDropDown.classList.toggle('ToggleButtonDropDownActive')
+        toggleMenu()
       }
     }
   }, [])
-
-  const ToggleButton = (
-    <div className='ToggleButton'>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  )
-
+  const classArray = customClass && customClass ? `ToggleButton ${customClass}` : 'ToggleButton'
   return (
-    <div className='fieldLocation'>
-      <div className='ToggleButtonWrapper' style={stylesProps as React.CSSProperties}>
-        {ToggleButton}
-        <div className='ToggleButtonDropDown'>
-          {MenuItemsArray &&
-            MenuItemsArray.map((item: MenuItemsArrayPropsTypes, index: number) => {
-              return (
-                <>
-                  {item.icon} <p>{item.label}</p>
-                </>
-              )
-            })}
-        </div>
-      </div>
-    </div>
+    <button className={classArray} aria-controls={ariaControls} aria-expanded={ariaExpanded} style={stylesProps as React.CSSProperties}>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span className='sr-only'>menu</span>
+    </button>
   )
 }

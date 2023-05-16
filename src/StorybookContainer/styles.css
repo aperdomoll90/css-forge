@@ -13,6 +13,12 @@
   align-items: center;
   justify-content: center;
   background: #363c37;
+  background-size: cover;
   margin: -1rem;
   padding: 0;
+}
+
+.storybook-container-image{
+  background: #363c37 fixed no-repeat center url('../media/riverCabin.svg');
+  background-size: cover;
 }

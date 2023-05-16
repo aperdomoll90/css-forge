@@ -6,17 +6,10 @@
   --bubble-card-shadow: #00000033;
   --bubble-card-background-letters: #bbbbbb0b;
   --bubble-card-white: #f2f2f2;
-  /* --secondary-color: #161d26;
-  --magic-mint: #b5ffe1;
-  --violet-color: #541388;
-  --gamboge: #e59500;
-  --amaranth: #d93654;
-  --transparent-metal: #15151596;
-  --metal: #151515; */
 }
 .perspectiveCard-wrapper {
-  width: 17rem;
-  height: 23rem;
+  width: var(--width);
+  height: var(--height);
   position: relative;
   display: flex;
   align-items: center;
@@ -24,34 +17,15 @@
   transform-style: preserve-3d;
 }
 
-/* .perspectiveCard-wrapper::before {
-  content: '';
-  width: 17rem;
-  height: 15rem;
-  border-radius: 1rem;
-  position: absolute;
-  top: 57%;
-  transition: 0.5s ease-in-out;
-  animation-delay: .2s;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.174), transparent);
-  transform-style: preserve-3d;
-  filter: blur(15px);
-  transform: perspective(5000px) translateX(-1.9rem) rotateY(-20deg) rotateX(-75deg);
-} */
-
-/* .perspectiveCard-wrapper:hover::before {
-  transform: translateY(-5rem) translateX(1.9rem);
-  opacity: 0;
-} */
 .perspectiveCard-content {
-  width: 17rem;
-  height: 23rem;
+  width: var(--width);
+  height: var(--height);
   position: absolute;
   top: 0;
   left: 0;
   border: 0.1rem solid transparent;
   box-shadow: 0 0.2rem 0.6rem var(--bubble-card-shadow);
-  background: var(--bubble-card-background);
+  background: var(--primaryColor);
   border-radius: 1rem;
   z-index: 11;
   overflow: hidden;
@@ -61,14 +35,14 @@
 }
 
 .perspectiveCard-content:hover {
-  border: 0.1rem solid var(--bubble-card-border);
+  border: 0.1rem solid var(--secondaryColor);
 }
 .perspectiveCard-content::before,
 .perspectiveCard-content::after {
   content: '';
   position: absolute;
   z-index: 5;
-  background: var(--bubble-card-bubble);
+  background: var(--secondaryColor);
   border-radius: 50%;
   transition: 0.5s ease-in-out;
 }
@@ -115,7 +89,7 @@
   /* opacity: 0; */
 }
 .perspectiveCard-img {
-  width: 70%;
+  width: var(--imgWidth);
   height: auto;
   position: absolute;
   bottom: 25%;
@@ -167,7 +141,7 @@
 .perspectiveCard-body p,
 h1 {
   font-family: sans-serif;
-  color: var(--bubble-card-white);
+  color: var(--fontColor);
 }
 
 .perspectiveCard-footer {
@@ -191,26 +165,26 @@ h1 {
   padding: 1rem 2rem;
   background-color: unset;
   outline: none;
-  border:none;
+  border: none;
   border-radius: 2rem;
-  color: var(--bubble-card-white);
+  color: var(--fontColor);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease-in-out;
 }
 .perspectiveCard-btn:hover {
-  background-color: var(--bubble-card-button-active);
-  outline: none;
-  transition: 0.5s ease-in-out;
-
+  background-color: var(--buttonActive);
+  outline: 0.1rem solid var(--buttonActive);
 }
 
 .perspectiveCard-success {
-  background-color: var(--bubble-card-bubble);
+  background-color: var(--secondaryColor);
+  outline: 0.1rem solid var(--secondaryColor);
 }
 .perspectiveCard-border {
-  outline: 0.1rem solid var(--bubble-card-bubble);
+  outline: 0.1rem solid var(--secondaryColor);
 }
 
 .perspectiveCard-link {

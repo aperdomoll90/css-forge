@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import { AddIcon } from '../IconCollection/IconCollection'
-import { CircularNavPropsTypes, MenuItemsArrayPropsTypes } from './CircularNav.types'
+import { CircularNavPropsTypes } from './CircularNav.types'
+import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 
-export const CircularNav: React.FC<CircularNavPropsTypes> = ({ MenuItemsArray, color, hoverColor, pressColor }) => {
+export const CircularNav: React.FC<CircularNavPropsTypes> = ({ menuItemsArray, color, hoverColor, pressColor }) => {
   useEffect(() => {
     let toggle = document.querySelector('.circularNavToggle') as HTMLElement
     let menu = document.querySelector('.circularNavMenu') as HTMLElement
@@ -18,8 +20,8 @@ export const CircularNav: React.FC<CircularNavPropsTypes> = ({ MenuItemsArray, c
         <div className='circularNavToggle'>
           <div className='circularNavToggle-icon'>{AddIcon}</div>
         </div>
-        {MenuItemsArray &&
-          MenuItemsArray.map((item: MenuItemsArrayPropsTypes, index: number) => {
+        {menuItemsArray &&
+          menuItemsArray.map((item: menuItemsArrayPropsTypes, index: number) => {
             return (
               <li className='circularNavMenu-icon' style={{ '--i': index } as React.CSSProperties}>
                 <a href={item.link} className='circularNavMenu-icon'>

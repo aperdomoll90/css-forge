@@ -1,6 +1,6 @@
 import './styles.css'
 
-function PlanetCard({size}) {
+function PlanetCard({size}:any) {
     const circleSize ={
       width:`var(${size})`,
       height:`var(${size})`,

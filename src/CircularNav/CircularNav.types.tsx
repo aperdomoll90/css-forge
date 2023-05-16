@@ -1,7 +1,7 @@
-import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
+import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 
 export interface CircularNavPropsTypes {
-  MenuItemsArray: MenuItemsArrayPropsTypes[]
+  menuItemsArray: menuItemsArrayPropsTypes[]
   color?: string
   hoverColor?: string
   pressColor?: string

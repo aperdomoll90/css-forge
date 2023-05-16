@@ -1,11 +1,15 @@
-import { MenuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
-
 export interface ToggleButtonPropsType {
-  MenuItemsArray: MenuItemsArrayPropsTypes[]
+  size?:number
+  top?:number
+  bottom?:number
+  left?:number
+  right?:number
   color?: `#${string}` | `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})` | ''
   buttonHover?: string
-  labelColor?: string
-  labelColorHover?: string
   buttonBackgroundColor?: string
-  menuBackgroundColor?: string
+  shadow?: boolean
+  ariaControls?: string
+  ariaExpanded?: boolean
+  setActive: Function
+  customClass?: string
 }

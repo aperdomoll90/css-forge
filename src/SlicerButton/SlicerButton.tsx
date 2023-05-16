@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 import { SlicerButtonPropsTypes } from './SlicerButton.types'
 
 export const SlicerButton: React.FC<SlicerButtonPropsTypes> = ({ label, linkUrl, color, fontSize, colorHover }) => {

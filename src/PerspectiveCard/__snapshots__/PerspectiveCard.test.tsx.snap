@@ -4,6 +4,7 @@ exports[`PerspectiveCard component should match snapshots 1`] = `
 <div>
   <div
     class="perspectiveCard-wrapper"
+    style="--width: 17rem; --height: 23rem; --imgWidth: 70%; --primaryColor: #1c2942; --secondaryColor: #67df6e; --fontColor: #fff; --buttonActive: #35ad3c;"
   >
     <div
       class="perspectiveCard-content"
@@ -11,17 +12,21 @@ exports[`PerspectiveCard component should match snapshots 1`] = `
       <div
         class="perspectiveCard-marquee"
       >
-        label
+        Shoes
       </div>
-      <img
-        alt="label-image"
-        class="perspectiveCard-img"
-        src="shoe.png"
-      />
+      <div
+        class="perspectiveCard-img-container"
+      >
+        <img
+          alt="Shoes-image"
+          class="perspectiveCard-img"
+          src="shoe.png"
+        />
+      </div>
       <h1
         class="perspectiveCard-title"
       >
-        label
+        Shoes
       </h1>
       <div
         class="perspectiveCard-body"
@@ -29,7 +34,7 @@ exports[`PerspectiveCard component should match snapshots 1`] = `
         <p
           class="perspectiveCard-content-text"
         >
-          This card follows the pointer
+          Dummy website using shoes as a theme
         </p>
       </div>
       <div

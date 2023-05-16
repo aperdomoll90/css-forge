@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { gsap, Elastic } from 'gsap'
 import './styles.css'
+import '../utils/GlobalStyles.css'
 
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
