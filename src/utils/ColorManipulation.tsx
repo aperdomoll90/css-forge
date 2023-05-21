@@ -1,4 +1,4 @@
-interface ColorPropsType {
+export interface ColorPropsType {
   color: string | `#${string}` | `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})`
 }
 

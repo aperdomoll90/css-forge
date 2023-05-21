@@ -1,0 +1,12 @@
+export declare const AddIcon: JSX.Element;
+export declare const HomeIcon: JSX.Element;
+export declare const GearIcon: JSX.Element;
+export declare const MapIcon: JSX.Element;
+export declare const BarIcon: JSX.Element;
+export declare const AtomIcon: JSX.Element;
+export declare const PlanetIcon: JSX.Element;
+export declare const PawIcon: JSX.Element;
+export declare const CodeIcon: JSX.Element;
+export declare const ProfileIcon: JSX.Element;
+export declare const MessageIcon: JSX.Element;
+export declare const CameraIcon: JSX.Element;

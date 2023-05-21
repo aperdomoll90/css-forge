@@ -25,7 +25,7 @@ export const CircularNav: React.FC<CircularNavPropsTypes> = ({ menuItemsArray, c
             return (
               <li className='circularNavMenu-icon' style={{ '--i': index } as React.CSSProperties}>
                 <a href={item.link} className='circularNavMenu-icon'>
-                  {item.icon}
+                  <>{item.icon}</>
                 </a>
               </li>
             )

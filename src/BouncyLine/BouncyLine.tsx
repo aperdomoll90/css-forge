@@ -1,14 +1,7 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import { gsap, Elastic } from 'gsap'
 import './styles.css'
 import '../utils/GlobalStyles.css'
-
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    // extends React's HTMLAttributes
-    preserveAspectRatio?: string
-  }
-}
 
 export const BouncyLine: React.FC<{}> = () => {
   const [coords, setCoords] = useState({ x: 0, y: 0 })
@@ -69,8 +62,8 @@ export const BouncyLine: React.FC<{}> = () => {
   // },[])
 
   return (
-    <div id='BouncyLineWrapper' preserveAspectRatio='xMidYMid meet' onMouseMove={handleMouseMov} onMouseOut={handleMouseOut as any} ref={ref}>
-      <svg viewBox='0 0 500 500'>
+    <div id='BouncyLineWrapper' onMouseMove={handleMouseMov} onMouseOut={handleMouseOut as any} ref={ref}>
+      <svg viewBox='0 0 500 500' preserveAspectRatio='xMidYMid meet'>
         <path d='M250,0 Q250,250 250,500' />
       </svg>
     </div>

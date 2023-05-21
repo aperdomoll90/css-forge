@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import './styles.css'
 import '../utils/GlobalStyles.css'
-import hiker from './media/hiker.png'
-import plane2 from './media/plane2.png'
-import plane3 from './media/plane3.png'
-import backgroundMountain from './media/plane4.png'
+// import hiker from './media/hiker.png'
+// import plane2 from './media/plane2.png'
+// import plane3 from './media/plane3.png'
+// import backgroundMountain from './media/plane4.png'
 import sky from './media/space.jpeg'
 
 export const HikerParallax: React.FC<{}> = () => {

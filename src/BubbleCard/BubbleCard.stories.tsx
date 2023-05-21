@@ -5,8 +5,7 @@ import shoe from '../media/shoe.png'
 import dice from '../media/dice.png'
 import boat from '../media/boat.png'
 import StorybookContainer from '../StorybookContainer'
-import { colorPickerControl, percental, mintViolet, pentaDecimals, primaryColors, dozen, negativeArray, scaleValues } from '../utils/StoryProps'
-import { blackNwhite } from '../utils/StoryProps'
+import { colorPickerControl, percental, pentaDecimals, dozen, negativeArray, scaleValues } from '../utils/StoryProps'
 
 export default {
   title: 'Cards',
@@ -30,7 +29,6 @@ export default {
     hoverX: { options: negativeArray, control: { type: 'select' } },
     hoverY: { options: negativeArray, control: { type: 'select' } },
     hoverScale: { options: scaleValues, control: { type: 'select' } },
-    
   },
 } as Meta
 

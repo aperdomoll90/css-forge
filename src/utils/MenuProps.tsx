@@ -1,5 +1,5 @@
 import { menuItemsArrayPropsTypes } from './GlobalTypes.types'
-import { BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, PlanetIcon, ProfileIcon } from '../IconCollection/IconCollection'
+import { BarIcon, CameraIcon, CodeIcon, GearIcon, HomeIcon, MapIcon, PawIcon, ProfileIcon } from '../IconCollection/IconCollection'
 export const menuItemsArray: menuItemsArrayPropsTypes[] = [
   {
     label: 'Home',

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import './styles.css'
 import '../utils/GlobalStyles.css'
 import { wobbleElement } from '../utils/MouseEvents'

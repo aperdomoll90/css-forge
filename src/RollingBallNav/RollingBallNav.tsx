@@ -36,7 +36,7 @@ export const RollingBallNav: React.FC<RollingBallNavPropsTypes> = ({ height, wid
                 <li className='rollingBallNavList'>
                   {/* <a href={item.link}> */}
                   <a>
-                    <div className='rollingBallNavIcon'> {item.icon}</div>
+                    <div className='rollingBallNavIcon'> <>{item.icon}</></div>
                     <span className='rollingBallNavText'>{item.label}</span>
                   </a>
                 </li>

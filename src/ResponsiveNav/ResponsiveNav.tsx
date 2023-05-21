@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './styles.css'
 import '../utils/GlobalStyles.css'
 import { ResponsiveNavPropsTypes } from './ResponsiveNav.type'
@@ -7,7 +7,6 @@ import logo from '../media/Logo.png'
 import { ToggleButton } from '../ToggleButton'
 
 export const ResponsiveNav: React.FC<ResponsiveNavPropsTypes> = ({ height, width, logoHeight, logoMargin, menuItemsArray, primaryColor, secondaryColor, hoverColor, pressColor, labelColor }) => {
-  const [active, setActive] = useState<Boolean>(false)
   useEffect(() => {
     const primaryNav = document.querySelector('.primary-navigation') as HTMLElement
     const navToggle = document.querySelector('.mobile-nav-toggle') as HTMLElement
@@ -42,7 +41,7 @@ export const ResponsiveNav: React.FC<ResponsiveNavPropsTypes> = ({ height, width
         <img src={logo} className='primary-logo' />
       </div>
 
-      <ToggleButton customClass='mobile-nav-toggle' ariaControls='primary-navigation' ariaExpanded={false} setActive={setActive} buttonBackgroundColor='transparent' />
+      <ToggleButton customClass='mobile-nav-toggle' ariaControls='primary-navigation' ariaExpanded={false} setActive={()=>{}} buttonBackgroundColor='transparent' />
       {/* <button className='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded='false'>
         <span className='sr-only'>menu</span>
       </button> */}
