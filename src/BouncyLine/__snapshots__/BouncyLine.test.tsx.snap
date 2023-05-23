@@ -4,9 +4,9 @@ exports[`BouncyLine component should match snapshots 1`] = `
 <div>
   <div
     id="BouncyLineWrapper"
-    preserveaspectratio="xMidYMid meet"
   >
     <svg
+      preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 500 500"
     >
       <path

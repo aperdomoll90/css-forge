@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { RollingBallNavPropsTypes } from './RollingBallNav.type'
 import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 

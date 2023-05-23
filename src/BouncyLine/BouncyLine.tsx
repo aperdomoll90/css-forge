@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import { gsap, Elastic } from 'gsap'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 
 export const BouncyLine: React.FC<{}> = () => {
   const [coords, setCoords] = useState({ x: 0, y: 0 })

@@ -2,7 +2,7 @@
   "name": "css-forge",
   "title": "css-forge component library",
   "description": "React Component Library created by css-forge for experimental use",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "license": "MIT",
   "author": "css-forge by Adrian",
   "main": "dist/cjs/index.js",
@@ -10,7 +10,11 @@
   "files": [
     "dist"
   ],
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aperdomoll90/css-forge"
+  },
+  "type": "commonjs",
   "source": "index.tsx",
   "private": false,
   "dependencies": {
@@ -33,9 +37,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+    "build": "rm -rf dist/ && npx rollup --config rollup.config.mjs",
+    "publish": "npm run build && npm publish --access public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
@@ -62,6 +65,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-typescript": "^11.1.1",
     "@storybook/addon-a11y": "^7.0.7",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
@@ -79,8 +83,10 @@
     "css-loader": "^6.7.3",
     "postcss": "^8.4.23",
     "prop-types": "^15.8.1",
+    "rollup": "^3.23.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.34.1",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",

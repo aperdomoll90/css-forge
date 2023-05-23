@@ -1,5 +1,4 @@
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import PlanetCard from './planetCard'
 
 export const CosmicChart: React.FC<{}> = () => {

@@ -1,3 +1,4 @@
+
 .ToggleButton {
   width: var(--size);
   aspect-ratio: 1;
@@ -30,6 +31,18 @@
   border-radius: 4px;
   background: var(--color);
   transition: 0.5s ease-in-out;
+}
+
+.button-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .ToggleButton span:nth-child(1) {

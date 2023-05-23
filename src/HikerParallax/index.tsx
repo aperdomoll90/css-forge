@@ -1,1 +1,0 @@
-export { HikerParallax } from "./HikerParallax"

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { rotateElement } from '../utils/MouseEvents'
 import { PerspectiveCardPropsType } from './PerspectiveCard.types'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
 
 export const PerspectiveCard: React.FC<PerspectiveCardPropsType> = ({ width, height, primaryColor, secondaryColor, fontColor, label, content, imgUrl, imgWidth, demoUrl, codeUrl }): JSX.Element => {

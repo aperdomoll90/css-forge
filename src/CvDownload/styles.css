@@ -7,6 +7,17 @@
 }
 .cv-download-page {
   height: 100%;
+  fill: #fff;
+}
+
+.cv-download-page .page-corner {
+  fill: #e7ecec;
+}
+.cv-download-page .page-line {
+  fill: #cdccca;
+  stroke: #cdccca;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
 }
 .cv-download-banner {
   width: 120%;
@@ -19,7 +30,7 @@
 .cv-download-banner-underbanner {
   fill: var(--underBanner);
 }
-.cv-download-banner-letters{
+.cv-download-banner-letters {
   fill: white;
 }
 .cv-download-arrow-circle {

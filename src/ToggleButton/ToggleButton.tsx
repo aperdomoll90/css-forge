@@ -14,10 +14,10 @@ export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, but
     '--buttonHover': buttonHover ? buttonHover : LightenDarkenColor(buttonBackgroundColor || defaultBackgroundColor, -80),
     '--buttonBackgroundColor': buttonBackgroundColor ? buttonBackgroundColor : defaultBackgroundColor,
     '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : '',
-    '--top': top ? `${top}rem` : '1rem',
+    '--top': top ? `${top}rem` : 'auto',
     '--bottom': bottom ? `${bottom}rem` : 'auto',
     '--left': left ? `${left}rem` : 'auto',
-    '--right': right ? `${right}rem` : '1rem',
+    '--right': right ? `${right}rem` : 'auto',
   }
   const toggleMenu = () => setActive((value: Boolean) => !value)
 

@@ -1,5 +1,4 @@
 import './styles.css';
-import '../utils/GlobalStyles.css';
 type storybookContainerProps = {
     children: string | JSX.Element | JSX.Element[] | '() => JSX.Element';
     backgroundImage?: boolean;

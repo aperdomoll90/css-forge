@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { HalfNavPropsType } from './HalfNav.types'
 import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'

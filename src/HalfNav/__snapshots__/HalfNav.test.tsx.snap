@@ -8,7 +8,7 @@ exports[`HalfNav component should match snapshots 1`] = `
   >
     <button
       class="ToggleButton"
-      style="--size: 2rem; --color: #fff; --buttonHover: #ff008a; --buttonBackgroundColor: #303030da; --top: 1rem; --bottom: auto; --left: auto; --right: 1rem;"
+      style="--size: 2rem; --color: #fff; --buttonHover: #ff008a; --buttonBackgroundColor: #303030da; --top: auto; --bottom: auto; --left: auto; --right: auto;"
     >
       <span />
       <span />

@@ -15,7 +15,7 @@ exports[`SkillBar component should match snapshots 1`] = `
     >
       <div
         class="skill-per"
-        per="10%"
+        data-per="10%"
         style="max-width: 10%;"
       />
     </div>

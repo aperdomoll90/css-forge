@@ -1,6 +1,5 @@
 import { FaeLoaderPropsType } from './FaeLoader.types'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 
 export const FaeLoader: React.FC<FaeLoaderPropsType> = ({ size }) => {
   const faeCircleSize = {

@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { AddIcon } from '../IconCollection/IconCollection'
 import { CircularNavPropsTypes } from './CircularNav.types'
 import { menuItemsArrayPropsTypes } from '../utils/GlobalTypes.types'

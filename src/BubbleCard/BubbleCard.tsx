@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { wobbleElement } from '../utils/MouseEvents'
 import { BubbleCardPropsType } from './BubbleCard.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'

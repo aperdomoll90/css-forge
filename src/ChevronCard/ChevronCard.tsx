@@ -1,6 +1,5 @@
 import { ChevronCardPropsType } from './ChevronCard.types'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 
 export const ChevronCard: React.FC<ChevronCardPropsType> = ({ color, buttonColor, buttonHover, buttonLabel, label,labelColor, imgUrl, linkUrl, direction }) => {
   const styleProps = { '--color': color, '--buttonColor': buttonColor, '--buttonHover': buttonHover, '--direction': direction , '--labelColor': labelColor}

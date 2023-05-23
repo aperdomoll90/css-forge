@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 import { TextColorHoverPropsTypes } from './TextColorHover.types'
 
 

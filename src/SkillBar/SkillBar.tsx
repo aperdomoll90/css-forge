@@ -1,6 +1,5 @@
 import { skillBarPropsTypes } from './SkillBar.types'
 import './styles.css'
-import '../utils/GlobalStyles.css'
 
 export const SkillBar: React.FC<skillBarPropsTypes> = ({ level, label }: skillBarPropsTypes) => {
   const skillWidth = {
