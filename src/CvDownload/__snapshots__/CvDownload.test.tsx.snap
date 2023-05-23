@@ -4,12 +4,140 @@ exports[`CvDownload component should match snapshots 1`] = `
 <div>
   <div
     class="cv-download-wrapper"
-    style="--color: #fff; --underBanner: #af; --buttonHover: red; --labelColor: green;"
+    style="--size: 10rem; --color: #fff; --underBanner: #af; --buttonHover: red; --labelColor: green;"
   >
-    <img
+    <svg
       class="cv-download-page"
-      src="page.svg"
-    />
+      viewBox="0 0 116.89 146.32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <style />
+      </defs>
+      <g
+        data-name="Layer 2"
+        id="Layer_2"
+      >
+        <g
+          data-name="Layer 1"
+          id="Layer_1-2"
+        >
+          <polygon
+            class="page-paper"
+            points="0 146.32 116.16 146.28 116.89 21.55 95.34 0.15 0.07 0 0 146.32"
+          />
+          <path
+            class="page-corner"
+            d="M95.05.65V21.37a.09.09,0,0,0,.09.09l21,.22a.08.08,0,0,0,.06-.15L95.21.58A.09.09,0,0,0,95.05.65Z"
+          />
+          <line
+            class="page-line"
+            x1="13.44"
+            x2="102.62"
+            y1="27.4"
+            y2="27.78"
+          />
+          <line
+            class="page-line"
+            x1="13.34"
+            x2="102.52"
+            y1="35.08"
+            y2="35.47"
+          />
+          <line
+            class="page-line"
+            x1="14.02"
+            x2="103.2"
+            y1="42.6"
+            y2="42.98"
+          />
+          <line
+            class="page-line"
+            x1="14.01"
+            x2="103.19"
+            y1="49.89"
+            y2="50.27"
+          />
+          <line
+            class="page-line"
+            x1="14.09"
+            x2="103.27"
+            y1="65.44"
+            y2="65.82"
+          />
+          <line
+            class="page-line"
+            x1="14.2"
+            x2="103.37"
+            y1="72.78"
+            y2="73.16"
+          />
+          <line
+            class="page-line"
+            x1="14.18"
+            x2="103.35"
+            y1="80.06"
+            y2="80.45"
+          />
+          <line
+            class="page-line"
+            x1="13.85"
+            x2="103.03"
+            y1="87.87"
+            y2="88.25"
+          />
+          <line
+            class="page-line"
+            x1="14.05"
+            x2="103.23"
+            y1="95.54"
+            y2="95.92"
+          />
+          <line
+            class="page-line"
+            x1="14.2"
+            x2="103.37"
+            y1="102.99"
+            y2="103.37"
+          />
+          <line
+            class="page-line"
+            x1="14.17"
+            x2="103.34"
+            y1="110.49"
+            y2="110.87"
+          />
+          <line
+            class="page-line"
+            x1="14.08"
+            x2="103.26"
+            y1="118.03"
+            y2="118.41"
+          />
+          <line
+            class="page-line"
+            x1="14.31"
+            x2="103.49"
+            y1="125.66"
+            y2="126.04"
+          />
+          <line
+            class="page-line"
+            x1="14.05"
+            x2="103.23"
+            y1="58.03"
+            y2="58.41"
+          />
+          <line
+            class="page-line"
+            x1="14.39"
+            x2="103.57"
+            y1="133.12"
+            y2="133.5"
+          />
+        </g>
+      </g>
+    </svg>
     <svg
       class="cv-download-banner"
       viewBox="0 0 136.74 53.94"

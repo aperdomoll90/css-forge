@@ -5,23 +5,22 @@ import { DownloadBanner } from './media/CvBanner'
 import { CvDownloadPropsType } from './CvDownload.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
 
-export const CvDownload: React.FC<CvDownloadPropsType> = ({ color, buttonHover, labelColor, linkUrl }) => {
+export const CvDownload: React.FC<CvDownloadPropsType> = ({ size, label, color, buttonHover, labelColor, linkUrl }) => {
   const styleProps = {
+    '--size': size ? `${size}rem` : '10rem',
     '--color': color ? color : '#71bd55',
     '--underBanner': color ? LightenDarkenColor(color, -80) : LightenDarkenColor('#71bd55', -80),
     '--buttonHover': buttonHover ? buttonHover : 'green',
-    '--labelColor': labelColor ? labelColor : 'white'
+    '--labelColor': labelColor ? labelColor : 'white',
   }
   return (
-    <div
-      className='cv-download-wrapper'
-      style={styleProps as React.CSSProperties}>
+    <div className='cv-download-wrapper' style={styleProps as React.CSSProperties}>
       {Page}
       {DownloadBanner}
       <a href={linkUrl} target='_blank' className='cv-download-arrow-circle'>
         <div className='cv-download-arrow' />
       </a>
-      <p className='cv-download-label'>DOWNLOAD</p>
+      <p className='cv-download-label'>{label ? label : 'DOWNLOAD'}</p>
     </div>
   )
 }

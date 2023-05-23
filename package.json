@@ -2,7 +2,7 @@
   "name": "css-forge",
   "title": "css-forge component library",
   "description": "React Component Library created by css-forge for experimental use",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "license": "MIT",
   "author": "css-forge by Adrian",
   "main": "dist/cjs/index.js",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/aperdomoll90/css-forge"
   },
-  "type": "commonjs",
+  "type": "module",
   "source": "index.tsx",
   "private": false,
   "dependencies": {

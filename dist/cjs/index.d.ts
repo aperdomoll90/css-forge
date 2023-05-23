@@ -9,6 +9,7 @@ export * from './HalfNav';
 export * from './IconCollection';
 export * from './PerspectiveCard';
 export * from './RainbowVinylLoader';
+export * from './ResponsiveNav';
 export * from './RollingBallNav';
 export * from './SkillBar';
 export * from './SlicerButton';

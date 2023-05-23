@@ -4,7 +4,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
+    "lib": ["es5", "es2015", "es2016", "dom", "dom.iterable", "esnext"],
     "types": ["node", "jest"],
     "moduleResolution": "node",
     "noImplicitAny": true,
