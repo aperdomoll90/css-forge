@@ -2,6 +2,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "lib": ["es5", "es2015", "es2016", "dom", "dom.iterable", "esnext"],
@@ -10,8 +12,17 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es5",
+    "module": "esnext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "baseUrl": "./src"
   },
-
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src"],
+  "exclude": ["node_modules", "build"]
 }

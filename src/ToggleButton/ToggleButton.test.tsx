@@ -6,6 +6,7 @@ describe('ToggleButton component', () => {
   const props: ToggleButtonPropsType = {
     color: '#fff',
     buttonHover: 'red',
+    active: true,
     buttonBackgroundColor: 'black',
     setActive: () => {
       alert('Button clicked')

@@ -1,10 +1,9 @@
-import { useEffect } from 'react'
 import './styles.css'
 import '../utils/GlobalStyles.css'
 import { ToggleButtonPropsType } from './ToggleButton.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
 
-export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, buttonHover, buttonBackgroundColor, shadow, setActive, ariaControls, ariaExpanded, top, bottom, left, right, customClass }) => {
+export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, buttonHover, buttonBackgroundColor, shadow, active, setActive, ariaControls, ariaExpanded, top, bottom, left, right, customClass }) => {
   const defaultColor = '#fff'
   const defaultBackgroundColor = '#303030da'
 
@@ -19,20 +18,12 @@ export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, but
     '--left': left ? `${left}rem` : 'auto',
     '--right': right ? `${right}rem` : 'auto',
   }
-  const toggleMenu = () => setActive((value: Boolean) => !value)
 
-  useEffect(() => {
-    let menuToggle = document.querySelector('.ToggleButton') as HTMLElement
-    if (menuToggle) {
-      menuToggle.onclick = function () {
-        menuToggle.classList.toggle('ToggleButtonActive')
-        toggleMenu()
-      }
-    }
-  }, [])
-  const classArray = customClass && customClass ? `ToggleButton ${customClass}` : 'ToggleButton'
+  const isActive = active ? 'ToggleButtonActive ToggleButton' : 'ToggleButton'
+  const classArray = customClass && customClass ? `${isActive} ${customClass}` : isActive
+
   return (
-    <button className={classArray} aria-controls={ariaControls} aria-expanded={ariaExpanded} style={stylesProps as React.CSSProperties}>
+    <button className={classArray} aria-controls={ariaControls} aria-expanded={ariaExpanded} style={stylesProps as React.CSSProperties} onClick={() => setActive()}>
       <span></span>
       <span></span>
       <span></span>

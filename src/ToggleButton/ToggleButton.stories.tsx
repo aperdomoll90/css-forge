@@ -11,6 +11,7 @@ export default {
     jest: ['ToggleButton.test.tsx'],
   },
   argTypes: {
+    active: { options: [true,false], control: { type: 'radio' } },
     size: { options: dozen, control: { type: 'select' } },
     top: { options: dozen, control: { type: 'select' } },
     bottom: { options: dozen, control: { type: 'select' } },
@@ -25,13 +26,15 @@ export default {
   },
 } as Meta
 
-const ToggleButtonTemplate: StoryFn<ToggleButtonPropsType> = args => (
-  <StorybookContainer>
-    <div className='story-button-container-centered'>
-      <ToggleButton {...args} />
-    </div>
-  </StorybookContainer>
-)
+const ToggleButtonTemplate: StoryFn<ToggleButtonPropsType> = args => {
+  return (
+    <StorybookContainer>
+      <div className='story-button-container-centered'>
+        <ToggleButton {...args} />
+      </div>
+    </StorybookContainer>
+  )
+}
 
 export const ToggleButtonComponent = ToggleButtonTemplate.bind({})
 ToggleButtonComponent.args = {
