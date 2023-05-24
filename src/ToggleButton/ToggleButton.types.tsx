@@ -10,6 +10,7 @@ export interface ToggleButtonPropsType {
   shadow?: boolean
   ariaControls?: string
   ariaExpanded?: boolean
+  active: boolean
   setActive: Function
   customClass?: string
 }
