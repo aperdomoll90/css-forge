@@ -2,12 +2,16 @@
   "name": "css-forge",
   "title": "css-forge component library",
   "description": "React Component Library created by css-forge for experimental use",
-  "version": "0.1.21",
+  "version": "0.1.23",
   "license": "MIT",
   "author": "Adrian Perdomo Llerena",
-  "source": "index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "type": "module",
+  "source": "index.tsx",
+  "umd:main": "dist",
+  "unpkg": "dist/index.js",
+  "jsnext:main": "dist",
   "files": [
     "dist",
     "scripts"
@@ -49,7 +53,7 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "local":"node build.js"
+    "local": "node build.js"
   },
   "exports": {
     ".": {
