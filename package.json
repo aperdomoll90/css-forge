@@ -5,13 +5,12 @@
   "version": "0.1.21",
   "license": "MIT",
   "author": "Adrian Perdomo Llerena",
-  "type": "module",
   "source": "index.tsx",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "dist"
+    "dist",
+    "scripts"
   ],
   "repository": {
     "type": "git",
@@ -42,12 +41,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist/ && rollup -c --bundleConfigAsCjs",
+    "build": "yarn build:dist && yarn build:types",
+    "build:dist": "rm -rf dist/ && rollup -c --bundleConfigAsCjs",
+    "build:types": "node scripts/copy-types.js",
     "publish": "npm run build && npm publish --access public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "local":"node build.js"
   },
   "exports": {
     ".": {

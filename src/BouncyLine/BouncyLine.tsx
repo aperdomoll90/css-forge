@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { gsap, Elastic } from 'gsap'
 import './styles.css'
 

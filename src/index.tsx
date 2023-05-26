@@ -13,5 +13,6 @@ export * from './SkillBar'
 export * from './SlicerButton'
 export * from './TextColorHover'
 export * from './ToggleButton'
+export * from './TestHook'
 
 

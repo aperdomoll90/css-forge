@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TestHook component should match snapshots 1`] = `
+<div>
+  <button
+    class="TestHook"
+    style="--size: 2rem; --color: #fff; --buttonHover: red; --buttonBackgroundColor: black; --top: auto; --bottom: auto; --left: auto; --right: auto;"
+  >
+    <span />
+    <span />
+    <span />
+    <span
+      class="sr-only"
+    >
+      menu
+    </span>
+  </button>
+</div>
+`;
