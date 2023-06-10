@@ -4,6 +4,7 @@ export * from './ChevronCard'
 export * from './CircularNav'
 export * from './CosmicChart'
 export * from './CvDownload'
+export * from './DrawSvg'
 export * from './FaeLoader'
 export * from './PerspectiveCard'
 export * from './RainbowVinylLoader'
@@ -14,5 +15,6 @@ export * from './SlicerButton'
 export * from './TextColorHover'
 export * from './ToggleButton'
 export * from './TestHook'
+
 
 
