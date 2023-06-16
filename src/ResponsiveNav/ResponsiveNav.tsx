@@ -45,7 +45,7 @@ export const ResponsiveNav: React.FC<ResponsiveNavPropsTypes> = ({ logo, height,
         buttonBackgroundColor='transparent'
       />
       <nav>
-        <ul id='primary-navigation' aria-aria-expanded={visible} data-visible={visible} className='primary-navigation uppercase ff-sans-cond flex-row'>
+        <ul id='primary-navigation' aria-expanded={visible} data-visible={visible} className='primary-navigation uppercase ff-sans-cond flex-row'>
           {renderMenuItems}
         </ul>
       </nav>

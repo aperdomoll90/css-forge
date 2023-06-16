@@ -10,11 +10,13 @@ export * from './PerspectiveCard'
 export * from './RainbowVinylLoader'
 export * from './ResponsiveNav'
 export * from './RollingBallNav'
+export * from './SectionEnsemble'
 export * from './SkillBar'
 export * from './SlicerButton'
 export * from './TextColorHover'
 export * from './ToggleButton'
 export * from './TestHook'
+
 
 
 
