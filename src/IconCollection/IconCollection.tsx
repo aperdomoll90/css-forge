@@ -119,3 +119,13 @@ export const CameraIcon = (
     <path stroke-linecap='round' stroke-linejoin='round' d='M124 158v-22h-24v22' className='icon-camera'></path>
   </svg>
 )
+
+export const RotateArrow = (
+  <svg fill='#000000' height='800px' width='800px' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 219.508 219.508'>
+    <path
+      d='M143.778,88.557l-10.607-10.607l33.672-33.671l-33.672-33.671L143.778,0l44.277,44.278L143.778,88.557z M73.533,121.572
+	c0-28.952,22.145-52.825,50.385-55.583l21.711-21.711l-20.542-20.542c-52.014,2.259-93.635,45.275-93.635,97.836
+	c0,54.002,43.934,97.936,97.936,97.936h7.5v-42.081h-7.5C98.59,177.427,73.533,152.37,73.533,121.572z'
+    />
+  </svg>
+)

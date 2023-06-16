@@ -6,7 +6,9 @@ type storybookContainerProps = {
 }
 
 function StorybookContainer({ children, backgroundImage }: storybookContainerProps) {
-  return <div className={`storybook-container ${backgroundImage && 'storybook-container-image'}`}>{children}</div>
+  const classArray = backgroundImage ? `storybook-container storybook-container-image` : 'storybook-container'
+
+  return <div className={classArray}>{children}</div>
 }
 
 export default StorybookContainer

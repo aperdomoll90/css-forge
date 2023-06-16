@@ -5,7 +5,7 @@ import { CircularNavPropsTypes } from './CircularNav.types'
 import { extendedMenuItemsArray } from '../utils/MenuProps'
 
 export default {
-  title: 'Navigation Bars',
+  title: 'Navigation',
   component: CircularNav,
   parameters: {
     jest: ['CircularNav.test.tsx'],

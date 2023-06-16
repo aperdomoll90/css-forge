@@ -5,7 +5,7 @@ import { RollingBallNavPropsTypes } from './RollingBallNav.type'
 import { menuItemsArray } from '../utils/MenuProps'
 
 export default {
-  title: 'Navigation Bars',
+  title: 'Navigation',
   component: RollingBallNav,
   parameters: {
     jest: ['RollingBallNav.test.tsx'],
