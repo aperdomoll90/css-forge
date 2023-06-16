@@ -25,7 +25,7 @@ export interface ModelPropsTypes {
   testId?: string
   customClass?: string
   domContentRef?: React.MutableRefObject<HTMLDivElement>
-  cameraControlRef?: React.RefObject<CameraControls | null>
+  cameraRef?: React.RefObject<CameraControls>
 }
 
 export interface SectionEnsemblePropsTypes extends ModelPropsTypes {
@@ -37,5 +37,5 @@ export interface CameraPropsTypes {
   y: number
   z: number
   fov: number
-  cameraControlRef?: React.RefObject<CameraControls | null>
+  cameraRef?: React.RefObject<CameraControls>
 }

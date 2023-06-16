@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { SectionEnsemble } from './SectionEnsemble'
 import StorybookContainer from '../StorybookContainer'
-import React, { createRef } from 'react'
+import { createRef } from 'react'
 import { SectionEnsemblePropsTypes, StatePropsType } from './SectionEnsemble.types'
 
 const state: StatePropsType = {

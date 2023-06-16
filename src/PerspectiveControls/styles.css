@@ -1,0 +1,96 @@
+.camera-controls-wrapper {
+  width: 8rem;
+  aspect-ratio: 1;
+  position: absolute;
+  z-index: 9999;
+  top: var(--top);
+  bottom: var(--bottom);
+  right: var(--right);
+  left: var(--left);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryColor);
+}
+
+.camera-controls-button {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  background-color: var(--buttonColor);
+  border: none;
+  outline: none;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.camera-button-to-left {
+  right: 0;
+}
+.camera-button-to-right {
+  left: 0;
+}
+.camera-button-to-up {
+  bottom: 0;
+}
+.camera-button-to-down {
+  top: 0;
+}
+
+.camera-controls-button svg {
+  width: 70%;
+  aspect-ratio: 1;
+  fill: var(--labelColor);
+  filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.481));
+  transition: 0.2s ease-in-out;
+}
+.camera-controls-button:hover svg {
+  width: 70%;
+  fill: var(--hoverColor);
+}
+
+.camera-button-to-left svg {
+  transform: scaleY(-1) scaleX(-1);
+}
+.camera-button-to-up svg {
+  transform: rotate(-90deg);
+}
+.camera-button-to-down svg {
+  transform: rotate(90deg);
+}
+
+.camera-controls-button:active svg {
+  fill: var(--pressColor);
+  transition: 0s;
+}
+
+/* reset button */
+
+.camera-button-reset::before {
+  content: '';
+  min-width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: -35%;
+  margin-left: -35%;
+  background: var(--labelColor);
+  filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.481));
+  transition: 0.2s ease-in-out;
+}
+
+.camera-button-reset:hover::before {
+  transform: scale(1.1);
+  background: var(--hoverColor);
+}
+
+.camera-button-reset:active::before {
+  background: var(--pressColor);
+  transition: 0s;
+}

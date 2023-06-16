@@ -7,7 +7,7 @@ import { colorPickerControl, pentaDecimals } from '../utils/StoryProps'
 import logo from '../media/Logo.png'
 
 export default {
-  title: 'Navigation Bars',
+  title: 'Navigation',
   component: ResponsiveNav,
   parameters: {
     jest: ['ResponsiveNav.test.tsx'],
