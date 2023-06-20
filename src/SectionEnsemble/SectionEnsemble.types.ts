@@ -12,7 +12,7 @@ export interface ModelProps {
 }
 
 export interface ModelPropsTypes {
-  children: React.ReactNode
+  children?: React.ReactNode
   state: StatePropsType
   modelUrl: string
   modelPosition: [x: number, y: number, z: number]
@@ -30,6 +30,12 @@ export interface ModelPropsTypes {
 
 export interface SectionEnsemblePropsTypes extends ModelPropsTypes {
   camera: CameraPropsTypes
+  canvasWidth?: string
+  canvasHeight?: string
+  canvasTop?: string
+  canvasLeft?: string
+  canvasRight?: string
+  canvasBottom?: string
 }
 
 export interface CameraPropsTypes {

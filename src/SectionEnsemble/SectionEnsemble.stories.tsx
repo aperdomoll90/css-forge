@@ -5,8 +5,8 @@ import { createRef } from 'react'
 import { SectionEnsemblePropsTypes, StatePropsType } from './SectionEnsemble.types'
 
 const state: StatePropsType = {
-  sections: 2,
-  pages: 2,
+  sections: 1,
+  pages: 1,
   zoom: 1,
   top: createRef<any>(),
 }
@@ -54,4 +54,6 @@ SectionEnsembleComponent.args = {
     y: 30,
     z: 100,
   },
+  cameraRef: createRef<any>(),
+
 }

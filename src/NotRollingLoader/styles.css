@@ -1,0 +1,47 @@
+.not-rolling-loader-wrapper {
+  width: 20rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  outline: 2px solid var(--trackColor);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-rolling-loader-track {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--trackColor);
+  overflow: visible;
+  transform: rotate(calc(-180deg / var(--tracks) * var(--index)));
+}
+.not-rolling-loader-track-inner::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color);
+}
+
+.not-rolling-loader-track-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: animateTrack 1s infinite ease-in-out;
+  animation-direction: alternate;
+  animation-delay: calc(1s / var(--tracks) * var(--index));
+}
+
+@keyframes animateTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

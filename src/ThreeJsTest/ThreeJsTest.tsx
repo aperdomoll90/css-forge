@@ -8,18 +8,8 @@ import { Html, useGLTF } from '@react-three/drei'
 import { useFrame, useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useInView } from 'react-intersection-observer'
-// export const Model = props => {
-//   const group = useRef()
-//   const { nodes, materials } = useGLTF(chairUrl)
-//   return (
-//     <group ref={group} {...props} dispose={null}>
-//       <mesh castShadow receiveShadow geometry={nodes.Curve007_1.geometry} material={materials['Material.001']} />
-//       <mesh castShadow receiveShadow geometry={nodes.Curve007_2.geometry} material={materials['Material.002']} />
-//     </group>
-//   )
-// }
+import { ChangeSectionColor } from '../utils/ColorManipulation'
 
-// useGLTF.preload(chairUrl)
 interface ModelProps {
   url: string
 }
@@ -42,10 +32,8 @@ export const SectionEnsemble: React.FC<SectionEnsembleProps> = ({ children, bgCo
   const [refItem, inView] = useInView({
     threshold: 0,
   })
-  const wrapper = document.getElementById("three-wrapper")
-  useEffect(() => {
-    inView && wrapper && (wrapper.style.backgroundColor = bgColor);
-  }, [inView])
+
+  ChangeSectionColor(bgColor, inView, "three-wrapper")
 
   return (
     <Section factor={1.5} offset={1}>
@@ -115,6 +103,7 @@ export const ThreeJsTest: React.FC<ThreeJsTestPropsType> = ({ size }) => {
         </Suspense>
       </Canvas>
       <div ref={scrollArea} onScroll={onScroll} className='three-scroll-area-wrapper'>
+        <div className="fixed-square"></div>
         <div ref={domContent} className='three-scroll-dom-content' />
         <div className='three-scroll-area' style={{ height: `${state.sections * 100}vh` }} />
       </div>
