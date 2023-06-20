@@ -12,7 +12,7 @@ const Lights = () => {
     <>
       <ambientLight intensity={0.3} />
       <directionalLight castShadow position={[0, 10, 0]} intensity={1.5} shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-camera-far={50} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
-      <spotLight intensity={.5} position={[1000, 0, 0]} castShadow />
+      <spotLight intensity={0.5} position={[1000, 0, 0]} castShadow />
     </>
   )
 }
@@ -23,19 +23,12 @@ const Model: React.FC<ModelProps> = ({ modelUrl }) => {
 }
 
 const Ensemble: React.FC<SectionEnsemblePropsTypes> = props => {
-  const { children, modelUrl, modelPosition, animated, customClass, modelRotationX, modelRotationY, modelRotationZ, domContentRef, cameraRef } = props
+  const { children, modelUrl, modelPosition, animated, customClass, modelRotationX, modelRotationY, modelRotationZ, domContentRef } = props
   // Add rotation to Z axis
   const meshRef = useRef<any>()
   animated && useFrame(() => (meshRef.current.rotation.y += 0.01))
   // Add Custom Class
   const classArray = customClass ? `section-ensemble-container section-ensemble-flex-container relative-container ${customClass}` : 'section-ensemble-container section-ensemble-flex-container relative-container'
-
-  const controlsProps = {
-    buttonColor: 'transparent',
-    top: 2,
-    right: 3,
-  }
-
 
   return (
     <group position={[0, 0, 0]}>
@@ -45,7 +38,6 @@ const Ensemble: React.FC<SectionEnsemblePropsTypes> = props => {
       <Html portal={domContentRef} fullscreen>
         <div className={classArray}>
           <>
-          <PerspectiveControls cameraRef={cameraRef as any} {...controlsProps}  /> 
             {children}
           </>
         </div>
@@ -55,14 +47,23 @@ const Ensemble: React.FC<SectionEnsemblePropsTypes> = props => {
 }
 
 export const SectionEnsemble: React.FC<SectionEnsemblePropsTypes> = props => {
-  const { children, bgColor, camera, manualControls } = props
+  const { children, bgColor, camera, manualControls, canvasWidth, canvasHeight, canvasTop, canvasLeft, canvasRight, canvasBottom,cameraRef } = props
   const domContentRef = React.useRef() as React.MutableRefObject<HTMLDivElement>
-  const cameraRef = useRef() as React.RefObject<CameraControls>
+
+  console.log('canvasWidth', canvasWidth)
+  const styleProps = {
+    '--bgColor': bgColor ? bgColor : '#f15946',
+    '--canvasWidth': canvasWidth ? canvasWidth : '100%',
+    '--canvasHeight': canvasHeight ? canvasHeight : '100%',
+    '--canvasTop': canvasTop ? canvasTop : '0%',
+    '--canvasLeft': canvasLeft ? canvasLeft : '0%',
+    '--canvasRight': canvasRight ? canvasRight : '0%',
+    '--canvasBottom': canvasBottom ? canvasBottom : '0%',
+  }
 
   return (
-    <div id='section-ensemble-wrapper' className='section-ensemble-wrapper section-ensemble-flex-container relative-container' style={{ '--bgColor': bgColor ? bgColor : '#f15946' } as React.CSSProperties}>
-      <Canvas camera={{ fov: camera.fov, position: [camera.x, camera.y, camera.z] }} className='section-ensemble-container section-ensemble-flex-container relative-container' legacy>
-        {/* pass cameraRef as props from other components so controls can be a independent component */}
+    <div id='section-ensemble-wrapper' className='section-ensemble-wrapper section-ensemble-flex-container relative-container' style={styleProps as React.CSSProperties}>
+      <Canvas id='section-ensemble-canvas' camera={{ fov: camera.fov, position: [camera.x, camera.y, camera.z] }} className='section-ensemble-flex-container' legacy>
         <CameraControls ref={cameraRef} />
         <Lights />
         <Ensemble domContentRef={domContentRef} cameraRef={cameraRef as any} {...props}>

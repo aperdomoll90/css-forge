@@ -1,10 +1,15 @@
 .section-ensemble-wrapper {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
   z-index: 99;
   background-color: var(--bgColor);
+  width: var(--canvasWidth) !important;
+  height: var(--canvasHeight) !important;
+  position: absolute !important;
+  top: var(--canvasTop) !important;
+  left: var(--canvasLeft) !important;
+  right: var(--canvasRight) !important;
+  bottom: var(--canvasBottom) !important;
 }
+
 .section-ensemble-flex-container {
   display: flex;
   align-items: center;
@@ -26,8 +31,6 @@
 .relative-absolute {
   position: absolute;
 }
-
-
 
 /* storyBook story styles */
 .storybook-wrapper {

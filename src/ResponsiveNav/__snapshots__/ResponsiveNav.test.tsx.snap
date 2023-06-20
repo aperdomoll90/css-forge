@@ -25,7 +25,7 @@ exports[`ResponsiveNav component should match snapshots 1`] = `
     </button>
     <nav>
       <ul
-        aria-aria-expanded="false"
+        aria-expanded="false"
         class="primary-navigation uppercase ff-sans-cond flex-row"
         data-visible="false"
         id="primary-navigation"

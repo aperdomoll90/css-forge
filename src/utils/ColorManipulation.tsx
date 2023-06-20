@@ -1,5 +1,28 @@
+import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+
 export interface ColorPropsType {
   color: string | `#${string}` | `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})`
+}
+
+export const RandomColor = (): string => { 
+  const randomColor = Math.floor(Math.random()*16777215).toString(16)
+  return `#${randomColor}`
+}
+
+export const ColorByIndex = (index:number, arraySize:number) => { 
+  return `hsl(${(index * 360) / arraySize}, 100%, 50%)`
+}
+
+export const ChangeSectionColor = (bgColor: string, inView: boolean, parentID: string): void => {
+  // add this where this function will be used
+  // const [refItem, inView] = useInView({
+  //   threshold: 0,
+  // })
+  const wrapper = document.getElementById(parentID)
+  useEffect(() => {
+    inView && wrapper && (wrapper.style.backgroundColor = bgColor)
+  }, [inView])
 }
 
 export const LightenDarkenColor = (color: any, amount: number) => {

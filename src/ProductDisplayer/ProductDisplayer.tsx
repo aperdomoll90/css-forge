@@ -1,48 +1,37 @@
-import React, { createRef, useEffect } from 'react'
+import React, { createRef, useEffect, useRef } from 'react'
 import './styles.css'
 import { ProductDisplayerPropsTypes } from './ProductDisplayer.types'
 import { SectionEnsemble, SectionEnsemblePropsTypes, StatePropsType } from '../SectionEnsemble'
 import { ToggleButton } from '../ToggleButton'
+import { CameraControls } from '@react-three/drei'
+import { PerspectiveControls } from '../PerspectiveControls'
 
 // Add size control passed down to the model
 //  Add controls to the model
 //  Add initial position for model
 
 const state: StatePropsType = {
-  sections: 2,
-  pages: 2,
+  sections: 1,
+  pages: 1,
   zoom: 1,
   top: createRef<any>(),
 }
-const ensembleProps: Omit<SectionEnsemblePropsTypes, 'children'> = {
-  modelPosition: [-65, -30, 0],
-  modelRotationX: 0,
-  modelRotationY: 7,
-  modelRotationZ: -0.07,
-  camera: {
-    fov: 70,
-    x: 0,
-    y: 40,
-    z: 100,
-  },
-  modelUrl: '/armchairBlue/scene.gltf',
-  state: state,
-  animated: false,
-  manualControls: false,
-  testId: 'product-displayer',
-  bgColor: '#f8f8fa',
-}
 
-const getDomContent = () => {
+const getDomContent = (cameraRef:any) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [color, setColor] = React.useState<string>('')
 
+   const controlsProps = {
+    buttonColor: 'transparent',
+    top: 4,
+    left: 2,
+  }
   return (
-    <div id='product-displayer-wrapper'>
+    <div id='product-displayer-dom-content'>
       <div id='product-image-area'>
         <ToggleButton
           top={1}
-          left={1}
+          left={3}
           ariaControls='carrousel-area'
           ariaExpanded={visible}
           active={visible}
@@ -50,6 +39,8 @@ const getDomContent = () => {
             setVisible(!visible)
           }}
         />
+      <PerspectiveControls cameraRef={cameraRef as any} {...controlsProps} />
+
         <div id='carrousel-area' aria-expanded={visible} data-visible={visible}>
           <h1>Product Displayer Carrousel</h1>
         </div>
@@ -82,7 +73,8 @@ const getDomContent = () => {
           </div>
         </div>
         <div className='product-menu-action-area'>
-          <div className='product-menu-action-button' />
+         <div className='product-menu-qty-button'>1 \/</div>
+          <div className='product-menu-action-button'>Add to cart</div>
           <div className='product-menu-secondary-button'>see it in store</div>
         </div>
       </div>
@@ -91,5 +83,34 @@ const getDomContent = () => {
 }
 
 export const ProductDisplayer: React.FC<ProductDisplayerPropsTypes> = () => {
-  return <SectionEnsemble {...ensembleProps}>{getDomContent()}</SectionEnsemble>
+  const cameraRef = useRef() as React.RefObject<CameraControls>
+
+  const ensembleProps: Omit<SectionEnsemblePropsTypes, 'children'> = {
+    modelPosition: [0, -30, 0],
+    modelRotationX: 0,
+    modelRotationY: 7,
+    modelRotationZ: 0,
+    cameraRef: cameraRef,
+    camera: {
+      fov: 70,
+      x: 0,
+      y: 30,
+      z: 100,
+    },
+    modelUrl: '/armchairBlue/scene.gltf',
+    state: state,
+    animated: false,
+    manualControls: false,
+    testId: 'product-displayer',
+    bgColor: 'transparent',
+    canvasWidth: '60%',
+    canvasLeft: '0rem',
+  }
+
+  return (
+    <div id='product-displayer-wrapper'>
+      {getDomContent(cameraRef)}
+      <SectionEnsemble {...ensembleProps} />
+    </div>
+  )
 }
