@@ -46,13 +46,19 @@
 .camera-controls-button svg {
   width: 70%;
   aspect-ratio: 1;
-  fill: var(--labelColor);
   filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.481));
   transition: 0.2s ease-in-out;
 }
+.camera-controls-button svg path {
+  stroke: var(--labelColor);
+}
+
 .camera-controls-button:hover svg {
   width: 70%;
-  fill: var(--hoverColor);
+}
+
+.camera-controls-button:hover svg path {
+  stroke: var(--hoverColor);
 }
 
 .camera-button-to-left svg {
@@ -66,7 +72,11 @@
 }
 
 .camera-controls-button:active svg {
-  fill: var(--pressColor);
+  transition: 0s;
+}
+
+.camera-controls-button:active svg path {
+  stroke: var(--pressColor);
   transition: 0s;
 }
 

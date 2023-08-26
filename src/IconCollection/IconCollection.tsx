@@ -129,3 +129,18 @@ export const RotateArrow = (
     />
   </svg>
 )
+
+export const RotateSplitArrow = (
+  <svg id='eVO4Tuj5D2G1' xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 300 300' shape-rendering='geometricPrecision' text-rendering='geometricPrecision'>
+    <path d='M89.662403,73.78619l20.315275-.813688-.55839,21.887464' transform='matrix(.882948 0.469472-.469472 0.882948 15.097428-30.84039)' fill='none' stroke='#3f5787' stroke-width='6' stroke-linecap='round' />
+    <path
+      d='M210.932435,84.453305c61.175117,5.728806,81.427332,39.935488,82.993456,57.836336c3.409005,38.965131-58.603109,85.905453-138.213454,92.874222-53.504331,4.31001-144.833479-11.034657-150.940978-67.576489-.132167-1.223568-10.041715-46.519927,59.472837-73.194618'
+      transform='matrix(.996195 0.087156-.087156 0.996195 15.375977-12.156787)'
+      fill='none'
+      stroke='#3f5787'
+      stroke-width='6'
+      stroke-linecap='round'
+    />
+    <path d='M8.393237,131.756687c9.214094,80.057197,289.595981,55.445745,289.154431-25.297738' transform='matrix(.996195 0.087156-.087156 0.996195 8.645131 23.221898)' fill='none' stroke='#3f5787' stroke-width='6' stroke-linecap='round' />
+  </svg>
+)

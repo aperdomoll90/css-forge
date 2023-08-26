@@ -197,3 +197,10 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.product-image-controls {
+  transition: .5s ease-in-out;
+}
+.product-image-controls[aria-expanded='true'] {
+  display: none;
+}

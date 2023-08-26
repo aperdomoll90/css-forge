@@ -1,35 +1,13 @@
 import { CameraControls } from '@react-three/drei'
-import React, { createRef, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Canvas, useLoader } from 'react-three-fiber'
 import { FixedModelPropsTypes, FixedModelStatePropsType } from './FixedModel.types'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import './styles.css'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-
-// const Model = ({ ...props }) => {
-//   const group = useRef<any>()
-//   const { nodes, materials, animations }: any = useGLTF('/seaTurtle/scene.gltf')
-//   const { actions } = useAnimations(animations, group)
-//   return (
-//     <group ref={group} {...props} dispose={null} position={[0, 0, 0]}>
-//       <group name='Sketchfab_Scene'>
-//         <group name='Sketchfab_model' rotation={[-Math.PI / 2, 0, 0]} scale={2.18}>
-//           <group name='Root'>
-//             <group name='Hawksbillarmature'>
-//               <group name='Hawksbillmesh' position={[-0.01, 0.05, 0]} />
-//               <primitive object={nodes.Hawksbillarmature_rootJoint} />
-//               <skinnedMesh name='Hawksbillmesh_0' geometry={nodes.Hawksbillmesh_0.geometry} material={materials['hawksbill.body']} skeleton={nodes.Hawksbillmesh_0.skeleton} />
-//               <skinnedMesh name='Hawksbillmesh_1' geometry={nodes.Hawksbillmesh_1.geometry} material={materials.outer} skeleton={nodes.Hawksbillmesh_1.skeleton} />
-//               <skinnedMesh name='Hawksbillmesh_2' geometry={nodes.Hawksbillmesh_2.geometry} material={materials['hawksbill.eyes']} skeleton={nodes.Hawksbillmesh_2.skeleton} />
-//             </group>
-//           </group>
-//         </group>
-//       </group>
-//     </group>
-//   )
-// }
-
-// useGLTF.preload('/seaTurtle/scene.gltf')
+// import logoRing from '../media/logoRing.png'
+import logoRing from '../media/logoRingW.png'
+import beachDusk from '../media/beachDusk.png'
 
 // LEATHERBACK
 
@@ -76,6 +54,10 @@ function LeatherbackModel({ ...props }) {
 
 useGLTF.preload('/Leatherback/scene.gltf')
 
+// GREEN SEA TURTLE
+// camera={{ fov: 5, position: [-40, 40, Math.PI / 0.09] }}
+// camera={{ fov: 5, position: [-40, 40, 0] }} // side view
+// camera={{ fov: 5, position: [-90, 40, 0] }} // side view
 function GreenTurtleModel({ ...props }) {
   const group = useRef()
   const { nodes, materials, animations }: any = useGLTF('/greenseaturtle/scene.gltf')
@@ -116,8 +98,6 @@ function GreenTurtleModel({ ...props }) {
 
 useGLTF.preload('/greenseaturtle/scene.gltf')
 
-// GREEN SEA TURTLE
-
 interface ModelProps {
   modelUrl: string
 }
@@ -129,8 +109,7 @@ const Model: React.FC<ModelProps> = ({ modelUrl }) => {
 
 const Ensemble = () => {
   const meshRef = useRef<any>()
-  const modelUrl = '/greenseaturtle/scene.gltf'
-  // camera={{ fov: 5, position: [-40, 40, Math.PI / 0.09] }}
+  //   const modelUrl = '/greenseaturtle/scene.gltf'
   //   const modelUrl = '/Leatherback/scene.gltf'
 
   return (
@@ -154,11 +133,20 @@ export const FixedModel: React.FC<FixedModelPropsTypes> = props => {
   //     top: createRef<any>(),
   //   }
 
+  // LEATHERBACK TURTLE
+  //camera={{ fov: 16, position: [0, 60, -40] }} // frontal view
+  // GREEN SEA TURTLE
+  // camera={{ fov: 5, position: [-40, 40, Math.PI / 0.09] }}
+  // camera={{ fov: 5, position: [-40, 40, 0] }} // side view
+  // camera={{ fov: 5, position: [-90, 40, 0] }} // side view
+  //   camera={{ fov: 5, position: [0, 0, 30] }} // frontal view for the end
   return (
     <div id='fixed-model-wrapper'>
+      <img id='fixed-model-canvas-logo-ring' src={logoRing} />
       <div id='fixed-model-canvas-container'>
-        <Canvas id='fixed-model-canvas' camera={{ fov: 30, position: [30, Math.PI / 2, Math.PI / 0.09] }} className='section-ensemble-flex-container' legacy>
-          {/* <CameraControls ref={cameraRef} /> */}
+        {/* <div id='fixed-model-canvas-ring-image' data-url={`url(${beachDusk})`} /> */}
+        <Canvas id='fixed-model-canvas' camera={{ fov: 25, position: [0, 60, -40] }}  className='section-ensemble-flex-container' legacy>
+          <CameraControls ref={cameraRef} />
           <ambientLight intensity={0.2} />
           <directionalLight castShadow position={[10, 10, 0]} intensity={1.5} shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-camera-far={50} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
           <spotLight intensity={0.5} position={[100, 0, 0]} castShadow />
@@ -166,12 +154,12 @@ export const FixedModel: React.FC<FixedModelPropsTypes> = props => {
         </Canvas>
       </div>
 
-      <div ref={scrollArea} className='fixed-model-content-wrapper'>
+      {/* <div ref={scrollArea} className='fixed-model-content-wrapper'>
         <div className='fixed-test' style={{ '--color': 'rgba(69, 23, 207, 0.441)' } as React.CSSProperties} />
         <div className='fixed-test' style={{ '--color': 'rgba(207, 23, 23, 0.441)' } as React.CSSProperties} />
         <div className='fixed-test' style={{ '--color': 'rgba(48, 207, 23, 0.441)' } as React.CSSProperties} />
         <div className='fixed-test' style={{ '--color': 'rgba(207, 23, 87, 0.441)' } as React.CSSProperties} />
-      </div>
+      </div> */}
     </div>
   )
 }

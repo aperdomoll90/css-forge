@@ -1,34 +1,63 @@
+/* --primary-color:#060117 */
+
 #fixed-model-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgb(6, 1, 23);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rgb(237, 236, 241); */
+  background: rgb(6, 1, 23);
 }
 
 #fixed-model-canvas-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floating 5s infinite ease-in-out alternate;
+}
+@keyframes floating {
+  0% {
+    transform: translateY(5%);
+  }
+  50% {
+    transform: translateY(-5%);
+  }
+}
+#fixed-model-canvas-logo-ring {
+  width: auto;
+  height: 90vh;
+  position: absolute;
+}
+#fixed-model-canvas-ring-image {
+  width: auto;
+  height: 90vh;
+  position: absolute;
+  background: url('../media/beachDusk.png') center center no-repeat;
 }
 
 .fixed-model-content-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 400vh;
-    z-index: 99999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 400vh;
+  z-index: 99999;
 }
 
 .fixed-test {
-    width: 100vw;
-    height: 100vh;
-    background: var(--color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  /* background: var(--color); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

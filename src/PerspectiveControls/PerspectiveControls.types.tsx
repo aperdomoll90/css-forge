@@ -12,4 +12,5 @@ export interface PerspectiveControlsPropsTypes {
   buttonColor?: string
   hoverColor?: string
   pressColor?: string
+  ariaExpanded?: boolean
 }

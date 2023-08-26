@@ -17,13 +17,14 @@ const state: StatePropsType = {
   top: createRef<any>(),
 }
 
-const getDomContent = (cameraRef:any) => {
+const getDomContent = (cameraRef: any) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [color, setColor] = React.useState<string>('')
 
-   const controlsProps = {
+  const controlsProps = {
     buttonColor: 'transparent',
-    top: 4,
+    labelColor: '#181717c4',
+    bottom: 3,
     left: 2,
   }
   return (
@@ -39,7 +40,7 @@ const getDomContent = (cameraRef:any) => {
             setVisible(!visible)
           }}
         />
-      <PerspectiveControls cameraRef={cameraRef as any} {...controlsProps} />
+        <PerspectiveControls ariaExpanded={visible} customClass='product-image-controls' cameraRef={cameraRef as any} {...controlsProps} />
 
         <div id='carrousel-area' aria-expanded={visible} data-visible={visible}>
           <h1>Product Displayer Carrousel</h1>
@@ -73,7 +74,7 @@ const getDomContent = (cameraRef:any) => {
           </div>
         </div>
         <div className='product-menu-action-area'>
-         <div className='product-menu-qty-button'>1 \/</div>
+          <div className='product-menu-qty-button'>1 \/</div>
           <div className='product-menu-action-button'>Add to cart</div>
           <div className='product-menu-secondary-button'>see it in store</div>
         </div>
@@ -103,7 +104,7 @@ export const ProductDisplayer: React.FC<ProductDisplayerPropsTypes> = () => {
     manualControls: false,
     testId: 'product-displayer',
     bgColor: 'transparent',
-    canvasWidth: '60%',
+    canvasWidth: '65%',
     canvasLeft: '0rem',
   }
 
