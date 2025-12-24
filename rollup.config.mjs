@@ -3,20 +3,24 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import alias from '@rollup/plugin-alias'
-import typescript from 'rollup-plugin-typescript2'
+import typescript from '@rollup/plugin-typescript'
 import postcss from 'rollup-plugin-postcss'
 import svg from 'rollup-plugin-svg'
-import { terser } from 'rollup-plugin-terser'
-
-const packageJson = require('./package.json')
+import terser from '@rollup/plugin-terser'
 
 const plugins = [
-  terser(),
   peerDepsExternal(),
   resolve(),
   commonjs(),
-  typescript({ useTsconfigDeclarationDir: true }),
-  postcss(),
+  typescript({
+    tsconfig: './tsconfig.json',
+    declaration: false,
+    declarationMap: false,
+  }),
+  postcss({
+    extract: true,
+    minimize: true,
+  }),
   svg(),
   alias({
     entries: [
@@ -24,18 +28,21 @@ const plugins = [
       { find: '@mocks', replacement: './__mocks__' },
     ],
   }),
+  terser(),
 ]
 
 const indexFile = {
   input: 'src/index.tsx',
   output: [
     {
-      file: 'dist/index.js',
+      file: 'dist/index.cjs',
       format: 'cjs',
+      sourcemap: true,
     },
     {
-      file: 'dist/index.esm.js',
+      file: 'dist/index.mjs',
       format: 'esm',
+      sourcemap: true,
     },
   ],
   plugins,
@@ -56,12 +63,12 @@ const getConfig = () => {
             input: `src/${name}/index.tsx`,
             output: [
               {
-                file: `dist/${name}/index.js`,
+                file: `dist/${name}/index.cjs`,
                 format: 'cjs',
                 sourcemap: true,
               },
               {
-                file: `dist/${name}/index.esm.js`,
+                file: `dist/${name}/index.mjs`,
                 format: 'esm',
                 sourcemap: true,
               },

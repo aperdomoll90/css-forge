@@ -1,6 +1,6 @@
 import { CameraControls } from '@react-three/drei'
 import React, { createRef, useEffect, useRef } from 'react'
-import { Canvas, useLoader } from 'react-three-fiber'
+import { Canvas, useLoader } from '@react-three/fiber'
 import { FixedModelPropsTypes, FixedModelStatePropsType } from './FixedModel.types'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import './styles.css'

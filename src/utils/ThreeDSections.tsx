@@ -1,7 +1,7 @@
 // THIS FILE WAS COPIED FROM THE CODE PEN OF CREATOR OF REACT-THREE-FIBER Paul Henschel
 //this is used to build our own scrolling area for a smother effect
 import React, { createContext, useRef, useContext } from 'react'
-import { useFrame, useThree } from 'react-three-fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 const lerp = require('lerp')
 
 

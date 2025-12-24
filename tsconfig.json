@@ -8,8 +8,6 @@
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "./types",
     "esModuleInterop": true,
     "strict": true,
     "noImplicitReturns": true,
