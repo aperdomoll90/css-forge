@@ -42,10 +42,11 @@ const indexFile = {
 
 const getConfig = () => {
   const folders = fs.readdirSync('src')
+  const excludeFolders = ['types', 'utils']
   return [
     ...folders.reduce(
       (accum, name) => {
-        if (name.indexOf('.') > -1) return accum
+        if (name.indexOf('.') > -1 || excludeFolders.includes(name)) return accum
         return [
           ...accum,
           {
