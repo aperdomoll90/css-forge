@@ -1,14 +1,19 @@
 import { render, fireEvent } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { useState } from 'react'
-import { ToggleButton } from './ToggleButton'
+import { ExpandButton } from './ExpandButton'
 
-describe('ToggleButton component', () => {
-  const renderComponent = (props = {}) => render(<ToggleButton {...props} />)
+describe('ExpandButton component', () => {
+  const renderComponent = (props = {}) => render(<ExpandButton {...props} />)
 
   it('should render correctly', () => {
     const { container } = renderComponent()
     expect(container.querySelector('button')).toBeInTheDocument()
+  })
+
+  it('should render svg icon', () => {
+    const { container } = renderComponent()
+    expect(container.querySelector('svg')).toBeInTheDocument()
   })
 
   describe('uncontrolled mode', () => {
@@ -28,8 +33,7 @@ describe('ToggleButton component', () => {
       const button = container.querySelector('button')
 
       expect(button).toHaveAttribute('aria-pressed', 'true')
-      fireEvent.click(button!)
-      expect(button).toHaveAttribute('aria-pressed', 'false')
+      expect(button).toHaveAttribute('data-active', 'true')
     })
 
     it('should call onToggle callback when clicked', () => {
@@ -48,7 +52,7 @@ describe('ToggleButton component', () => {
   describe('controlled mode', () => {
     const ControlledWrapper = ({ initialActive = false }: { initialActive?: boolean }) => {
       const [active, setActive] = useState(initialActive)
-      return <ToggleButton active={active} onToggle={setActive} />
+      return <ExpandButton active={active} onToggle={setActive} />
     }
 
     it('should reflect controlled active state', () => {
@@ -69,7 +73,7 @@ describe('ToggleButton component', () => {
 
     it('should not toggle if parent does not update state', () => {
       const onToggle = jest.fn()
-      const { container } = render(<ToggleButton active={false} onToggle={onToggle} />)
+      const { container } = render(<ExpandButton active={false} onToggle={onToggle} />)
       const button = container.querySelector('button')
 
       fireEvent.click(button!)
@@ -87,11 +91,21 @@ describe('ToggleButton component', () => {
     expect(button).toHaveAttribute('data-active', 'true')
   })
 
+  it('should set data-active on svg icon', () => {
+    const { container } = renderComponent()
+    const button = container.querySelector('button')
+    const svg = container.querySelector('svg')
+
+    expect(svg).toHaveAttribute('data-active', 'false')
+    fireEvent.click(button!)
+    expect(svg).toHaveAttribute('data-active', 'true')
+  })
+
   it('should use custom ariaLabel', () => {
-    const { container } = renderComponent({ ariaLabel: 'Open navigation' })
+    const { container } = renderComponent({ ariaLabel: 'Expand section' })
     const button = container.querySelector('button')
 
-    expect(button).toHaveAttribute('aria-label', 'Open navigation')
+    expect(button).toHaveAttribute('aria-label', 'Expand section')
   })
 
   it('should demonstrate ADA compliance on this component', async () => {

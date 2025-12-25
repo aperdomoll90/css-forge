@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import { ToggleButton } from './ToggleButton'
-import { ToggleButtonProps } from './ToggleButton.types'
+import { ExpandButton } from './ExpandButton'
+import { ExpandButtonProps } from './ExpandButton.types'
 
 export default {
-  title: 'Components/ToggleButton',
-  component: ToggleButton,
+  title: 'Components/ExpandButton',
+  component: ExpandButton,
   argTypes: {
     active: { control: 'boolean' },
     defaultActive: { control: 'boolean' },
-    size: { control: { type: 'range', min: 1, max: 5, step: 0.5 } },
+    size: { control: { type: 'range', min: 30, max: 100, step: 5 } },
     color: { control: 'color' },
-    buttonBackgroundColor: { control: 'color' },
-    shadow: { control: 'boolean' },
+    backgroundColor: { control: 'color' },
     ariaLabel: { control: 'text' },
   },
   parameters: {
@@ -23,36 +22,34 @@ export default {
   },
 } as Meta
 
-const Template: StoryFn<ToggleButtonProps> = (args) => (
+const Template: StoryFn<ExpandButtonProps> = (args) => (
   <div style={{ padding: '2rem' }}>
-    <ToggleButton {...args} />
+    <ExpandButton {...args} />
   </div>
 )
 
 export const Default = Template.bind({})
 Default.args = {
-  size: 3,
+  size: 50,
   color: '#fff',
-  buttonBackgroundColor: '#303030',
-  shadow: true,
+  backgroundColor: '#4caf50',
 }
 
 export const DefaultActive = Template.bind({})
 DefaultActive.args = {
-  size: 3,
+  size: 50,
   defaultActive: true,
   color: '#fff',
-  buttonBackgroundColor: '#303030',
-  shadow: true,
+  backgroundColor: '#4caf50',
 }
 
-const ControlledTemplate: StoryFn<ToggleButtonProps> = (args) => {
+const ControlledTemplate: StoryFn<ExpandButtonProps> = (args) => {
   const [active, setActive] = useState(false)
   return (
     <div style={{ padding: '2rem' }}>
-      <ToggleButton {...args} active={active} onToggle={setActive} />
+      <ExpandButton {...args} active={active} onToggle={setActive} />
       <p style={{ color: '#fff', marginTop: '1rem' }}>
-        Menu is {active ? 'open' : 'closed'}
+        {active ? 'Expanded' : 'Collapsed'}
       </p>
     </div>
   )
@@ -60,32 +57,28 @@ const ControlledTemplate: StoryFn<ToggleButtonProps> = (args) => {
 
 export const Controlled = ControlledTemplate.bind({})
 Controlled.args = {
-  size: 3,
+  size: 50,
   color: '#fff',
-  buttonBackgroundColor: '#303030',
-  shadow: true,
+  backgroundColor: '#4caf50',
 }
 
-export const Green = Template.bind({})
-Green.args = {
-  size: 3,
+export const Blue = Template.bind({})
+Blue.args = {
+  size: 50,
   color: '#fff',
-  buttonBackgroundColor: '#4caf50',
-  shadow: true,
+  backgroundColor: '#2196f3',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 1.5,
+  size: 35,
   color: '#fff',
-  buttonBackgroundColor: '#303030',
-  shadow: false,
+  backgroundColor: '#4caf50',
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 4,
+  size: 80,
   color: '#fff',
-  buttonBackgroundColor: '#2196f3',
-  shadow: true,
+  backgroundColor: '#9c27b0',
 }
