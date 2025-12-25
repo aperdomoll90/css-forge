@@ -1,6 +1,5 @@
-import {SkillBar} from './SkillBar'
+import { SkillBar } from './SkillBar'
 import { Meta, StoryFn } from '@storybook/react'
-import StorybookContainer from '../StorybookContainer'
 import { skillBarPropsTypes } from './SkillBar.types'
 
 export default {
@@ -15,11 +14,11 @@ export default {
   },
 } as Meta
 
- const SkillBarTemplate:StoryFn<skillBarPropsTypes> = (args) =>(
-  <StorybookContainer>
+const SkillBarTemplate: StoryFn<skillBarPropsTypes> = (args) => (
+  <div style={{ padding: '2rem', maxWidth: '400px' }}>
     <SkillBar {...args} />
-  </StorybookContainer>
- )
+  </div>
+)
 
 export const SkillBarComponent = SkillBarTemplate.bind({})
 SkillBarComponent.args = {
