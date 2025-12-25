@@ -9,9 +9,8 @@ export default {
   argTypes: {
     active: { control: 'boolean' },
     defaultActive: { control: 'boolean' },
-    size: { control: { type: 'range', min: 30, max: 100, step: 5 } },
+    size: { control: { type: 'range', min: 16, max: 64, step: 4 } },
     color: { control: 'color' },
-    backgroundColor: { control: 'color' },
     ariaLabel: { control: 'text' },
   },
   parameters: {
@@ -30,18 +29,10 @@ const Template: StoryFn<ExpandButtonProps> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  size: 50,
+  size: 24,
   color: '#fff',
-  backgroundColor: '#4caf50',
 }
 
-export const DefaultActive = Template.bind({})
-DefaultActive.args = {
-  size: 50,
-  defaultActive: true,
-  color: '#fff',
-  backgroundColor: '#4caf50',
-}
 
 const ControlledTemplate: StoryFn<ExpandButtonProps> = (args) => {
   const [active, setActive] = useState(false)
@@ -55,30 +46,49 @@ const ControlledTemplate: StoryFn<ExpandButtonProps> = (args) => {
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  size: 50,
+export const ExternalState = ControlledTemplate.bind({})
+ExternalState.args = {
+  size: 24,
   color: '#fff',
-  backgroundColor: '#4caf50',
 }
 
-export const Blue = Template.bind({})
-Blue.args = {
-  size: 50,
+export const WithCustomStyle: StoryFn<ExpandButtonProps> = (args) => (
+  <div style={{ padding: '2rem' }}>
+    <ExpandButton
+      {...args}
+      className="custom-expand"
+      style={{
+        backgroundColor: '#4caf50',
+        borderRadius: '50%',
+        padding: '12px',
+        width: '48px',
+        height: '48px',
+      } as React.CSSProperties}
+    />
+    <p style={{ color: '#888', marginTop: '1rem', fontSize: '0.875rem' }}>
+      Use className to add your own background, shape, hover states etc.
+    </p>
+  </div>
+)
+WithCustomStyle.args = {
+  size: 24,
   color: '#fff',
-  backgroundColor: '#2196f3',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 35,
+  size: 16,
   color: '#fff',
-  backgroundColor: '#4caf50',
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 80,
+  size: 48,
   color: '#fff',
-  backgroundColor: '#9c27b0',
+}
+
+export const Green = Template.bind({})
+Green.args = {
+  size: 24,
+  color: '#4caf50',
 }

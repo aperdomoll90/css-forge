@@ -1,32 +1,16 @@
 .c-expand-button {
-  --size: 50px;
-  --color: #fff;
-  --background-color: #4caf50;
-  --background-hover: #45a049;
+  --size: 24px;
+  --color: currentColor;
 
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--size);
   height: var(--size);
-  border-radius: 50%;
-  padding: calc(var(--size) * 0.3);
-  outline: none;
+  padding: 0;
   border: none;
-  background-color: var(--background-color);
-  color: var(--color);
+  background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: var(--background-hover);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color);
-    outline-offset: 2px;
-  }
 
   &__icon {
     width: 100%;
@@ -35,10 +19,6 @@
 
     &[data-active='true'] {
       transform: rotate(180deg);
-    }
-
-    path {
-      transition: d 0.3s ease;
     }
   }
 
