@@ -1,11 +1,11 @@
-.c-toggle-button {
+.c-hamburger-button {
   width: var(--size);
   aspect-ratio: 1;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--button-background-color);
+  background: var(--background-color);
   border-radius: 5px;
   box-shadow: 0 10px 20px var(--shadow);
   overflow: hidden;
@@ -16,7 +16,7 @@
   outline: none;
 
   &:hover {
-    background: var(--button-hover);
+    background: var(--background-hover);
   }
 
   &::before,

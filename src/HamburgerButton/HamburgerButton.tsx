@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import { ToggleButtonProps } from './ToggleButton.types'
+import { HamburgerButtonProps } from './HamburgerButton.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
-import styles from './ToggleButton.module.scss'
+import styles from './HamburgerButton.module.scss'
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({
+export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   active: controlledActive,
   defaultActive = false,
   onToggle,
   size = 2,
   color = '#fff',
-  buttonBackgroundColor = '#303030da',
+  backgroundColor = '#303030da',
   shadow = false,
   ariaControls,
   ariaLabel = 'Toggle menu',
@@ -30,8 +30,8 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   const styleProps = {
     '--size': `${size}rem`,
     '--color': color,
-    '--button-hover': LightenDarkenColor(buttonBackgroundColor.replace(/da$/, ''), -60),
-    '--button-background-color': buttonBackgroundColor,
+    '--background-hover': LightenDarkenColor(backgroundColor.replace(/da$/, ''), -60),
+    '--background-color': backgroundColor,
     '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
   } as React.CSSProperties
 
@@ -41,7 +41,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
       aria-pressed={active}
       aria-expanded={active}
       aria-controls={ariaControls}
-      className={`${styles['c-toggle-button']} ${className}`}
+      className={`${styles['c-hamburger-button']} ${className}`}
       style={styleProps}
       onClick={handleClick}
       data-active={active}
