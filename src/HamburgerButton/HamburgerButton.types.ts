@@ -1,4 +1,4 @@
-export interface ToggleButtonProps {
+export interface HamburgerButtonProps {
   /** Controlled active state */
   active?: boolean
   /** Initial state for uncontrolled mode */
@@ -10,7 +10,7 @@ export interface ToggleButtonProps {
   /** Icon color (hamburger lines) */
   color?: string
   /** Button background color */
-  buttonBackgroundColor?: string
+  backgroundColor?: string
   /** Enable drop shadow */
   shadow?: boolean
   /** ID of the element this button controls */
