@@ -1,0 +1,63 @@
+.c-toggle-button {
+  width: var(--size);
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-background-color);
+  border-radius: 5px;
+  box-shadow: 0 10px 20px var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s ease-in-out, background 0.2s ease-in-out;
+  z-index: 9999;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background: var(--button-hover);
+  }
+
+  &::before,
+  &::after,
+  span {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 9%;
+    border-radius: 4px;
+    background: var(--color);
+    transition: 0.5s ease-in-out;
+  }
+
+  &::before {
+    width: 50%;
+    left: 12%;
+    transform: translateY(calc(var(--size) / -3.5));
+  }
+
+  &[aria-pressed='true']::before {
+    width: 75%;
+    left: auto;
+    transform: translateY(0px) rotate(45deg);
+    transition-delay: 0.125s;
+  }
+
+  &::after {
+    width: 35%;
+    left: 12%;
+    transform: translateY(calc(var(--size) / 3.5));
+  }
+
+  &[aria-pressed='true']::after {
+    width: 75%;
+    left: auto;
+    transform: translateY(0px) rotate(315deg);
+    transition-delay: 0.25s;
+  }
+
+  &[aria-pressed='true'] span {
+    transform: translateX(120%);
+  }
+}

@@ -1,33 +1,52 @@
-import './styles.css'
-import '../utils/GlobalStyles.css'
-import { ToggleButtonPropsType } from './ToggleButton.types'
+import { useState } from 'react'
+import { ToggleButtonProps } from './ToggleButton.types'
 import { LightenDarkenColor } from '../utils/ColorManipulation'
+import styles from './ToggleButton.module.scss'
 
-export const ToggleButton: React.FC<ToggleButtonPropsType> = ({ size, color, buttonHover, buttonBackgroundColor, shadow, active, setActive, ariaControls, ariaExpanded, top, bottom, left, right, customClass }) => {
-  const defaultColor = '#fff'
-  const defaultBackgroundColor = '#303030da'
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  active: controlledActive,
+  defaultActive = false,
+  onToggle,
+  size = 2,
+  color = '#fff',
+  buttonBackgroundColor = '#303030da',
+  shadow = false,
+  ariaControls,
+  ariaLabel = 'Toggle menu',
+  className = '',
+}) => {
+  const [internalActive, setInternalActive] = useState(defaultActive)
+  const isControlled = controlledActive !== undefined
+  const active = isControlled ? controlledActive : internalActive
 
-  const stylesProps = {
-    '--size': size ? `${size}rem` : '2rem',
-    '--color': color ? color : defaultColor,
-    '--buttonHover': buttonHover ? buttonHover : LightenDarkenColor(buttonBackgroundColor || defaultBackgroundColor, -80),
-    '--buttonBackgroundColor': buttonBackgroundColor ? buttonBackgroundColor : defaultBackgroundColor,
-    '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : '',
-    '--top': top ? `${top}rem` : 'auto',
-    '--bottom': bottom ? `${bottom}rem` : 'auto',
-    '--left': left ? `${left}rem` : 'auto',
-    '--right': right ? `${right}rem` : 'auto',
+  const handleClick = () => {
+    const newActive = !active
+    if (!isControlled) {
+      setInternalActive(newActive)
+    }
+    onToggle?.(newActive)
   }
 
-  const isActive = active ? 'ToggleButtonActive ToggleButton' : 'ToggleButton'
-  const classArray = customClass && customClass ? `${isActive} ${customClass}` : isActive
+  const styleProps = {
+    '--size': `${size}rem`,
+    '--color': color,
+    '--button-hover': LightenDarkenColor(buttonBackgroundColor.replace(/da$/, ''), -60),
+    '--button-background-color': buttonBackgroundColor,
+    '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
+  } as React.CSSProperties
 
   return (
-    <button className={classArray} aria-controls={ariaControls} aria-expanded={ariaExpanded} style={stylesProps as React.CSSProperties} onClick={() => setActive()}>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span className='sr-only'>menu</span>
+    <button
+      aria-label={ariaLabel}
+      aria-pressed={active}
+      aria-expanded={active}
+      aria-controls={ariaControls}
+      className={`${styles['c-toggle-button']} ${className}`}
+      style={styleProps}
+      onClick={handleClick}
+      data-active={active}
+    >
+      <span />
     </button>
   )
 }

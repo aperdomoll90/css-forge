@@ -1,17 +1,10 @@
 import { skillBarPropsTypes } from './SkillBar.types'
-import './styles.css'
+import styles from './SkillBar.module.scss'
 
-export const SkillBar: React.FC<skillBarPropsTypes> = ({ level, label }: skillBarPropsTypes) => {
-  const skillWidth = {
-    maxWidth: `${level}%`,
-  }
-
-  return (
-    <div className='skill'>
-      <div className='skill-name'>{label}</div>
-      <div className='skill-bar'>
-        <div className='skill-per' data-per={`${level}%`} style={skillWidth}></div>
-      </div>
+export const SkillBar: React.FC<skillBarPropsTypes> = ({ level, label }: skillBarPropsTypes) => (
+  <div className={styles['c-skill-bar']} data-label={label}>
+    <div className={styles['c-skill-bar__track']}>
+      <div className={styles['c-skill-bar__fill']} data-level={level} style={{ maxWidth: `${level}%` }} />
     </div>
-  )
-}
+  </div>
+)

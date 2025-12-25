@@ -1,2 +1,2 @@
-export { ToggleButton } from "./ToggleButton"
-export * from './ToggleButton.types'
+export { ToggleButton } from './ToggleButton'
+export type { ToggleButtonProps } from './ToggleButton.types'
