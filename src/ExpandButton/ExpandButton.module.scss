@@ -1,7 +1,5 @@
 .c-expand-button {
-  --size: 24px;
-  --color: currentColor;
-
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -12,25 +10,28 @@
   background: transparent;
   cursor: pointer;
 
-  &__icon {
+  &__line {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    height: var(--line-thickness);
+    background: var(--color);
+    border-radius: var(--line-thickness);
     transition: transform 0.3s ease;
 
-    &[data-active='true'] {
+    &[data-vertical='true'] {
+      transform: rotate(90deg);
+    }
+  }
+
+  &[data-variant='rotate'][aria-pressed='true'] &__line {
+    transform: rotate(180deg);
+
+    &[data-vertical='true'] {
       transform: rotate(180deg);
     }
   }
 
-  &__hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  &[data-variant='collapse'][aria-pressed='true'] &__line[data-vertical='true'] {
+    transform: rotate(0deg);
   }
 }

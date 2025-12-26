@@ -1,0 +1,66 @@
+.c-toggle-switch {
+  --size: 60px;
+  --color: #f28b30;
+  --slider-color: #fff;
+  --height: calc(var(--size) * 0.567);
+  --slider-size: calc(var(--height) - 8px);
+
+  display: inline-flex;
+  align-items: center;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  label {
+    width: var(--size);
+    height: var(--height);
+    background-color: var(--color);
+    border-radius: var(--height);
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &::before {
+      content: attr(data-label-before);
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 0.5em);
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+
+    &::after {
+      content: attr(data-label-after);
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 0.5em);
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+  }
+
+  label span {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: var(--slider-size);
+    width: var(--slider-size);
+    background-color: var(--slider-color);
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+
+  input:checked + label span {
+    transform: translateX(calc(var(--size) - var(--slider-size) - 8px));
+  }
+
+  input:focus-visible + label {
+    outline: 2px solid var(--color);
+    outline-offset: 2px;
+  }
+}

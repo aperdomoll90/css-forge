@@ -1,4 +1,6 @@
 export * from './ExpandButton'
 export * from './HamburgerButton'
 export * from './SkillBar'
+export * from './SlicerButton'
+export * from './ToggleSwitch'
 export * from './utils'

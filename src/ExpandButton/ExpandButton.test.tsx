@@ -11,9 +11,32 @@ describe('ExpandButton component', () => {
     expect(container.querySelector('button')).toBeInTheDocument()
   })
 
-  it('should render svg icon', () => {
+  it('should render two line spans', () => {
     const { container } = renderComponent()
-    expect(container.querySelector('svg')).toBeInTheDocument()
+    const lines = container.querySelectorAll('span')
+    expect(lines).toHaveLength(2)
+  })
+
+  it('should have vertical line with data-vertical attribute', () => {
+    const { container } = renderComponent()
+    const verticalLine = container.querySelector('[data-vertical="true"]')
+    expect(verticalLine).toBeInTheDocument()
+  })
+
+  describe('rotate variant (default)', () => {
+    it('should have data-variant="rotate" by default', () => {
+      const { container } = renderComponent()
+      const button = container.querySelector('button')
+      expect(button).toHaveAttribute('data-variant', 'rotate')
+    })
+  })
+
+  describe('collapse variant', () => {
+    it('should have data-variant="collapse"', () => {
+      const { container } = renderComponent({ variant: 'collapse' })
+      const button = container.querySelector('button')
+      expect(button).toHaveAttribute('data-variant', 'collapse')
+    })
   })
 
   describe('uncontrolled mode', () => {
@@ -33,7 +56,6 @@ describe('ExpandButton component', () => {
       const button = container.querySelector('button')
 
       expect(button).toHaveAttribute('aria-pressed', 'true')
-      expect(button).toHaveAttribute('data-active', 'true')
     })
 
     it('should call onToggle callback when clicked', () => {
@@ -82,25 +104,6 @@ describe('ExpandButton component', () => {
     })
   })
 
-  it('should set data-active attribute', () => {
-    const { container } = renderComponent()
-    const button = container.querySelector('button')
-
-    expect(button).toHaveAttribute('data-active', 'false')
-    fireEvent.click(button!)
-    expect(button).toHaveAttribute('data-active', 'true')
-  })
-
-  it('should set data-active on svg icon', () => {
-    const { container } = renderComponent()
-    const button = container.querySelector('button')
-    const svg = container.querySelector('svg')
-
-    expect(svg).toHaveAttribute('data-active', 'false')
-    fireEvent.click(button!)
-    expect(svg).toHaveAttribute('data-active', 'true')
-  })
-
   it('should use custom ariaLabel', () => {
     const { container } = renderComponent({ ariaLabel: 'Expand section' })
     const button = container.querySelector('button')
@@ -108,8 +111,14 @@ describe('ExpandButton component', () => {
     expect(button).toHaveAttribute('aria-label', 'Expand section')
   })
 
-  it('should demonstrate ADA compliance on this component', async () => {
-    const { container } = renderComponent()
+  it('should demonstrate ADA compliance on rotate variant', async () => {
+    const { container } = renderComponent({ variant: 'rotate' })
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
+  })
+
+  it('should demonstrate ADA compliance on collapse variant', async () => {
+    const { container } = renderComponent({ variant: 'collapse' })
     const results = await axe(container)
     expect(results).toHaveNoViolations()
   })

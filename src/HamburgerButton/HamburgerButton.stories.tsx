@@ -4,88 +4,78 @@ import { HamburgerButton } from './HamburgerButton'
 import { HamburgerButtonProps } from './HamburgerButton.types'
 
 export default {
-  title: 'Components/HamburgerButton',
+  title: 'Buttons/HamburgerButton',
   component: HamburgerButton,
   argTypes: {
     active: { control: 'boolean' },
     defaultActive: { control: 'boolean' },
-    size: { control: { type: 'range', min: 1, max: 5, step: 0.5 } },
+    size: { control: { type: 'range', min: 16, max: 64, step: 4 } },
     color: { control: 'color' },
-    backgroundColor: { control: 'color' },
-    shadow: { control: 'boolean' },
     ariaLabel: { control: 'text' },
-  },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [{ name: 'dark', value: '#1b1b1c' }],
-    },
   },
 } as Meta
 
-const Template: StoryFn<HamburgerButtonProps> = (args) => (
-  <div style={{ padding: '2rem' }}>
-    <HamburgerButton {...args} />
-  </div>
-)
+const Template: StoryFn<HamburgerButtonProps> = (args) => <HamburgerButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  size: 3,
+  size: 32,
   color: '#fff',
-  backgroundColor: '#303030',
-  shadow: true,
-}
-
-export const DefaultActive = Template.bind({})
-DefaultActive.args = {
-  size: 3,
-  defaultActive: true,
-  color: '#fff',
-  backgroundColor: '#303030',
-  shadow: true,
 }
 
 const ControlledTemplate: StoryFn<HamburgerButtonProps> = (args) => {
   const [active, setActive] = useState(false)
   return (
-    <div style={{ padding: '2rem' }}>
+    <div>
       <HamburgerButton {...args} active={active} onToggle={setActive} />
-      <p style={{ color: '#fff', marginTop: '1rem' }}>
+      <p style={{ marginTop: '1rem' }}>
         Menu is {active ? 'open' : 'closed'}
       </p>
     </div>
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  size: 3,
+export const ExternalState = ControlledTemplate.bind({})
+ExternalState.args = {
+  size: 32,
   color: '#fff',
-  backgroundColor: '#303030',
-  shadow: true,
 }
 
-export const Green = Template.bind({})
-Green.args = {
-  size: 3,
+export const WithCustomStyle: StoryFn<HamburgerButtonProps> = (args) => (
+  <div>
+    <HamburgerButton
+      {...args}
+      style={{
+        backgroundColor: '#303030',
+        borderRadius: '5px',
+        padding: '8px',
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.8)',
+      }}
+    />
+    <p style={{ color: '#888', marginTop: '1rem', fontSize: '0.875rem' }}>
+      Use className or style to add your own background, shape, hover states etc.
+    </p>
+  </div>
+)
+WithCustomStyle.args = {
+  size: 32,
   color: '#fff',
-  backgroundColor: '#4caf50',
-  shadow: true,
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 1.5,
+  size: 24,
   color: '#fff',
-  backgroundColor: '#303030',
-  shadow: false,
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 4,
+  size: 48,
   color: '#fff',
-  backgroundColor: '#2196f3',
-  shadow: true,
+}
+
+export const Green = Template.bind({})
+Green.args = {
+  size: 32,
+  color: '#4caf50',
 }

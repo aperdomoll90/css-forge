@@ -1,19 +1,17 @@
 import { useState } from 'react'
 import { HamburgerButtonProps } from './HamburgerButton.types'
-import { LightenDarkenColor } from '../utils/ColorManipulation'
 import styles from './HamburgerButton.module.scss'
 
 export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   active: controlledActive,
   defaultActive = false,
   onToggle,
-  size = 2,
-  color = '#fff',
-  backgroundColor = '#303030da',
-  shadow = false,
+  color = 'currentColor',
+  size = 32,
   ariaControls,
   ariaLabel = 'Toggle menu',
   className = '',
+  style,
 }) => {
   const [internalActive, setInternalActive] = useState(defaultActive)
   const isControlled = controlledActive !== undefined
@@ -28,11 +26,9 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   }
 
   const styleProps = {
-    '--size': `${size}rem`,
+    '--size': `${size}px`,
     '--color': color,
-    '--background-hover': LightenDarkenColor(backgroundColor.replace(/da$/, ''), -60),
-    '--background-color': backgroundColor,
-    '--shadow': shadow ? 'rgba(0, 0, 0, 0.8)' : 'transparent',
+    ...style,
   } as React.CSSProperties
 
   return (
