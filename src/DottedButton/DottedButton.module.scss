@@ -1,0 +1,31 @@
+.c-dotted-button {
+  padding: 5rem;
+  cursor: pointer;
+  position: relative;
+
+  &-link {
+    font-size: 2rem;
+    letter-spacing: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color, #1c1d20);
+    line-height: 2rem;
+    display: inline-block;
+    will-change: transform;
+    position: relative;
+
+    &::after {
+      content: '●';
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      color: var(--dot-color, #1c1d20);
+      transition: transform 0.5s ease-in-out;
+      transform: translateX(-50%) scale(0);
+    }
+
+    &:hover::after {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+}

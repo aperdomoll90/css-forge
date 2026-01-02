@@ -1,46 +1,178 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="https://img.shields.io/npm/v/css-forge?style=flat-square&color=blue" alt="npm version" />
+  <img src="https://img.shields.io/npm/l/css-forge?style=flat-square" alt="license" />
+  <img src="https://img.shields.io/npm/dt/css-forge?style=flat-square" alt="downloads" />
+  <img src="https://img.shields.io/badge/React-18%20%7C%2019-61DAFB?style=flat-square&logo=react" alt="react" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript" alt="typescript" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# css-forge
 
-## Available Scripts
+A lightweight React component library with CSS-first animations and zero runtime dependencies.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **CSS-Driven Animations** — Smooth transitions powered by pure CSS
+- **Accessible by Default** — Built with ARIA attributes and keyboard navigation
+- **Controlled & Uncontrolled** — Flexible state management patterns
+- **TypeScript Ready** — Full type definitions included
+- **Tree Shakeable** — Import only what you need
+- **Zero Dependencies** — Just React as a peer dependency
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install css-forge
+```
 
-### `npm run build`
+```bash
+yarn add css-forge
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### HamburgerButton
 
-### `npm run eject`
+An animated hamburger menu button with two variants.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```tsx
+import { HamburgerButton } from 'css-forge'
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+// Uncontrolled
+<HamburgerButton variant="spin" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+// Controlled
+const [open, setOpen] = useState(false)
+<HamburgerButton active={open} onToggle={setOpen} variant="cross" />
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'spin' \| 'cross'` | `'spin'` | Animation style |
+| `active` | `boolean` | — | Controlled state |
+| `defaultActive` | `boolean` | `false` | Initial state (uncontrolled) |
+| `onToggle` | `(active: boolean) => void` | — | State change callback |
+| `color` | `string` | `'#fff'` | Line color |
+| `size` | `number` | `2` | Size in rem |
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ExpandButton
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A plus/minus toggle button with two animation variants.
+
+```tsx
+import { ExpandButton } from 'css-forge'
+
+<ExpandButton variant="rotate" />
+<ExpandButton variant="collapse" onToggle={(active) => console.log(active)} />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'rotate' \| 'collapse'` | `'rotate'` | Animation style |
+| `active` | `boolean` | — | Controlled state |
+| `defaultActive` | `boolean` | `false` | Initial state (uncontrolled) |
+| `onToggle` | `(active: boolean) => void` | — | State change callback |
+| `color` | `string` | `'#fff'` | Icon color |
+| `size` | `number` | `1.5` | Size in rem |
+| `lineThickness` | `number` | `0.125` | Line thickness in rem |
+
+---
+
+### SlicerButton
+
+A text link button with a slicing hover animation.
+
+```tsx
+import { SlicerButton } from 'css-forge'
+
+<SlicerButton
+  label="View Projects"
+  href="/projects"
+  colorHover="#00ff88"
+/>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | **required** | Button text |
+| `href` | `string` | **required** | Link destination |
+| `color` | `string` | `'#fff'` | Text color |
+| `colorHover` | `string` | — | Hover state color |
+| `fontSize` | `string` | `'1rem'` | Font size |
+
+---
+
+### ToggleSwitch
+
+An accessible toggle switch with optional labels.
+
+```tsx
+import { ToggleSwitch } from 'css-forge'
+
+<ToggleSwitch
+  labelBefore="Off"
+  labelAfter="On"
+  onToggle={(checked) => console.log(checked)}
+/>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `checked` | `boolean` | — | Controlled state |
+| `defaultChecked` | `boolean` | `false` | Initial state (uncontrolled) |
+| `onToggle` | `(checked: boolean) => void` | — | State change callback |
+| `color` | `string` | — | Track color |
+| `sliderColor` | `string` | — | Knob color |
+| `size` | `number` | — | Size in pixels |
+| `labelBefore` | `string` | — | Label before toggle |
+| `labelAfter` | `string` | — | Label after toggle |
+
+---
+
+### SkillBar
+
+A progress bar component for displaying skill levels.
+
+```tsx
+import { SkillBar } from 'css-forge'
+
+<SkillBar label="React" level={90} />
+<SkillBar label="TypeScript" level={85} />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | **required** | Skill name |
+| `level` | `number` | **required** | Progress level (0-100) |
+
+---
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start Storybook
+npm run storybook
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+```
+
+---
+
+## License
+
+MIT © [Adrian Perdomo Llerena](https://github.com/aperdomoll90)

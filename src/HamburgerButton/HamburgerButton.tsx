@@ -3,11 +3,12 @@ import { HamburgerButtonProps } from './HamburgerButton.types'
 import styles from './HamburgerButton.module.scss'
 
 export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
+  variant = 'spin',
   active: controlledActive,
   defaultActive = false,
   onToggle,
-  color = 'currentColor',
-  size = 32,
+  color = '#fff',
+  size = 2,
   ariaControls,
   ariaLabel = 'Toggle menu',
   className = '',
@@ -26,7 +27,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   }
 
   const styleProps = {
-    '--size': `${size}px`,
+    '--size': `${size}rem`,
     '--color': color,
     ...style,
   } as React.CSSProperties
@@ -35,12 +36,11 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
     <button
       aria-label={ariaLabel}
       aria-pressed={active}
-      aria-expanded={active}
       aria-controls={ariaControls}
       className={`${styles['c-hamburger-button']} ${className}`}
       style={styleProps}
       onClick={handleClick}
-      data-active={active}
+      data-variant={variant}
     >
       <span />
     </button>

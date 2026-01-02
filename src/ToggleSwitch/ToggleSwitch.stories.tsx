@@ -4,7 +4,7 @@ import { ToggleSwitch } from './ToggleSwitch'
 import { ToggleSwitchProps } from './ToggleSwitch.types'
 
 export default {
-  title: 'Buttons/ToggleSwitch',
+  title: 'Toggles/ToggleSwitch',
   component: ToggleSwitch,
   argTypes: {
     checked: { control: 'boolean' },
@@ -34,30 +34,13 @@ WithLabels.args = {
   labelAfter: 'On',
 }
 
-const ControlledTemplate: StoryFn<ToggleSwitchProps> = (args) => {
-  const [checked, setChecked] = useState(false)
-  return (
-    <div>
-      <ToggleSwitch {...args} checked={checked} onToggle={setChecked} />
-      <p style={{ marginTop: '1rem' }}>
-        Toggle is {checked ? 'ON' : 'OFF'}
-      </p>
-    </div>
-  )
-}
-
-export const ExternalState = ControlledTemplate.bind({})
-ExternalState.args = {
-  size: 60,
-  color: '#f28b30',
-}
 
 export const ThemeToggle: StoryFn<ToggleSwitchProps> = (args) => {
   const [isDark, setIsDark] = useState(false)
   return (
     <div
       style={{
-        padding: '2rem',
+        padding: '4rem',
         background: isDark ? '#111' : '#f9fbe6',
         color: isDark ? '#eee' : '#405d27',
         transition: 'background 0.4s, color 0.4s',
@@ -82,17 +65,6 @@ ThemeToggle.args = {
   color: '#f28b30',
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: 40,
-  color: '#4caf50',
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 80,
-  color: '#2196f3',
-}
 
 export const CustomColors = Template.bind({})
 CustomColors.args = {

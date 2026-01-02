@@ -1,0 +1,11 @@
+.c-word-scrambler {
+  display: inline-block;
+
+  &__text {
+    font-size: var(--font-size, 2rem);
+    color: var(--text-color, #1c1d20);
+    font-family: monospace;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+  }
+}

@@ -23,23 +23,12 @@ Default.args = {
   label: 'CSS',
 }
 
-export const JavaScript = Template.bind({})
-JavaScript.args = {
-  level: 90,
-  label: 'JavaScript',
-}
-
-export const React = Template.bind({})
-React.args = {
-  level: 85,
-  label: 'React',
-}
 
 export const MultipleSkills: StoryFn<skillBarPropsTypes> = () => (
   <div style={{ maxWidth: '400px', width: '100%', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <SkillBar level={90} label="CSS" />
-    <SkillBar level={85} label="JavaScript" />
-    <SkillBar level={80} label="React" />
-    <SkillBar level={70} label="TypeScript" />
+    <SkillBar level={90} label="CSS" barColor="#3498db" indicatorBackground="#2980b9" indicatorColor="#fff" />
+    <SkillBar level={85} label="JavaScript" barColor="#f1c40f" indicatorBackground="#f39c12" indicatorColor="#222" />
+    <SkillBar level={80} label="React" barColor="#61dafb" indicatorBackground="#21a1c4" indicatorColor="#fff" />
+    <SkillBar level={70} label="TypeScript" barColor="#3178c6" indicatorBackground="#235a97" indicatorColor="#fff" />
   </div>
 )

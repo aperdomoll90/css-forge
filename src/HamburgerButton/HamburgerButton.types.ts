@@ -1,4 +1,8 @@
+export type HamburgerButtonVariant = 'spin' | 'cross'
+
 export interface HamburgerButtonProps {
+  /** Animation variant */
+  variant?: HamburgerButtonVariant
   /** Controlled active state */
   active?: boolean
   /** Initial state for uncontrolled mode */

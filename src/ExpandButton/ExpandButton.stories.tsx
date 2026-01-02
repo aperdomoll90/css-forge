@@ -19,14 +19,9 @@ export default {
 
 const Template: StoryFn<ExpandButtonProps> = (args) => <ExpandButton {...args} />
 
-export const RotateVariant = Template.bind({})
-RotateVariant.args = {
+export const ExpandButtonComponent = Template.bind({})
+ExpandButtonComponent.args = {
   variant: 'rotate',
-}
-
-export const CollapseVariant = Template.bind({})
-CollapseVariant.args = {
-  variant: 'collapse',
 }
 
 export const Comparison: StoryFn<ExpandButtonProps> = () => {
@@ -76,13 +71,3 @@ export const WithCustomStyle: StoryFn<ExpandButtonProps> = (args) => (
     </p>
   </div>
 )
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 1,
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 3,
-}

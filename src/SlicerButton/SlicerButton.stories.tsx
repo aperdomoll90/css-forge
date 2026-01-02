@@ -25,24 +25,6 @@ Default.args = {
   fontSize: '2rem',
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  label: 'Click Here',
-  href: '#',
-  color: '#fff',
-  colorHover: '#ff5722',
-  fontSize: '1rem',
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  label: 'Explore',
-  href: '#',
-  color: '#fff',
-  colorHover: '#2196f3',
-  fontSize: '3rem',
-}
-
 export const MultipleLinks: StoryFn<SlicerButtonProps> = () => (
   <div style={{ display: 'flex', gap: '2rem' }}>
     <SlicerButton
@@ -69,25 +51,3 @@ export const MultipleLinks: StoryFn<SlicerButtonProps> = () => (
   </div>
 )
 
-export const WithCustomStyle: StoryFn<SlicerButtonProps> = (args) => (
-  <div>
-    <SlicerButton
-      {...args}
-      style={{
-        fontFamily: 'Georgia, serif',
-        fontWeight: 'bold',
-        letterSpacing: '0.1em',
-      }}
-    />
-    <p style={{ color: '#888', marginTop: '1rem', fontSize: '0.875rem' }}>
-      Use className or style to add your own font styles, spacing etc.
-    </p>
-  </div>
-)
-WithCustomStyle.args = {
-  label: 'Styled Link',
-  href: '#',
-  color: '#fff',
-  colorHover: '#9c27b0',
-  fontSize: '2rem',
-}

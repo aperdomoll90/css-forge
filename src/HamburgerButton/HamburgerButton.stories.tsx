@@ -7,9 +7,10 @@ export default {
   title: 'Buttons/HamburgerButton',
   component: HamburgerButton,
   argTypes: {
+    variant: { control: { type: 'radio' }, options: ['spin', 'cross'] },
     active: { control: 'boolean' },
     defaultActive: { control: 'boolean' },
-    size: { control: { type: 'range', min: 16, max: 64, step: 4 } },
+    size: { control: { type: 'range', min: 1, max: 4, step: 0.25 } },
     color: { control: 'color' },
     ariaLabel: { control: 'text' },
   },
@@ -17,10 +18,25 @@ export default {
 
 const Template: StoryFn<HamburgerButtonProps> = (args) => <HamburgerButton {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  size: 32,
-  color: '#fff',
+export const HamburgerButtonComponent = Template.bind({})
+HamburgerButtonComponent.args = {
+  variant: 'spin',
+}
+
+export const Comparison: StoryFn<HamburgerButtonProps> = () => {
+  const [active, setActive] = useState(false)
+  return (
+    <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
+        <HamburgerButton variant="spin" active={active} onToggle={setActive} size={2} />
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#888' }}>spin</p>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <HamburgerButton variant="cross" active={active} onToggle={setActive} size={2} />
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#888' }}>cross</p>
+      </div>
+    </div>
+  )
 }
 
 const ControlledTemplate: StoryFn<HamburgerButtonProps> = (args) => {
@@ -36,10 +52,6 @@ const ControlledTemplate: StoryFn<HamburgerButtonProps> = (args) => {
 }
 
 export const ExternalState = ControlledTemplate.bind({})
-ExternalState.args = {
-  size: 32,
-  color: '#fff',
-}
 
 export const WithCustomStyle: StoryFn<HamburgerButtonProps> = (args) => (
   <div>
@@ -48,7 +60,7 @@ export const WithCustomStyle: StoryFn<HamburgerButtonProps> = (args) => (
       style={{
         backgroundColor: '#303030',
         borderRadius: '5px',
-        padding: '8px',
+        padding: '0.5rem',
         boxShadow: '0 10px 20px rgba(0, 0, 0, 0.8)',
       }}
     />
@@ -57,25 +69,3 @@ export const WithCustomStyle: StoryFn<HamburgerButtonProps> = (args) => (
     </p>
   </div>
 )
-WithCustomStyle.args = {
-  size: 32,
-  color: '#fff',
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 24,
-  color: '#fff',
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 48,
-  color: '#fff',
-}
-
-export const Green = Template.bind({})
-Green.args = {
-  size: 32,
-  color: '#4caf50',
-}
