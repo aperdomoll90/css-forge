@@ -1,23 +1,19 @@
-:root {
+.c-hill-toggle-wrapper {
+  display: inline-block;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.c-hill-toggle {
   --hill-length: 18rem;
   --hill-height: 7rem;
 
-  --hill-sky-day: radial-gradient(
-    circle at 45% 55%,
-    #f2f2f5 0%,
-    #dcd2ec 20%,
-    #b4b3e7 40%,
-    #9cb1e5 60%,
-    #7d9ec8 85%,
-    #5a7db0 100%
-  );
-  --hill-sky-night: linear-gradient(
-    to top,
-    #ffe066 0%,
-    #f7b267 60%,
-    #f79d65 75%,
-    #e07a5f 100%
-  );
+  --hill-sky-day: radial-gradient(circle at 45% 55%, #f2f2f5 0%, #dcd2ec 20%, #b4b3e7 40%, #9cb1e5 60%, #7d9ec8 85%, #5a7db0 100%);
+  --hill-sky-night: linear-gradient(to top, #ffe066 0%, #f7b267 60%, #f79d65 75%, #e07a5f 100%);
 
   --hill-slider-day: rgba(68, 67, 67, 0.4);
   --hill-slider-night: rgba(153, 247, 95, 0.28);
@@ -32,19 +28,7 @@
 
   --hill-mountain-left: #9146dc;
   --hill-mountain-right: #8439c8;
-}
 
-.c-hill-toggle-wrapper {
-  display: inline-block;
-
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-.c-hill-toggle {
   transform: scale(var(--size, 1));
   width: var(--hill-length);
   height: var(--hill-height);
@@ -184,7 +168,7 @@
   }
 }
 
-.c-hill-toggle[data-checked="true"] {
+.c-hill-toggle[data-checked='true'] {
   background: var(--hill-sky-night);
 
   span {

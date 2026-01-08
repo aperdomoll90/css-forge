@@ -1,0 +1,45 @@
+.magnet-area {
+  position: relative;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.magnet-target {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  will-change: transform;
+}
+
+.magnet-button {
+  padding: 1.5rem 3rem;
+  background: #e37b7b;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  will-change: transform;
+  transition: background 0.3s;
+
+  &:hover {
+    background: #d75555;
+  }
+
+  &__label {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.25rem;
+    will-change: transform;
+    display: block;
+  }
+}

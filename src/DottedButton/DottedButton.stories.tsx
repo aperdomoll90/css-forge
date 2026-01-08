@@ -28,6 +28,8 @@ export const Default = Template.bind({})
 Default.args = {
   label: 'Navigation',
   href: '#',
+  textColor: '#fff',
+  dotColor: '#fff',
 }
 
 export const MultipleItems: StoryFn = () => (

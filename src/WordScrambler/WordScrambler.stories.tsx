@@ -26,4 +26,5 @@ const Template: StoryFn<WordScramblerProps> = (args) => <WordScrambler {...args}
 export const Default = Template.bind({})
 Default.args = {
   words: ['CODEPEN', 'REACT', 'JAVASCRIPT'],
+    textColor: "#fff",
 }

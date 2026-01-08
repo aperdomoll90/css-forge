@@ -1,4 +1,14 @@
-:root {
+.c-desert-toggle-wrapper {
+  display: inline-block;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.c-desert-toggle {
   --width: 18rem;
   --height: 7rem;
   --tumbleweed-track: calc(var(--width) - var(--height) - 100%);
@@ -22,19 +32,7 @@
   --color-sun-200: #fcf4cd;
   --color-sun-middle-300: rgb(255, 215, 0);
   --color-sun-outer-400: rgb(255, 165, 0, 0.4);
-}
 
-.c-desert-toggle-wrapper {
-  display: inline-block;
-
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-.c-desert-toggle {
   display: flex;
   transform: scale(var(--size, 1));
   cursor: pointer;
@@ -48,20 +46,12 @@
   align-items: center;
   justify-content: center;
 
-
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(
-      to bottom,
-      #ffa500 5%,
-      #ffd700 15%,
-      #87ceeb 40%,
-      #4682b4 70%,
-      #000033 100%
-    );
+    background: linear-gradient(to bottom, #ffa500 5%, #ffd700 15%, #87ceeb 40%, #4682b4 70%, #000033 100%);
     background-size: cover;
     transition: opacity 3s ease-in-out;
     opacity: 1;
@@ -90,7 +80,7 @@
     transition: 2s ease-in-out;
 
     &::before {
-      content: "";
+      content: '';
       width: 75%;
       aspect-ratio: 1;
       border-radius: 50%;
@@ -102,11 +92,10 @@
       transition: opacity 0.8s ease-in-out, box-shadow 1s ease-in-out;
       opacity: 0;
       transition-delay: 0s;
-      box-shadow: 0 0 0 0px var(--color-moon-inner-halo-100),
-        0 0 0 0px var(--color-moon-outer-halo-100);
+      box-shadow: 0 0 0 0px var(--color-moon-inner-halo-100), 0 0 0 0px var(--color-moon-outer-halo-100);
     }
     &::after {
-      content: "";
+      content: '';
       width: 45%;
       aspect-ratio: 1;
       border-radius: 50%;
@@ -118,8 +107,7 @@
       transition: opacity 0.8s ease-in-out, box-shadow 1s ease-in-out;
       opacity: 1;
       transition-delay: 1.5s;
-      box-shadow: 0 0 0 6px var(--color-sun-middle-300),
-        0 0 0 15px var(--color-sun-outer-400);
+      box-shadow: 0 0 0 6px var(--color-sun-middle-300), 0 0 0 15px var(--color-sun-outer-400);
     }
   }
 
@@ -202,7 +190,7 @@
   }
 }
 
-.c-desert-toggle[data-checked="true"] {
+.c-desert-toggle[data-checked='true'] {
   &::before {
     opacity: 0;
   }
@@ -211,14 +199,12 @@
     &::before {
       opacity: 1;
       transition-delay: 1.2s;
-      box-shadow: 0 0 0 10px var(--color-moon-inner-halo-100),
-        0 0 0 30px var(--color-moon-outer-halo-100);
+      box-shadow: 0 0 0 10px var(--color-moon-inner-halo-100), 0 0 0 30px var(--color-moon-outer-halo-100);
     }
     &::after {
       opacity: 0;
       transition-delay: 0s;
-      box-shadow: 0 0 0 0px var(--color-sun-middle-300),
-        0 0 0 0px var(--color-sun-outer-400);
+      box-shadow: 0 0 0 0px var(--color-sun-middle-300), 0 0 0 0px var(--color-sun-outer-400);
     }
   }
   svg {

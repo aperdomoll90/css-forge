@@ -1,9 +1,10 @@
 .story-wrapper {
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-width: 100dvw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: .5rem;
   background: #1b1b1c;
   color: #fff;
 }

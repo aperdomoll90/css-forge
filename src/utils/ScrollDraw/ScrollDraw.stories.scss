@@ -1,0 +1,124 @@
+.scroll-draw-container {
+  position: relative;
+  width: 80dvw;
+  height: 80dvh;
+  margin: 10dvh auto;
+  padding: 0;
+
+  &__indicator {
+    pointer-events: none;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: -2.5rem;
+    height: 100%;
+
+    svg {
+      height: 100%;
+    }
+
+    &::before {
+      content: 'watch me';
+      position: absolute;
+      top: -5%;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #fff;
+    }
+
+    &--spiral {
+      right: -4rem;
+
+      &::before {
+        content: 'spiral';
+      }
+    }
+
+    &--line {
+      right: -2rem;
+
+      &::before {
+        content: 'progress';
+      }
+    }
+  }
+
+  h1 {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: clamp(3rem, 19vw, 20rem);
+    font-weight: 900;
+    z-index: 80;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+
+    div {
+      width: 100%;
+      height: 100dvh;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.scroll-draw-fullpage {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__indicator {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 400vh;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    z-index: 12;
+    pointer-events: none;
+
+    svg {
+      display: inline-block;
+      height: 100%;
+    }
+  }
+
+  h1 {
+    position: fixed;
+    top: 8%;
+    left: 20%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  &__spacer {
+    width: 100%;
+    height: 500vh;
+  }
+}
