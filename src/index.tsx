@@ -1,3 +1,4 @@
+export * from './Accordion'
 export * from './BubbleButton'
 export * from './Carousel'
 export * from './RoundCarousel'
