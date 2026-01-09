@@ -2,7 +2,7 @@
   "name": "css-forge",
   "title": "css-forge component library",
   "description": "React Component Library created by css-forge for experimental use",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "license": "MIT",
   "author": "Adrian Perdomo Llerena",
   "main": "dist/index.cjs",
