@@ -13,7 +13,7 @@ export function useSvgFiller(
   options: UseSvgFillerOptions = {}
 ) {
   const { startAt = 0, reverse = false } = options
-  const updateFillRef = useRef<() => void>()
+  const updateFillRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const rect = fillRef.current

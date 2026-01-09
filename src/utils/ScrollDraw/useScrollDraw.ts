@@ -30,7 +30,7 @@ export function useScrollDraw(
   pathRef: RefObject<SVGGeometryElement | null>,
   containerRef?: RefObject<HTMLElement | null>
 ) {
-  const updateStrokeRef = useRef<() => void>()
+  const updateStrokeRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const path = pathRef.current
