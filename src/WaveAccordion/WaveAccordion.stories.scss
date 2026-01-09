@@ -1,0 +1,88 @@
+.story-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+// Basic panel styling
+.wave-panel {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1rem;
+
+  span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover span {
+    opacity: 1;
+  }
+}
+
+// Custom panel with number and text
+.wave-panel-custom {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+
+  &__number {
+    font-size: 3rem;
+    font-weight: 100;
+    opacity: 0.3;
+    line-height: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  &__text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0.25rem 0 0;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+  }
+
+  &:hover {
+    .wave-panel-custom__number {
+      opacity: 0.6;
+    }
+
+    .wave-panel-custom__text {
+      opacity: 1;
+    }
+  }
+}
+
+// Callback log display
+.callback-log {
+  color: white;
+  font-family: monospace;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}

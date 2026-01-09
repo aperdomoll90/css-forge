@@ -1,0 +1,331 @@
+.story-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+// Example trigger button styling (user provides their own)
+.demo-trigger {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  background: hsl(0 0% 20%);
+  color: hsl(0 0% 85%);
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: hsl(0 0% 30%);
+  }
+}
+
+// Example modal styling (user provides their own)
+.demo-modal {
+  // Initial hidden state (prevents flicker)
+  opacity: 0;
+  transform: scale(0.95);
+
+  // Layout
+  min-width: 300px;
+  max-width: 500px;
+  padding: 2rem;
+  background: #111;
+  color: #eee;
+  border-radius: 0.75rem;
+  border: 1px solid #444;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  // Animation on open (Chrome, Edge, Safari 17.4+)
+  &:popover-open {
+    animation: modal-fade-in 0.3s ease forwards;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+.demo-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  background: none;
+  color: #eee;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: hsl(0 0% 65%);
+  }
+}
+
+@keyframes modal-fade-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Minimal styling example
+.demo-modal-minimal {
+  padding: 2rem;
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+
+  h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.demo-close-minimal {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  font-size: 1.25rem;
+  background: none;
+  color: #666;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+// Custom content styling
+.demo-modal-custom {
+  opacity: 0;
+  transform: translateY(-20px);
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #eee;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-width: 350px;
+
+  &:popover-open {
+    animation: modal-slide-in 0.4s ease forwards;
+  }
+}
+
+.demo-modal-custom-header {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+}
+
+.demo-modal-custom-body {
+  padding: 1.5rem;
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+.demo-modal-custom-footer {
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.demo-close-custom {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #eee;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.demo-btn-secondary {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.demo-btn-primary {
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #5a6fd6;
+  }
+}
+
+@keyframes modal-slide-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Playground controls
+.playground-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #eee;
+    font-size: 0.875rem;
+
+    span {
+      opacity: 0.7;
+    }
+
+    input[type='color'] {
+      width: 3rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    input[type='range'] {
+      width: 120px;
+      accent-color: #667eea;
+    }
+  }
+}
+
+// Playground modal with CSS custom properties
+.demo-modal-playground {
+  opacity: 0;
+  transform: scale(0.95);
+  min-width: 300px;
+  max-width: 500px;
+  padding: var(--modal-padding, 2rem);
+  background: var(--modal-bg, #111);
+  color: var(--modal-text, #eee);
+  font-size: var(--modal-font-size, 16px);
+  border-radius: var(--modal-radius, 12px);
+  border: var(--modal-border-width, 1px) solid var(--modal-border-color, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--modal-shadow, 0 8px 24px rgba(0, 0, 0, 0.4));
+
+  &::backdrop {
+    background: var(--modal-overlay, rgba(0, 0, 0, 0.5));
+  }
+
+  &:popover-open {
+    animation: modal-fade-in 0.3s ease forwards;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
+
+// Accessibility info panel
+.a11y-info {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  color: #eee;
+  max-width: 500px;
+
+  h4 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    opacity: 0.8;
+
+    span {
+      flex-shrink: 0;
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      &[data-status='pass'] {
+        background: rgba(46, 204, 113, 0.2);
+        color: #2ecc71;
+      }
+
+      &[data-status='user'] {
+        background: rgba(241, 196, 15, 0.2);
+        color: #f1c40f;
+      }
+    }
+  }
+}
