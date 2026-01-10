@@ -1,0 +1,32 @@
+.c-rubber-split-view {
+  --split-duration: 0.9s;
+  --split-easing: ease-in-out;
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+
+  &-toggle {
+    position: absolute;
+    bottom: 2rem;
+    right: 5rem;
+    z-index: 99;
+  }
+
+  &-banner {
+    z-index: 10;
+
+  }
+
+  &-content {
+    width: 55%;
+    z-index: 1;
+    transition: transform var(--split-duration) var(--split-easing);
+  }
+
+  &[data-open='true'] {
+    .c-rubber-split-view-content {
+      transform: translateX(90%);
+    }
+  }
+}

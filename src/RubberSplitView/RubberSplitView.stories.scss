@@ -1,0 +1,145 @@
+.story-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+// Container sizing
+.demo-split-container {
+  width: 90%;
+  height: 80%;
+}
+
+
+// Content panel sizing and background
+.demo-split-content {
+  background: var(--content-color, #1a1a2e);
+}
+
+
+
+// Banner content styling
+.demo-banner-content {
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+    opacity: 0.8;
+  }
+}
+
+.demo-banner-btn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Content list styling
+.demo-content-list {
+  color: white;
+
+  h3 {
+    margin: 0 0 1rem;
+  }
+
+  p {
+    opacity: 0.7;
+  }
+}
+
+.demo-card {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+// External controls
+.external-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.demo-ext-btn {
+  padding: 0.75rem 1.5rem;
+  background: #1b1b1c;
+  color: white;
+  border: 2px solid #3498db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #2a2a2b;
+  }
+}
+
+// Playground controls
+.playground-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #eee;
+    font-size: 0.875rem;
+
+    span {
+      opacity: 0.7;
+    }
+
+    input[type='color'] {
+      width: 3rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    input[type='range'] {
+      width: 120px;
+      accent-color: #667eea;
+    }
+
+    input[type='text'] {
+      width: 80px;
+      padding: 0.25rem 0.5rem;
+      background: #2a2a2b;
+      color: #eee;
+      border: 1px solid #444;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+
+      &::placeholder {
+        color: #666;
+      }
+    }
+  }
+}

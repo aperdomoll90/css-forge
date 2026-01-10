@@ -9,6 +9,8 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
   id,
   color = '#f28b30',
   sliderColor = '#fff',
+  labelColor,
+  colorDelay = 0,
   size = 60,
   labelBefore,
   labelAfter,
@@ -35,6 +37,8 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
     '--size': `${size}px`,
     '--color': color,
     '--slider-color': sliderColor,
+    '--label-color': labelColor,
+    '--color-delay': `${colorDelay}s`,
     ...style,
   } as React.CSSProperties
 

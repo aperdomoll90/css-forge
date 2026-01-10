@@ -11,6 +11,10 @@ export interface ToggleSwitchProps {
   color?: string
   /** Slider/knob color */
   sliderColor?: string
+  /** Label text color */
+  labelColor?: string
+  /** Delay for color transition in seconds (useful for syncing with other animations) */
+  colorDelay?: number
   /** Size of the toggle in pixels */
   size?: number
   /** Label text shown before the toggle */

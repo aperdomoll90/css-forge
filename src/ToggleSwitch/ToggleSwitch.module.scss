@@ -2,6 +2,8 @@
   --size: 60px;
   --color: #f28b30;
   --slider-color: #fff;
+  --label-color: inherit;
+  --color-delay: 0s;
   --height: calc(var(--size) * 0.567);
   --slider-size: calc(var(--height) - 8px);
 
@@ -23,7 +25,7 @@
     display: inline-block;
     position: relative;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease var(--color-delay);
 
     &::before {
       content: attr(data-label-before);
@@ -32,6 +34,8 @@
       right: calc(100% + 0.5em);
       transform: translateY(-50%);
       white-space: nowrap;
+      color: var(--label-color);
+      transition: color 0.3s ease var(--color-delay);
     }
 
     &::after {
@@ -41,6 +45,8 @@
       left: calc(100% + 0.5em);
       transform: translateY(-50%);
       white-space: nowrap;
+      color: var(--label-color);
+      transition: color 0.3s ease var(--color-delay);
     }
   }
 
