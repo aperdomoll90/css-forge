@@ -48,13 +48,9 @@ export type RubberSplitViewProps = {
    */
   className?: string
   /**
-   * Class name for the banner panel.
+   * Class name for the banner panel (RubberEffect).
    */
   bannerClassName?: string
-  /**
-   * Class name for the banner's rubber background (applied alongside RubberEffect styles).
-   */
-  bannerBackgroundClassName?: string
   /**
    * Class name for the content panel.
    */
@@ -100,11 +96,6 @@ export type RubberSplitViewProps = {
    * @default 60
    */
   toggleSize?: number
-  /**
-   * Border radius for the banner background.
-   * @default 12
-   */
-  bannerBorderRadius?: number
   /**
    * Accessible label for the toggle.
    */

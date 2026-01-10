@@ -15,18 +15,17 @@
 
   &-banner {
     z-index: 10;
-
   }
 
   &-content {
-    width: 55%;
+    width: 50%;
     z-index: 1;
     transition: transform var(--split-duration) var(--split-easing);
   }
 
   &[data-open='true'] {
     .c-rubber-split-view-content {
-      transform: translateX(90%);
+      transform: translateX(100%);
     }
   }
 }

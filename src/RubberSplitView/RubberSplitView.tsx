@@ -70,7 +70,6 @@ export const RubberSplitView: React.FC<RubberSplitViewProps> = ({
   contentColor = DEFAULT_CONTENT_COLOR,
   toggleColor,
   toggleSize = 60,
-  bannerBorderRadius = 12,
   'aria-label': ariaLabel,
 }) => {
   const generatedId = useId()
