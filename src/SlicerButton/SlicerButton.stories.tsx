@@ -20,8 +20,8 @@ export const Default = Template.bind({})
 Default.args = {
   label: 'Hover Me',
   href: '#',
-  color: '#fff',
-  colorHover: '#4caf50',
+  color: 'var(--white-100)',
+  colorHover: 'var(--green-400)',
   fontSize: '2rem',
 }
 
@@ -30,22 +30,22 @@ export const MultipleLinks: StoryFn<SlicerButtonProps> = () => (
     <SlicerButton
       label="Home"
       href="#"
-      color="#fff"
-      colorHover="#4caf50"
+      color="var(--white-100)"
+      colorHover="var(--green-400)"
       fontSize="1.5rem"
     />
     <SlicerButton
       label="About"
       href="#"
-      color="#fff"
-      colorHover="#2196f3"
+      color="var(--white-100)"
+      colorHover="var(--blue-700)"
       fontSize="1.5rem"
     />
     <SlicerButton
       label="Contact"
       href="#"
-      color="#fff"
-      colorHover="#ff5722"
+      color="var(--white-100)"
+      colorHover="var(--red-300)"
       fontSize="1.5rem"
     />
   </div>

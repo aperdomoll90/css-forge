@@ -78,8 +78,8 @@ export const Basic: Story = {
           className="demo-split-container"
           contentClassName="demo-split-content"
           toggleLabels={{ left: 'New', right: 'All' }}
-          bannerColor="#667eea"
-          contentColor="#1a1a2e"
+          bannerColor="var(--blue-400)"
+          contentColor="var(--charcoal-500)"
           bannerContent={
             <div className="demo-banner-content">
               <h1>Admin Portal</h1>
@@ -118,8 +118,8 @@ export const CustomColors: Story = {
           className="demo-split-container"
           contentClassName="demo-split-content"
           toggleLabels={{ left: 'Active', right: 'Archive' }}
-          bannerColor="#e74c3c"
-          contentColor="#2c3e50"
+          bannerColor="var(--red-300)"
+          contentColor="var(--charcoal-700)"
           bannerContent={
             <div className="demo-banner-content">
               <h1>Dashboard</h1>
@@ -165,8 +165,8 @@ export const ExternalControl: Story = {
           showToggle={false}
           className="demo-split-container"
           contentClassName="demo-split-content"
-          bannerColor="#3498db"
-          contentColor="#1a1a2e"
+          bannerColor="var(--blue-700)"
+          contentColor="var(--charcoal-500)"
           bannerContent={
             <div className="demo-banner-content">
               <h1>Banner</h1>

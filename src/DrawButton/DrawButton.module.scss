@@ -1,9 +1,11 @@
+@use '../variables' as *;
+
 .c-draw-button {
   font-size: var(--fs-default);
   position: relative;
   width: fit-content;
   text-decoration: none;
-  color: var(--label-color, #fff);
+  color: var(--label-color, var(--white-100));
   cursor: pointer;
   background: transparent;
   border: none;
@@ -29,7 +31,7 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 1;
-    color: var(--stroke-color, #fff);
+    color: var(--stroke-color, var(--white-100));
 
     :global(.swoosh-path) {
       stroke: currentColor;

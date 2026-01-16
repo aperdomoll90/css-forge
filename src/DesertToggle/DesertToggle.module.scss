@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .c-desert-toggle-wrapper {
   display: inline-block;
 
@@ -13,25 +15,25 @@
   --height: 7rem;
   --tumbleweed-track: calc(var(--width) - var(--height) - 100%);
 
-  --sky-color: #352f56;
+  --sky-color: var(--purple-dark-700);
 
-  --shade-color: #331948;
-  --cliff-color: #5a2e77;
-  --hill-one: #512f69;
-  --hill-two: #6a3e7e;
-  --hill-three: #6b3883;
-  --hill-four: #8149a1;
-  --saguaro: #26223a;
-  --tumbleweed-color: #fff;
-  --flower-color: #ecdddd;
+  --shade-color: var(--purple-dark-800);
+  --cliff-color: var(--purple-dark-400);
+  --hill-one: var(--purple-dark-600);
+  --hill-two: var(--purple-900);
+  --hill-three: var(--purple-dark-100);
+  --hill-four: var(--purple-700);
+  --saguaro: var(--purple-dark-900);
+  --tumbleweed-color: var(--white-100);
+  --flower-color: var(--red-100);
 
-  --color-moon-100: #f1e6fd;
-  --color-moon-inner-halo-100: #f1e6fd3a;
-  --color-moon-outer-halo-100: #f1e6fd0e;
+  --color-moon-100: var(--cream-200);
+  --color-moon-inner-halo-100: var(--cream-300);
+  --color-moon-outer-halo-100: var(--cream-400);
 
-  --color-sun-200: #fcf4cd;
-  --color-sun-middle-300: rgb(255, 215, 0);
-  --color-sun-outer-400: rgb(255, 165, 0, 0.4);
+  --color-sun-200: var(--cream-100);
+  --color-sun-middle-300: var(--orange-300);
+  --color-sun-outer-400: var(--orange-900);
 
   display: flex;
   transform: scale(var(--size, 1));
@@ -51,7 +53,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to bottom, #ffa500 5%, #ffd700 15%, #87ceeb 40%, #4682b4 70%, #000033 100%);
+    background: linear-gradient(to bottom, var(--orange-400) 5%, var(--orange-300) 15%, var(--blue-100) 40%, var(--blue-600) 70%, var(--navy-900) 100%);
     background-size: cover;
     transition: opacity 3s ease-in-out;
     opacity: 1;

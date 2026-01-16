@@ -15,8 +15,8 @@ export default {
     backgrounds: {
       default: 'light',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1c1d20' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-300)' },
       ],
     },
   },
@@ -28,16 +28,16 @@ export const Default = Template.bind({})
 Default.args = {
   label: 'Navigation',
   href: '#',
-  textColor: '#fff',
-  dotColor: '#fff',
+  textColor: 'var(--white-100)',
+  dotColor: 'var(--white-100)',
 }
 
 export const MultipleItems: StoryFn = () => (
   <nav style={{ display: 'flex', gap: '1rem' }}>
-    <DottedButton label="Home" href="#" textColor="#fff" dotColor="#fff" />
-    <DottedButton label="About" href="#" textColor="#fff" dotColor="#fff" />
-    <DottedButton label="Services" href="#" textColor="#fff" dotColor="#fff" />
-    <DottedButton label="Contact" href="#" textColor="#fff" dotColor="#fff" />
+    <DottedButton label="Home" href="#" textColor="var(--white-100)" dotColor="var(--white-100)" />
+    <DottedButton label="About" href="#" textColor="var(--white-100)" dotColor="var(--white-100)" />
+    <DottedButton label="Services" href="#" textColor="var(--white-100)" dotColor="var(--white-100)" />
+    <DottedButton label="Contact" href="#" textColor="var(--white-100)" dotColor="var(--white-100)" />
   </nav>
 )
 MultipleItems.parameters = {

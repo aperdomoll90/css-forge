@@ -1,7 +1,9 @@
+@use '../variables' as *;
+
 .c-toggle-switch {
   --size: 60px;
-  --color: #f28b30;
-  --slider-color: #fff;
+  --color: var(--orange-600);
+  --slider-color: var(--white-100);
   --label-color: inherit;
   --color-delay: 0s;
   --height: calc(var(--size) * 0.567);

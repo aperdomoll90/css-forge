@@ -26,9 +26,9 @@ Default.args = {
 
 export const MultipleSkills: StoryFn<skillBarPropsTypes> = () => (
   <div style={{ maxWidth: '400px', width: '100%', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <SkillBar level={90} label="CSS" barColor="#3498db" indicatorBackground="#2980b9" indicatorColor="#fff" />
-    <SkillBar level={85} label="JavaScript" barColor="#f1c40f" indicatorBackground="#f39c12" indicatorColor="#222" />
-    <SkillBar level={80} label="React" barColor="#61dafb" indicatorBackground="#21a1c4" indicatorColor="#fff" />
-    <SkillBar level={70} label="TypeScript" barColor="#3178c6" indicatorBackground="#235a97" indicatorColor="#fff" />
+    <SkillBar level={90} label="CSS" barColor="var(--blue-700)" indicatorBackground="var(--blue-600)" indicatorColor="var(--white-100)" />
+    <SkillBar level={85} label="JavaScript" barColor="var(--yellow-400)" indicatorBackground="var(--orange-400)" indicatorColor="var(--charcoal-200)" />
+    <SkillBar level={80} label="React" barColor="var(--blue-100)" indicatorBackground="var(--blue-600)" indicatorColor="var(--white-100)" />
+    <SkillBar level={70} label="TypeScript" barColor="var(--blue-800)" indicatorBackground="var(--blue-600)" indicatorColor="var(--white-100)" />
   </div>
 )

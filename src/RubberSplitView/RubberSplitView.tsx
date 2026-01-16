@@ -4,8 +4,8 @@ import { ToggleSwitch } from '../ToggleSwitch'
 import { RubberSplitViewProps } from './RubberSplitView.types'
 import styles from './RubberSplitView.module.scss'
 
-const DEFAULT_BANNER_COLOR = '#667eea'
-const DEFAULT_CONTENT_COLOR = '#1a1a2e'
+const DEFAULT_BANNER_COLOR = 'var(--blue-400)'
+const DEFAULT_CONTENT_COLOR = 'var(--charcoal-500)'
 
 /**
  * RubberSplitView

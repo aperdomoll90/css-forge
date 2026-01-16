@@ -1,10 +1,12 @@
+@use '../variables' as *;
+
 .c-carousel {
   position: relative;
   height: 100%;
   width: 100%;
 
   &:focus {
-    outline: 2px solid var(--button-color, #1c1d20);
+    outline: 2px solid var(--button-color, var(--charcoal-300));
     outline-offset: 2px;
   }
 
@@ -13,7 +15,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--button-color, #1c1d20);
+    outline: 2px solid var(--button-color, var(--charcoal-300));
     outline-offset: 2px;
   }
 
@@ -53,7 +55,7 @@
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: var(--button-color, #1c1d20);
+    color: var(--button-color, var(--charcoal-300));
     z-index: 10;
     transition: opacity 0.2s ease;
 
@@ -66,7 +68,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid var(--button-color, #1c1d20);
+      outline: 2px solid var(--button-color, var(--charcoal-300));
       outline-offset: 2px;
     }
 

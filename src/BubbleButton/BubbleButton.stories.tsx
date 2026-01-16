@@ -20,9 +20,9 @@ export default {
     backgrounds: {
       default: 'gray',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1c1d20' },
-        { name: 'gray', value: '#e0e0e0' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-300)' },
+        { name: 'gray', value: 'var(--gray-100)' },
       ],
     },
   },
@@ -33,7 +33,7 @@ const Template: StoryFn<BubbleButtonProps> = args => <BubbleButton {...args} />
 export const Default = Template.bind({})
 Default.args = {
   label: 'Button',
-  labelColor: '#fff',
-  backgroundColor: '#e37b7b',
-  backgroundHoverColor: '#d75555',
+  labelColor: 'var(--white-100)',
+  backgroundColor: 'var(--red-200)',
+  backgroundHoverColor: 'var(--red-400)',
 }

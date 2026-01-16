@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .c-floating-input {
   position: relative;
   height: 2rem;
@@ -12,20 +14,20 @@
     padding: 0 1rem;
     line-height: 2rem;
     border-radius: 10px;
-    border: 2px solid var(--border-color, #ededed);
+    border: 2px solid var(--border-color, var(--gray-200));
     background: transparent;
     transition: all 0.3s ease;
     z-index: 10;
-    color: var(--text-color, #ededed);
+    color: var(--text-color, var(--gray-200));
 
     &:focus {
-      border: 2px solid var(--border-color-focus, #616161);
+      border: 2px solid var(--border-color-focus, var(--gray-600));
       background: var(--background-color, rgb(27, 27, 28));
     }
 
     &:focus + label,
     &:not(:placeholder-shown) + label {
-      color: var(--border-color-focus, #616161);
+      color: var(--border-color-focus, var(--gray-600));
       background: var(--background-color, rgb(27, 27, 28));
       transform: translate(-2px, -6px) scale(0.88);
       padding: 0 0.5rem;
@@ -37,7 +39,7 @@
   label {
     position: absolute;
     font-size: 0.8rem;
-    color: var(--text-color, #ededed);
+    color: var(--text-color, var(--gray-200));
     margin: 0 1rem;
     transition: all 0.2s ease;
     transform: translate(0.2rem, 0) scale(1);
@@ -46,7 +48,7 @@
   }
 
   &__error {
-    color: var(--error-color, #cc4761);
+    color: var(--error-color, var(--red-600));
     font-size: 0.875rem;
     margin-top: 0.25rem;
     position: absolute;
@@ -63,6 +65,6 @@
   }
 
   &[data-error] input {
-    border-color: var(--error-color, #cc4761);
+    border-color: var(--error-color, var(--red-600));
   }
 }

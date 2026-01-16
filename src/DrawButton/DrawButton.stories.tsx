@@ -21,8 +21,8 @@ export default {
     backgrounds: {
       default: 'dark',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1c1d20' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-300)' },
       ],
     },
   },

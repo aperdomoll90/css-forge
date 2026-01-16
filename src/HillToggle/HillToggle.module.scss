@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .c-hill-toggle-wrapper {
   display: inline-block;
 
@@ -12,22 +14,22 @@
   --hill-length: 18rem;
   --hill-height: 7rem;
 
-  --hill-sky-day: radial-gradient(circle at 45% 55%, #f2f2f5 0%, #dcd2ec 20%, #b4b3e7 40%, #9cb1e5 60%, #7d9ec8 85%, #5a7db0 100%);
-  --hill-sky-night: linear-gradient(to top, #ffe066 0%, #f7b267 60%, #f79d65 75%, #e07a5f 100%);
+  --hill-sky-day: radial-gradient(circle at 45% 55%, var(--white-300) 0%, var(--purple-100) 20%, var(--purple-200) 40%, var(--sky-100) 60%, var(--blue-900) 85%, var(--blue-800) 100%);
+  --hill-sky-night: linear-gradient(to top, var(--orange-200) 0%, var(--orange-500) 60%, var(--orange-700) 75%, var(--orange-800) 100%);
 
-  --hill-slider-day: rgba(68, 67, 67, 0.4);
-  --hill-slider-night: rgba(153, 247, 95, 0.28);
+  --hill-slider-day: var(--slider-200);
+  --hill-slider-night: var(--slider-100);
 
-  --hill-sun-core: linear-gradient(145deg, #fff9c4 0%, #ffe066 70%, #f7b267 100%);
-  --hill-sun-glow: rgba(255, 223, 128, 0.95);
+  --hill-sun-core: linear-gradient(145deg, var(--orange-100) 0%, var(--orange-200) 70%, var(--orange-500) 100%);
+  --hill-sun-glow: var(--sun-glow-100);
 
-  --hill-tree-trunk-day: #5e3c6b;
-  --hill-tree-trunk-night: #645387;
-  --hill-tree-canopy-day: #b24fcf;
-  --hill-tree-canopy-night: #a30dad;
+  --hill-tree-trunk-day: var(--purple-dark-300);
+  --hill-tree-trunk-night: var(--purple-dark-200);
+  --hill-tree-canopy-day: var(--purple-300);
+  --hill-tree-canopy-night: var(--purple-400);
 
-  --hill-mountain-left: #9146dc;
-  --hill-mountain-right: #8439c8;
+  --hill-mountain-left: var(--purple-500);
+  --hill-mountain-right: var(--purple-600);
 
   transform: scale(var(--size, 1));
   width: var(--hill-length);
@@ -79,11 +81,11 @@
     right: 10%;
 
     :global(.canopy) {
-      fill: #6d72b2;
+      fill: var(--blue-300);
     }
 
     :global(.trunk) {
-      fill: #6e81e0;
+      fill: var(--blue-200);
     }
   }
 
@@ -95,11 +97,11 @@
     right: 30%;
 
     :global(.canopy) {
-      fill: #6d72b2;
+      fill: var(--blue-300);
     }
 
     :global(.trunk) {
-      fill: #6e81e0;
+      fill: var(--blue-200);
     }
   }
 

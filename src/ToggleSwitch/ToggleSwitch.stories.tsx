@@ -23,13 +23,13 @@ const Template: StoryFn<ToggleSwitchProps> = (args) => <ToggleSwitch {...args} /
 export const Default = Template.bind({})
 Default.args = {
   size: 60,
-  color: '#f28b30',
+  color: 'var(--orange-600)',
 }
 
 export const WithLabels = Template.bind({})
 WithLabels.args = {
   size: 60,
-  color: '#f28b30',
+  color: 'var(--orange-600)',
   labelBefore: 'Off',
   labelAfter: 'On',
 }
@@ -62,7 +62,7 @@ export const ThemeToggle: StoryFn<ToggleSwitchProps> = (args) => {
 }
 ThemeToggle.args = {
   size: 60,
-  color: '#f28b30',
+  color: 'var(--orange-600)',
 }
 
 

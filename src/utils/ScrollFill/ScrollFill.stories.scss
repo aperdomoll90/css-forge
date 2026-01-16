@@ -1,3 +1,5 @@
+@use '../../variables' as *;
+
 .scroll-container {
   position: relative;
   width: 80dvw;
@@ -24,7 +26,7 @@
       transform: translate(-52.5%, 0%);
       width: 65%;
       aspect-ratio: 1 / 1;
-      background: #fff;
+      background: var(--white-100);
       border-radius: 50%;
       z-index: -1;
     }
@@ -52,7 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0d0d0d;
+    color: var(--charcoal-900, --charcoal-950);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: clamp(3rem, 19vw, 20rem);

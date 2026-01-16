@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .5rem;
-  background: #1b1b1c;
-  color: #fff;
+  background: var(--charcoal-400);
+  color: var(--white-100);
 }

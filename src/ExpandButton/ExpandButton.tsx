@@ -7,7 +7,7 @@ export const ExpandButton: React.FC<ExpandButtonProps> = ({
   active: controlledActive,
   defaultActive = false,
   onToggle,
-  color = '#fff',
+  color = 'var(--white-100)',
   size = 1.5,
   lineThickness = 0.125,
   ariaControls,

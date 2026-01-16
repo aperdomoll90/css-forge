@@ -60,8 +60,8 @@ export default {
     backgrounds: {
       default: 'dark',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1b1b1c' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-400)' },
       ],
     },
   },

@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .story-container {
   width: 100vw;
   height: 100vh;
@@ -16,7 +18,7 @@
 
 // Content panel sizing and background
 .demo-split-content {
-  background: var(--content-color, #1a1a2e);
+  background: var(--content-color, var(--charcoal-500));
 }
 
 // Banner content styling
@@ -90,14 +92,14 @@
 
 .demo-ext-btn {
   padding: 0.75rem 1.5rem;
-  background: #1b1b1c;
-  color: white;
-  border: 2px solid #3498db;
+  background: var(--charcoal-400);
+  color: var(--white-100);
+  border: 2px solid var(--blue-700);
   border-radius: 0.5rem;
   cursor: pointer;
 
   &:hover {
-    background: #2a2a2b;
+    background: var(--charcoal-100);
   }
 }
 
@@ -114,7 +116,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    color: #eee;
+    color: var(--gray-100);
     font-size: 0.875rem;
 
     span {
@@ -131,20 +133,20 @@
 
     input[type='range'] {
       width: 120px;
-      accent-color: #667eea;
+      accent-color: var(--blue-400);
     }
 
     input[type='text'] {
       width: 80px;
       padding: 0.25rem 0.5rem;
-      background: #2a2a2b;
-      color: #eee;
-      border: 1px solid #444;
+      background: var(--charcoal-100);
+      color: var(--gray-100);
+      border: 1px solid var(--gray-800);
       border-radius: 0.25rem;
       font-size: 0.875rem;
 
       &::placeholder {
-        color: #666;
+        color: var(--gray-500);
       }
     }
   }

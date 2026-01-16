@@ -1,8 +1,10 @@
+@use '../../variables' as *;
+
 .scroll-story {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 50%, #0f0f23 100%);
+  background: linear-gradient(180deg, var(--charcoal-900) 0%, var(--charcoal-500) 50%, var(--charcoal-900) 100%);
   overflow: hidden;
 
   &__indicator {
@@ -104,7 +106,7 @@
   position: relative;
   width: 100%;
   min-height: 500vh;
-  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 50%, #0f0f23 100%);
+  background: linear-gradient(180deg, var(--charcoal-900) 0%, var(--charcoal-500) 50%, var(--charcoal-900) 100%);
 
   &__indicator {
     position: absolute;

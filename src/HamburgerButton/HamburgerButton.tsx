@@ -7,7 +7,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
   active: controlledActive,
   defaultActive = false,
   onToggle,
-  color = '#fff',
+  color = 'var(--white-100)',
   size = 2,
   ariaControls,
   ariaLabel = 'Toggle menu',

@@ -4,8 +4,8 @@ import styles from './SlicerButton.module.scss'
 export const SlicerButton: React.FC<SlicerButtonProps> = ({
   label,
   href,
-  color = '#fff',
-  colorHover = '#aaa',
+  color = 'var(--white-100)',
+  colorHover = 'var(--gray-400)',
   fontSize = '1rem',
   className = '',
   style,

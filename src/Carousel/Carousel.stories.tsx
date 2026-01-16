@@ -24,8 +24,8 @@ export default {
     backgrounds: {
       default: 'light',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1c1d20' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-300)' },
       ],
     },
   },
@@ -60,9 +60,9 @@ Default.args = {
   loop: true,
   showDots: true,
   showButtons: true,
-  buttonColor: '#fff',
-  activeDotColor: '#978888',
-  dotColor: '#fff',
+  buttonColor: 'var(--white-100)',
+  activeDotColor: 'var(--gray-400)',
+  dotColor: 'var(--white-100)',
 }
 
 export const MultipleSlides = Template.bind({})
@@ -71,9 +71,9 @@ MultipleSlides.args = {
   loop: false,
   showDots: true,
   showButtons: true,
-  buttonColor: '#fff',
-  activeDotColor: '#978888',
-  dotColor: '#fff',
+  buttonColor: 'var(--white-100)',
+  activeDotColor: 'var(--gray-400)',
+  dotColor: 'var(--white-100)',
 }
 
 export const OuterButtons = Template.bind({})
@@ -83,9 +83,9 @@ OuterButtons.args = {
   showDots: true,
   showButtons: true,
   outerButtons: true,
-  buttonColor: '#1c1d20',
-  activeDotColor: '#1c1d20',
-  dotColor: '#ccc',
+  buttonColor: 'var(--charcoal-300)',
+  activeDotColor: 'var(--charcoal-300)',
+  dotColor: 'var(--gray-300)',
 }
 
 export const CustomIcons = Template.bind({})
@@ -96,9 +96,9 @@ CustomIcons.args = {
   showButtons: true,
   prevIcon: '←',
   nextIcon: '→',
-  buttonColor: '#fff',
-  activeDotColor: '#978888',
-  dotColor: '#fff',
+  buttonColor: 'var(--white-100)',
+  activeDotColor: 'var(--gray-400)',
+  dotColor: 'var(--white-100)',
 }
 
 export const Autoplay = Template.bind({})
@@ -109,7 +109,7 @@ Autoplay.args = {
   showButtons: true,
   autoplay: 3000,
   pauseOnHover: true,
-  buttonColor: '#fff',
-  activeDotColor: '#978888',
-  dotColor: '#fff',
+  buttonColor: 'var(--white-100)',
+  activeDotColor: 'var(--gray-400)',
+  dotColor: 'var(--white-100)',
 }

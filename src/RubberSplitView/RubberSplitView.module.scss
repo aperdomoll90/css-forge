@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 .c-rubber-split-view {
   --split-duration: 0.9s;
   --split-easing: ease-in-out;

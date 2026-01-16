@@ -1,3 +1,5 @@
+@use '../../variables' as *;
+
 .scroll-trigger-container {
   position: relative;
   width: 80dvw;
@@ -12,7 +14,7 @@
     transform: translate(-50%, -50%);
     font-size: 4rem;
     font-weight: 900;
-    color: #fff;
+    color: var(--white-100);
     text-transform: uppercase;
     letter-spacing: 5px;
     z-index: 10;
@@ -25,7 +27,7 @@
     top: 1rem;
     left: 1rem;
     z-index: 10;
-    color: #fff;
+    color: var(--white-100);
     font-size: 0.9rem;
     display: flex;
     gap: 0.5rem;
@@ -33,7 +35,7 @@
     align-items: center;
 
     span:not(:first-child) {
-      background: #667eea;
+      background: var(--blue-400);
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
@@ -45,7 +47,7 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    background: #1a1a1a;
+    background: var(--charcoal-600);
 
     div {
       width: 100%;
@@ -66,9 +68,9 @@
 
 .scroll-trigger-card {
   padding: 3rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--blue-400) 0%, var(--purple-800) 100%);
   border-radius: 12px;
-  color: #fff;
+  color: var(--white-100);
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -109,8 +111,8 @@
       cursor: default;
 
       &[data-active='true'] {
-        background: #667eea;
-        color: #fff;
+        background: var(--blue-400);
+        color: var(--white-100);
       }
     }
   }

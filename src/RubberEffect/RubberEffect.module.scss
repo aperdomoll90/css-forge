@@ -1,6 +1,8 @@
+@use '../variables' as *;
+
 .c-rubber-effect {
   --rubber-duration: 0.9s;
-  --rubber-color: #3498db;
+  --rubber-color: var(--blue-700);
   --rubber-stretch: 5;
   --rubber-bounce: 0.9;
   --rubber-easing: ease-in-out;

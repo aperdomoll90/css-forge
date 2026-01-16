@@ -1,3 +1,5 @@
+@use '../../variables' as *;
+
 .magnet-area {
   position: relative;
   padding: 5rem;
@@ -10,12 +12,12 @@
 .magnet-target {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--blue-400) 0%, var(--purple-800) 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--white-100);
   font-weight: 600;
   font-size: 1rem;
   box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
@@ -24,7 +26,7 @@
 
 .magnet-button {
   padding: 1.5rem 3rem;
-  background: #e37b7b;
+  background: var(--red-200);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -32,11 +34,11 @@
   transition: background 0.3s;
 
   &:hover {
-    background: #d75555;
+    background: var(--red-400);
   }
 
   &__label {
-    color: #fff;
+    color: var(--white-100);
     font-weight: 600;
     font-size: 1.25rem;
     will-change: transform;

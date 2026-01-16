@@ -14,8 +14,8 @@ export default {
     backgrounds: {
       default: 'light',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#1c1d20' },
+        { name: 'light', value: 'var(--white-100)' },
+        { name: 'dark', value: 'var(--charcoal-300)' },
       ],
     },
   },
@@ -26,5 +26,5 @@ const Template: StoryFn<WordScramblerProps> = (args) => <WordScrambler {...args}
 export const Default = Template.bind({})
 Default.args = {
   words: ['CODEPEN', 'REACT', 'JAVASCRIPT'],
-    textColor: "#fff",
+    textColor: "var(--white-100)",
 }
