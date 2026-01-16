@@ -1,0 +1,71 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{r as _}from"./index-qdalL59a.js";import"./_commonjsHelpers-CqkleIqs.js";const k={"c-expanding-cards":"_c-expanding-cards_1pz8t_1","c-expanding-cards__card":"_c-expanding-cards__card_1pz8t_17"},n=({items:s,height:v="90%",gap:f="10px",marginInline:y="50px",borderRadius:Z="30px",minWidth:H="70px",animation:ee={},className:ae="",cardClassName:ne="",onCardClick:c,onCardHover:i})=>{const[te,N]=_.useState(null),{duration:se=.5,timing:re="ease-in-out",expandedGrow:ce=7,collapsedGrow:ie=1}=ee,de={"--ec-height":v,"--ec-gap":f,"--ec-margin-inline":y,"--ec-border-radius":Z,"--ec-min-width":H,"--ec-duration":`${se}s`,"--ec-timing":re,"--ec-expanded-grow":ce,"--ec-collapsed-grow":ie},oe=r=>{N(r),i==null||i(r)},le=()=>{N(null),i==null||i(null)};return e.jsx("div",{className:`${k["c-expanding-cards"]} ${ae}`,style:de,children:s.map((r,b)=>{const me={background:r.background,...r.style};return e.jsx("div",{className:`${k["c-expanding-cards__card"]} ${ne} ${r.className||""}`,style:me,tabIndex:0,role:"button","data-expanded":te===b,onMouseEnter:()=>oe(b),onMouseLeave:le,onClick:()=>c==null?void 0:c(b),onKeyDown:j=>{(j.key==="Enter"||j.key===" ")&&(j.preventDefault(),c==null||c(b))},children:r.content},b)})})};n.__docgenInfo={description:"",methods:[],displayName:"ExpandingCards",props:{items:{required:!0,tsType:{name:"Array",elements:[{name:"ExpandingCardItem"}],raw:"ExpandingCardItem[]"},description:"Array of card items"},height:{required:!1,tsType:{name:"string"},description:"Height of the container, default: '90%'",defaultValue:{value:"'90%'",computed:!1}},gap:{required:!1,tsType:{name:"string"},description:"Gap between cards, default: '10px'",defaultValue:{value:"'10px'",computed:!1}},marginInline:{required:!1,tsType:{name:"string"},description:"Horizontal margin, default: '50px'",defaultValue:{value:"'50px'",computed:!1}},borderRadius:{required:!1,tsType:{name:"string"},description:"Border radius of cards, default: '30px'",defaultValue:{value:"'30px'",computed:!1}},minWidth:{required:!1,tsType:{name:"string"},description:"Minimum card width when collapsed, default: '70px'",defaultValue:{value:"'70px'",computed:!1}},animation:{required:!1,tsType:{name:"ExpandingCardsAnimation"},description:"Animation configuration",defaultValue:{value:"{}",computed:!1}},className:{required:!1,tsType:{name:"string"},description:"Custom class for the container",defaultValue:{value:"''",computed:!1}},cardClassName:{required:!1,tsType:{name:"string"},description:"Custom class applied to all cards",defaultValue:{value:"''",computed:!1}},onCardClick:{required:!1,tsType:{name:"signature",type:"function",raw:"(index: number) => void",signature:{arguments:[{type:{name:"number"},name:"index"}],return:{name:"void"}}},description:"Callback when a card is clicked"},onCardHover:{required:!1,tsType:{name:"signature",type:"function",raw:"(index: number | null) => void",signature:{arguments:[{type:{name:"union",raw:"number | null",elements:[{name:"number"},{name:"null"}]},name:"index"}],return:{name:"void"}}},description:"Callback when a card is hovered"}}};const be={title:"Accordions/ExpandingCards",component:n,parameters:{layout:"fullscreen",backgrounds:{default:"dark",values:[{name:"light",value:"var(--white-100)"},{name:"dark",value:"var(--charcoal-400)"}]}}},t=[{content:e.jsx(a,{title:"Red"}),background:"#e74c3c"},{content:e.jsx(a,{title:"Blue"}),background:"#3498db"},{content:e.jsx(a,{title:"Yellow"}),background:"#f1c40f"},{content:e.jsx(a,{title:"Pink"}),background:"#e91e63"},{content:e.jsx(a,{title:"Green"}),background:"#2ecc71"}];function a({title:s,icon:v}){return e.jsxs("div",{className:"card-content",children:[e.jsx("div",{className:"card-content__icon",children:v||s[0]}),e.jsx("div",{className:"card-content__title",children:s})]})}const d=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:t})});d.parameters={docs:{description:{story:"Default expanding cards with color backgrounds."}}};const ue=[{content:e.jsx(a,{title:"Jungle"}),background:"url(https://raw.githubusercontent.com/aperdomoll90/demo-images/refs/heads/main/longjungle.png) center/cover"},{content:e.jsx(a,{title:"Lake"}),background:"url(https://raw.githubusercontent.com/aperdomoll90/demo-images/refs/heads/main/longdarkplacidlake.png) center/cover"},{content:e.jsx(a,{title:"Swamp"}),background:"url(https://raw.githubusercontent.com/aperdomoll90/demo-images/refs/heads/main/longgoldenswamp.png) center/cover"},{content:e.jsx(a,{title:"Snow"}),background:"url(https://raw.githubusercontent.com/aperdomoll90/demo-images/refs/heads/main/longsnowylake.png) center/cover"},{content:e.jsx(a,{title:"Night"}),background:"url(https://raw.githubusercontent.com/aperdomoll90/demo-images/refs/heads/main/longnightjungle.png) center/cover"}],o=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:ue})});o.parameters={docs:{description:{story:"Expanding cards with background images."}}};const l=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:t.slice(0,3),animation:{expandedGrow:5}})});l.parameters={docs:{description:{story:"Works with any number of items - here with just 3 cards."}}};const m=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:[...t,{content:e.jsx(a,{title:"Purple"}),background:"#9b59b6"},{content:e.jsx(a,{title:"Orange"}),background:"#e67e22"},{content:e.jsx(a,{title:"Teal"}),background:"#1abc9c"}],minWidth:"50px",animation:{expandedGrow:10}})});m.parameters={docs:{description:{story:"Works with many items - adjust minWidth and expandedGrow as needed."}}};const u=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:t,animation:{duration:.8,timing:"cubic-bezier(0.25, 0.01, 0, 1.5)",expandedGrow:10,collapsedGrow:.5}})});u.parameters={docs:{description:{story:"Custom animation with longer duration and bouncy timing."}}};const p=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:t,height:"70%",gap:"20px",marginInline:"100px",borderRadius:"50px",minWidth:"100px"})});p.parameters={docs:{description:{story:"Custom dimensions with larger gap, border radius, and min width."}}};const pe=()=>{const[s,v]=_.useState(null),[f,y]=_.useState(null);return e.jsxs("div",{className:"story-container",children:[e.jsxs("div",{className:"callback-log",children:[e.jsxs("span",{children:["Hovered: ",s!==null?t[s].background:"none"]}),e.jsxs("span",{children:["Clicked: ",f!==null?t[f].background:"none"]})]}),e.jsx(n,{items:t,onCardHover:v,onCardClick:y})]})},g=()=>e.jsx(pe,{});g.parameters={docs:{description:{story:"Using onCardHover and onCardClick callbacks to track interactions."}}};const ge=[{content:e.jsx(a,{title:"Sunset"}),background:"linear-gradient(135deg, #667eea 0%, #764ba2 100%)"},{content:e.jsx(a,{title:"Ocean"}),background:"linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"},{content:e.jsx(a,{title:"Forest"}),background:"linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"},{content:e.jsx(a,{title:"Fire"}),background:"linear-gradient(135deg, #fa709a 0%, #fee140 100%)"},{content:e.jsx(a,{title:"Night"}),background:"linear-gradient(135deg, #0c1445 0%, #1a1a2e 100%)"}],x=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:ge})});x.parameters={docs:{description:{story:"Cards with gradient backgrounds."}}};const h=()=>e.jsx("div",{className:"story-container",children:e.jsx(n,{items:[{content:e.jsxs("div",{className:"custom-card-content",children:[e.jsx("div",{className:"custom-card-content__number",children:"01"}),e.jsxs("div",{className:"custom-card-content__text",children:[e.jsx("h3",{children:"Innovation"}),e.jsx("p",{children:"Pushing boundaries"})]})]}),background:"linear-gradient(180deg, #1a1a2e 0%, #0f0f23 100%)"},{content:e.jsxs("div",{className:"custom-card-content",children:[e.jsx("div",{className:"custom-card-content__number",children:"02"}),e.jsxs("div",{className:"custom-card-content__text",children:[e.jsx("h3",{children:"Design"}),e.jsx("p",{children:"Beautiful interfaces"})]})]}),background:"linear-gradient(180deg, #2d1b69 0%, #1a1a2e 100%)"},{content:e.jsxs("div",{className:"custom-card-content",children:[e.jsx("div",{className:"custom-card-content__number",children:"03"}),e.jsxs("div",{className:"custom-card-content__text",children:[e.jsx("h3",{children:"Code"}),e.jsx("p",{children:"Clean architecture"})]})]}),background:"linear-gradient(180deg, #134e5e 0%, #1a1a2e 100%)"},{content:e.jsxs("div",{className:"custom-card-content",children:[e.jsx("div",{className:"custom-card-content__number",children:"04"}),e.jsxs("div",{className:"custom-card-content__text",children:[e.jsx("h3",{children:"Deploy"}),e.jsx("p",{children:"Ship with confidence"})]})]}),background:"linear-gradient(180deg, #4a1942 0%, #1a1a2e 100%)"}],borderRadius:"20px"})});h.parameters={docs:{description:{story:"Fully custom content with complex layouts."}}};d.__docgenInfo={description:"",methods:[],displayName:"Default"};o.__docgenInfo={description:"",methods:[],displayName:"WithImages"};l.__docgenInfo={description:"",methods:[],displayName:"FewItems"};m.__docgenInfo={description:"",methods:[],displayName:"ManyItems"};u.__docgenInfo={description:"",methods:[],displayName:"CustomAnimation"};p.__docgenInfo={description:"",methods:[],displayName:"CustomSizing"};g.__docgenInfo={description:"",methods:[],displayName:"WithCallback"};x.__docgenInfo={description:"",methods:[],displayName:"Gradients"};h.__docgenInfo={description:"",methods:[],displayName:"CustomContent"};var C,w,I;d.parameters={...d.parameters,docs:{...(C=d.parameters)==null?void 0:C.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={colorCards} />
+  </div>`,...(I=(w=d.parameters)==null?void 0:w.docs)==null?void 0:I.source}}};var E,S,G;o.parameters={...o.parameters,docs:{...(E=o.parameters)==null?void 0:E.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={imageCards} />
+  </div>`,...(G=(S=o.parameters)==null?void 0:S.docs)==null?void 0:G.source}}};var W,T,q;l.parameters={...l.parameters,docs:{...(W=l.parameters)==null?void 0:W.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={colorCards.slice(0, 3)} animation={{
+    expandedGrow: 5
+  }} />
+  </div>`,...(q=(T=l.parameters)==null?void 0:T.docs)==null?void 0:q.source}}};var D,A,z;m.parameters={...m.parameters,docs:{...(D=m.parameters)==null?void 0:D.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={[...colorCards, {
+    content: <CardContent title="Purple" />,
+    background: '#9b59b6'
+  }, {
+    content: <CardContent title="Orange" />,
+    background: '#e67e22'
+  }, {
+    content: <CardContent title="Teal" />,
+    background: '#1abc9c'
+  }]} minWidth="50px" animation={{
+    expandedGrow: 10
+  }} />
+  </div>`,...(z=(A=m.parameters)==null?void 0:A.docs)==null?void 0:z.source}}};var M,V,R;u.parameters={...u.parameters,docs:{...(M=u.parameters)==null?void 0:M.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={colorCards} animation={{
+    duration: 0.8,
+    timing: 'cubic-bezier(0.25, 0.01, 0, 1.5)',
+    expandedGrow: 10,
+    collapsedGrow: 0.5
+  }} />
+  </div>`,...(R=(V=u.parameters)==null?void 0:V.docs)==null?void 0:R.source}}};var F,$,P;p.parameters={...p.parameters,docs:{...(F=p.parameters)==null?void 0:F.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={colorCards} height="70%" gap="20px" marginInline="100px" borderRadius="50px" minWidth="100px" />
+  </div>`,...(P=($=p.parameters)==null?void 0:$.docs)==null?void 0:P.source}}};var B,O,L;g.parameters={...g.parameters,docs:{...(B=g.parameters)==null?void 0:B.docs,source:{originalSource:"() => <WithCallbackComponent />",...(L=(O=g.parameters)==null?void 0:O.docs)==null?void 0:L.source}}};var J,K,U;x.parameters={...x.parameters,docs:{...(J=x.parameters)==null?void 0:J.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={gradientCards} />
+  </div>`,...(U=(K=x.parameters)==null?void 0:K.docs)==null?void 0:U.source}}};var Y,Q,X;h.parameters={...h.parameters,docs:{...(Y=h.parameters)==null?void 0:Y.docs,source:{originalSource:`() => <div className="story-container">
+    <ExpandingCards items={[{
+    content: <div className="custom-card-content">
+              <div className="custom-card-content__number">01</div>
+              <div className="custom-card-content__text">
+                <h3>Innovation</h3>
+                <p>Pushing boundaries</p>
+              </div>
+            </div>,
+    background: 'linear-gradient(180deg, #1a1a2e 0%, #0f0f23 100%)'
+  }, {
+    content: <div className="custom-card-content">
+              <div className="custom-card-content__number">02</div>
+              <div className="custom-card-content__text">
+                <h3>Design</h3>
+                <p>Beautiful interfaces</p>
+              </div>
+            </div>,
+    background: 'linear-gradient(180deg, #2d1b69 0%, #1a1a2e 100%)'
+  }, {
+    content: <div className="custom-card-content">
+              <div className="custom-card-content__number">03</div>
+              <div className="custom-card-content__text">
+                <h3>Code</h3>
+                <p>Clean architecture</p>
+              </div>
+            </div>,
+    background: 'linear-gradient(180deg, #134e5e 0%, #1a1a2e 100%)'
+  }, {
+    content: <div className="custom-card-content">
+              <div className="custom-card-content__number">04</div>
+              <div className="custom-card-content__text">
+                <h3>Deploy</h3>
+                <p>Ship with confidence</p>
+              </div>
+            </div>,
+    background: 'linear-gradient(180deg, #4a1942 0%, #1a1a2e 100%)'
+  }]} borderRadius="20px" />
+  </div>`,...(X=(Q=h.parameters)==null?void 0:Q.docs)==null?void 0:X.source}}};const fe=["Default","WithImages","FewItems","ManyItems","CustomAnimation","CustomSizing","WithCallback","Gradients","CustomContent"];export{u as CustomAnimation,h as CustomContent,p as CustomSizing,d as Default,l as FewItems,x as Gradients,m as ManyItems,g as WithCallback,o as WithImages,fe as __namedExportsOrder,be as default};

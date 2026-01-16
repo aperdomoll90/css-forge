@@ -1,0 +1,36 @@
+.flex-row {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ff-sans-cond {
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.story-button-container-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

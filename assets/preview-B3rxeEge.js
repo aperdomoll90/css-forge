@@ -1,0 +1,1 @@
+import{R as e}from"./index-qdalL59a.js";import"./_commonjsHelpers-CqkleIqs.js";const o={parameters:{actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}},layout:"fullscreen"},decorators:[r=>e.createElement("div",{className:"story-wrapper"},e.createElement(r))]};export{o as default};
