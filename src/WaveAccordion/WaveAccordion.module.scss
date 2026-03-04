@@ -1,0 +1,70 @@
+.c-wave-accordion {
+  --wa-height: 50dvh;
+  --wa-gap: 1%;
+  --wa-aspect-ratio: 2 / 11.5;
+  --wa-duration: 0.5s;
+  --wa-timing: cubic-bezier(0.25, 0.01, 0, 1.5);
+  --wa-perspective: 25;
+  --wa-hover-scale: 1.07;
+  --wa-adjacent-scale: 1.02;
+  --wa-hover-depth: 2.2;
+  --wa-adjacent-depth: 1.2;
+  --wa-rotate-angle: 35deg;
+  --wa-index: calc(1vw + 1vh);
+
+  display: flex;
+  height: var(--wa-height);
+  gap: var(--wa-gap);
+  perspective: calc(var(--wa-index) * var(--wa-perspective));
+
+  &__panel {
+    width: 100%;
+    aspect-ratio: var(--wa-aspect-ratio);
+    background-size: cover;
+    background-position: center;
+    transition: all var(--wa-duration) var(--wa-timing);
+    position: relative;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 20px;
+    }
+
+    &:hover {
+      filter: none;
+      transform: scale(var(--wa-hover-scale)) translateZ(calc(var(--wa-index) * var(--wa-hover-depth)));
+      z-index: 1;
+    }
+
+    &:hover + & {
+      filter: none;
+      transform: scale(var(--wa-adjacent-scale)) translateZ(calc(var(--wa-index) * var(--wa-adjacent-depth))) rotateY(var(--wa-rotate-angle));
+      z-index: 0;
+    }
+
+    &:has(+ &:hover) {
+      filter: none;
+      transform: scale(var(--wa-adjacent-scale)) translateZ(calc(var(--wa-index) * var(--wa-adjacent-depth))) rotateY(calc(var(--wa-rotate-angle) * -1));
+      z-index: 0;
+    }
+
+    &:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+  }
+
+  &[data-grayscale='true'] &__panel {
+    filter: grayscale(1) contrast(0.8);
+  }
+
+  &[data-grayscale='true'] &__panel:hover,
+  &[data-grayscale='true'] &__panel:hover + &__panel,
+  &[data-grayscale='true'] &__panel:has(+ &__panel:hover) {
+    filter: none;
+  }
+}

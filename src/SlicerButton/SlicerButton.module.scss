@@ -1,0 +1,40 @@
+.c-slicer-button {
+  --font-size: 1rem;
+  --color: currentColor;
+  --color-hover: currentColor;
+
+  position: relative;
+  font-size: var(--font-size);
+  color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  overflow: visible;
+
+  &::before,
+  &::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: var(--color);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  &::after {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+
+  &:hover::before {
+    transform: translateX(-5%);
+    color: var(--color-hover);
+  }
+
+  &:hover::after {
+    transform: translateX(5%);
+    color: var(--color-hover);
+  }
+}

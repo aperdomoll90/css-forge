@@ -1,0 +1,124 @@
+@use '../../variables' as *;
+
+.scroll-trigger-container {
+  position: relative;
+  width: 80dvw;
+  height: 80dvh;
+  margin: 10dvh auto;
+  padding: 0;
+
+  &__indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--white-100);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    z-index: 10;
+    pointer-events: none;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  &__log {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    color: var(--white-100);
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+
+    span:not(:first-child) {
+      background: var(--blue-400);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background: var(--charcoal-600);
+
+    div {
+      width: 100%;
+      height: 100dvh;
+      flex-shrink: 0;
+    }
+
+    &--cards {
+      padding: 2rem;
+      gap: 50vh;
+
+      div {
+        height: auto;
+      }
+    }
+  }
+}
+
+.scroll-trigger-card {
+  padding: 3rem;
+  background: linear-gradient(135deg, var(--blue-400) 0%, var(--purple-800) 100%);
+  border-radius: 12px;
+  color: var(--white-100);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-trigger-fullpage {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+
+  &__nav {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+
+    span {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      cursor: default;
+
+      &[data-active='true'] {
+        background: var(--blue-400);
+        color: var(--white-100);
+      }
+    }
+  }
+
+  &__spacer {
+    width: 100%;
+    height: 500vh;
+  }
+}

@@ -5,19 +5,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--background-color);
-  border-radius: 5px;
-  box-shadow: 0 10px 20px var(--shadow);
+  background: transparent;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.5s ease-in-out, background 0.2s ease-in-out;
-  z-index: 9999;
   border: none;
-  outline: none;
-
-  &:hover {
-    background: var(--background-hover);
-  }
+  padding: 0;
 
   &::before,
   &::after,
@@ -37,27 +29,39 @@
     transform: translateY(calc(var(--size) / -3.5));
   }
 
-  &[aria-pressed='true']::before {
-    width: 75%;
-    left: auto;
-    transform: translateY(0px) rotate(45deg);
-    transition-delay: 0.125s;
-  }
-
   &::after {
     width: 35%;
     left: 12%;
     transform: translateY(calc(var(--size) / 3.5));
   }
 
-  &[aria-pressed='true']::after {
+  &[aria-pressed='true'] span {
+    transform: translateX(120%);
+  }
+
+  // spin variant (default): lines slide to center with spinning effect
+  &[data-variant='spin'][aria-pressed='true']::before {
     width: 75%;
-    left: auto;
-    transform: translateY(0px) rotate(315deg);
+    transform: translateY(0) rotate(45deg);
+    transition-delay: 0.125s;
+  }
+
+  &[data-variant='spin'][aria-pressed='true']::after {
+    width: 75%;
+    transform: translateY(0) rotate(315deg);
     transition-delay: 0.25s;
   }
 
-  &[aria-pressed='true'] span {
-    transform: translateX(120%);
+  // cross variant: lines slide to center without spinning
+  &[data-variant='cross'][aria-pressed='true']::before {
+    width: 75%;
+    transform: translateY(0) rotate(45deg);
+    transition-delay: 0.125s;
+  }
+
+  &[data-variant='cross'][aria-pressed='true']::after {
+    width: 75%;
+    transform: translateY(0) rotate(-45deg);
+    transition-delay: 0.25s;
   }
 }

@@ -1,0 +1,70 @@
+@use '../variables' as *;
+
+.c-rubber-effect {
+  --rubber-duration: 0.9s;
+  --rubber-color: var(--blue-700);
+  --rubber-stretch: 5;
+  --rubber-bounce: 0.9;
+  --rubber-easing: ease-in-out;
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform var(--rubber-duration) var(--rubber-easing);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rubber-color);
+  }
+
+  &[data-open='true'] {
+    transform: translateX(-100%);
+
+    &::before {
+      animation: rubber-open var(--rubber-duration) var(--rubber-easing) forwards;
+      transform-origin: left center;
+    }
+  }
+
+  &[data-open='false'] {
+    transform: translateX(0);
+
+    &::before {
+      animation: rubber-close var(--rubber-duration) var(--rubber-easing) forwards;
+      transform-origin: right center;
+    }
+  }
+}
+
+@keyframes rubber-open {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(var(--rubber-stretch, 5));
+  }
+  80% {
+    transform: scaleX(var(--rubber-bounce, 0.9));
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rubber-close {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(var(--rubber-stretch, 5));
+  }
+  80% {
+    transform: scaleX(var(--rubber-bounce, 0.9));
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}

@@ -78,13 +78,16 @@ describe('HamburgerButton component', () => {
     })
   })
 
-  it('should set data-active attribute', () => {
+  it('should have data-variant attribute', () => {
     const { container } = renderComponent()
     const button = container.querySelector('button')
+    expect(button).toHaveAttribute('data-variant', 'spin')
+  })
 
-    expect(button).toHaveAttribute('data-active', 'false')
-    fireEvent.click(button!)
-    expect(button).toHaveAttribute('data-active', 'true')
+  it('should set data-variant="cross" when variant is cross', () => {
+    const { container } = renderComponent({ variant: 'cross' })
+    const button = container.querySelector('button')
+    expect(button).toHaveAttribute('data-variant', 'cross')
   })
 
   it('should use custom ariaLabel', () => {

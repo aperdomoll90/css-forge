@@ -1,39 +1,42 @@
+@use '../variables' as *;
+
 .c-skill-bar {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 
   &::before {
     content: attr(data-label);
     display: block;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
-    color: #f1f1f1;
+    color: var(--label-color, var(--white-200));
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 1.25rem 0;
   }
 
   &__track {
-    height: 14px;
-    background: #282828;
-    border-radius: 3px;
+    height: 0.875rem;
+    background: var(--charcoal-200);
+    border-radius: 0.1875rem;
   }
 
   &__fill {
-    height: 14px;
-    background: #d13639;
-    border-radius: 3px;
+    height: 0.875rem;
+    background: var(--bar-color, var(--red-500));
+    border-radius: 0.1875rem;
     position: relative;
     animation: fillBar 2.5s 1;
 
     &::before {
       content: attr(data-level) '%';
       position: absolute;
-      top: -35px;
+      top: -2.1875rem;
       right: 0;
-      padding: 4px 6px;
-      background: #f1f1f1;
-      border-radius: 4px;
-      font-size: 12px;
+      padding: 0.25rem 0.375rem;
+      background: var(--indicator-background, var(--white-200));
+      color: var(--indicator-color, var(--charcoal-200));
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
       transform: translateX(50%);
       z-index: 1;
     }
@@ -41,13 +44,13 @@
     &::after {
       content: '';
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background: #f1f1f1;
-      top: -20px;
+      width: 0.625rem;
+      height: 0.625rem;
+      background: var(--indicator-background, var(--white-200));
+      top: -1.25rem;
       right: 0;
       transform: translateX(50%) rotate(45deg);
-      border-radius: 2px;
+      border-radius: 0.125rem;
     }
   }
 }

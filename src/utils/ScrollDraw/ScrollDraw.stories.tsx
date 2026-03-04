@@ -1,0 +1,252 @@
+import { useRef } from 'react'
+import { Meta, StoryFn } from '@storybook/react'
+import { useScrollDraw } from './useScrollDraw'
+import './ScrollDraw.stories.scss'
+
+export default {
+  title: 'Utils/useScrollDraw',
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark', value: '#0d0d0d' },
+      ],
+    },
+  },
+} as Meta
+
+// Reusable container scroll content
+const ScrollSections = ({ labels = ['Start', 'Middle', 'End'] }: { labels?: string[] }) => (
+  <>
+    {labels.map((label, i) => (
+      <div key={i} className="scroll-story__section">
+        <span className="scroll-story__label">{label}</span>
+      </div>
+    ))}
+  </>
+)
+
+const SpiralComponent = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const pathRef = useRef<SVGPathElement>(null)
+
+  useScrollDraw(pathRef, containerRef)
+
+  return (
+    <div className="scroll-story">
+      <div className="scroll-story__indicator">
+        <svg viewBox="0 0 100 400" fill="none">
+          <path
+            ref={pathRef}
+            d="M50 0 C80 50, 20 100, 50 150 C80 200, 20 250, 50 300 C80 350, 20 400, 50 400"
+            stroke="url(#spiralGradient)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#667eea" />
+              <stop offset="100%" stopColor="#764ba2" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="scroll-story__hint">Scroll</div>
+      <div ref={containerRef} className="scroll-story__content">
+        <ScrollSections />
+      </div>
+    </div>
+  )
+}
+
+export const Spiral: StoryFn = () => <SpiralComponent />
+Spiral.parameters = {
+  docs: {
+    description: {
+      story: `**Basic usage** - Default options with container scroll.
+
+Uses \`useScrollDraw(pathRef, containerRef)\` with no options.
+- Path draws from 0% to 100% scroll
+- Scroll tracked on the container element (not window)
+- SVG uses gradient stroke for visual polish`,
+    },
+  },
+}
+
+const BarberPoleComponent = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const pathRef = useRef<SVGPathElement>(null)
+
+  useScrollDraw(pathRef, containerRef)
+
+  return (
+    <div className="scroll-story">
+      <div className="scroll-story__indicator">
+        <svg viewBox="0 0 554 982" fill="none">
+          <path
+            d="M265.5 760.5C262.333 757.333 256 748.6 256 739C256 727 246 660.5 251 655.5C256 650.5 310 688.5 328.5 692C343.3 694.8 344.333 695.167 343 695C342.5 684.833 340.2 664.5 335 664.5C328.5 664.5 336.5 681 338.5 686.5C340.1 690.9 347.167 727.667 350.5 745.5C351.167 748.333 353.7 752.8 358.5 748C364.5 742 392.5 694.5 392.5 686.5C392.5 678.5 403 667.5 403 659C403 650.5 370 671.5 370 675C370 678.5 358 740 362.5 754C367 768 366 759 377 763.5C388 768 415 754 433 754C451 754 464 769 459 748C454 727 444.5 635.5 444.5 625.5C444.5 617.5 449.167 600.5 451.5 593C457 600.667 467.2 619.8 464 635C460 654 451.5 666.5 421 675C396.6 681.8 369.167 642.833 358.5 622.5C350 637.833 331.2 670.5 324 678.5C315 688.5 253.5 659 251 648.5C248.5 638 252 598 252 590.5C252 584.5 244 580 240 578.5C239.667 587.667 247.5 606.6 281.5 609C315.5 611.4 311 567.333 304.5 545L377 571.5C392.667 576.167 424.9 585.5 428.5 585.5C433 585.5 468.5 582 472 578.5C475.5 575 483 571 483 562C483 553 475 530 469.5 524.5C464 519 437.5 503 433 503C428.5 503 414 513.5 414 521.5C414 529.5 426.5 533 433 539.5C438.2 544.7 447.5 567.667 451.5 578.5L453.5 588C458.167 589.833 469.7 591.3 478.5 582.5C487.3 573.7 485.167 550.167 483 539.5C473.833 538.5 454.5 534.6 450.5 527C446.5 519.4 437.167 516.833 433 516.5L409 524.5C371.333 520.667 296 512.3 296 509.5C296 506.7 284.667 504 279 503L256 489L227.5 492C224.667 493.833 218.6 498.6 217 503C215.4 507.4 227.667 505.833 234 504.5C236 502.833 238.5 499.5 232.5 499.5C226.5 499.5 217.667 501.833 214 503C211.167 503.333 205.3 503.4 204.5 501C203.5 498 181 438.5 181 435C181 432.2 203.667 471.833 215 492V499.5C201.5 484.5 174.1 452 172.5 442C170.9 432 198.833 471.833 213 493C209.333 496.667 202 504.7 202 507.5C202 511 199.5 522.5 202 528C204.5 533.5 206.5 542 212 547C216.4 551 219.833 550.333 221 549.5L223.5 542C225.333 550.5 229.7 567.5 232.5 567.5C236 567.5 232.5 579 252 570C271.5 561 266 546.5 270.5 542C275 537.5 278 536.5 279 535.5C279.8 534.7 297.333 539.5 306 542L274 529.5C270.667 528.833 263.2 528.3 260 531.5C256.8 534.7 250.333 536.833 247.5 537.5C241.333 538.833 228.2 540.7 225 537.5C221 533.5 216 521.5 215 514.5C214.2 508.9 215 506.5 215.5 506C212.833 506.667 207.5 509 207.5 513C207.5 517 214.5 517 218 516.5L237.5 508.5L213 519.5C209.5 521.667 204.6 526 213 526C221.4 526 230.833 520.667 234.5 518C228.667 520.667 216.6 526.4 215 528C213 530 204.5 535.5 215.5 543C226.5 550.5 231.5 546 232.5 545C233.5 544 226.5 539.5 225 539.5C223.5 539.5 217.5 532.5 218 535C218.5 537.5 219.772 536.228 221 535C221.983 534.017 219.409 501.59 218 485.5V438L221 409C221.167 401 226.3 386.1 245.5 390.5C264.7 394.9 272.5 410 274 417C275.667 423.5 279 438.1 279 444.5C279 450.9 279.667 475.166 280 486.5L281.5 436.5C281.5 431 281.5 419.4 281.5 417C281.5 414 278 398.5 268.5 394C260.9 390.4 251.333 384.5 247.5 382C261.667 375.833 290 363 290 361C290 358.5 293 355.5 296 361C298.4 365.4 336 450.833 354.5 493L395 390.5C397.833 382.167 402.9 364.9 400.5 362.5C398.1 360.1 398.167 357.5 398.5 356.5C395.5 355 389 351.5 387 349.5C384.5 347 379.5 342 379.5 336C379.5 331.2 378.5 327.333 378 326C379.667 322.5 383 314.6 383 311C383 306.5 385 289.5 385 285C385 280.5 385 277 385 270.5C385 265.3 389 262.333 391 261.5C392.333 260.333 395 259.1 395 263.5C395 269 392.5 293 387 298.5C382.6 302.9 380.167 297 379.5 293.5C379.333 288.5 379.5 278 381.5 276C384 273.5 384.5 253.5 383 252C381.8 250.8 375.833 234.833 373 227C370.667 230.333 364.3 236.5 357.5 234.5C349 232 340.5 235 322 227C303.5 219 311.5 225 311.5 228.5C311.5 232 311.5 243.5 308.5 246.5C306.1 248.9 305.5 273.167 305.5 285C305.333 288.5 304.7 295.5 303.5 295.5C302 295.5 299 301.5 296 293.5C293 285.5 289 274.5 290 266C291 257.5 291.5 252.5 296 258.5C300.5 264.5 302 290 302 300.5C302 308.9 308.333 321 311.5 326C315.667 333.167 328.6 347.5 347 347.5C365.4 347.5 374 335.167 376 329C378.5 335.333 385.4 348.7 393 351.5C400.6 354.3 432.167 372.667 447 381.5C443.833 395.667 437.5 424.7 437.5 427.5C437.5 431 431.5 445 431.5 453C431.5 461 427.5 490 430 498.5C432 505.3 447.833 521.667 455.5 529L472 556L462 554C462.167 555.5 463.2 559.2 466 562C469.5 565.5 480.5 571 488 567.5C495.5 564 498 563.5 498 556C498 550 491.333 504.167 488 482L480 430.5L474.5 405.5C473.333 400.333 469.2 389.4 462 387"
+            stroke="rgba(255,255,255,0.15)"
+            strokeWidth="3"
+            fill="none"
+          />
+          <path
+            ref={pathRef}
+            d="M382 0.5L384.5 246V305C383.833 309.333 381.8 318.6 379 321C376.2 323.4 376.833 315 377.5 310.5C376.667 312.167 373.8 315.5 369 315.5C363 315.5 353.5 310.5 348.5 310.5C343.5 310.5 324 317 316 315.5C309.6 314.3 308 308 308 305L305 279.5C301.667 271.167 295 253.8 295 251C295 247.5 294 247 292 237C290.4 229 292.333 220.333 293.5 217C294 215.5 295.5 212 297.5 210C299.5 208 302.667 208.5 304 209C307.333 202.667 316.8 190 328 190C342 190 348 189.5 363.5 195.5C375.9 200.3 384.333 197.5 387 195.5C390.167 193.667 395.9 191.9 393.5 199.5C391.1 207.1 389.833 213.667 389.5 216C388.833 218.5 388.3 224.3 391.5 227.5C395.5 231.5 396.5 241 396.5 244.5C396.5 247.3 390.167 262.667 387 270L384.5 315.5C385.5 323.5 388.4 341.2 392 348C396.5 356.5 395 366 395 369.5C395 373 390.5 390 388.5 391.5C386.5 393 384.5 396 379 394C373.5 392 367 391 364.5 388.5C362 386 359 386 356 381C353 376 376 384 376 385.5C376 387 379 397.5 377.5 404.5C376.3 410.1 364 404.833 358 401.5C356.333 399.667 353 394.5 353 388.5C353 382.5 354 384 354.5 385.5C355.333 388.667 356.2 396.3 353 401.5C349.8 406.7 344.333 403.667 342 401.5C340.833 397.333 338.3 389.5 337.5 391.5C336.7 393.5 333.167 397.667 331.5 399.5C330 401.833 326.4 405.1 324 399.5C321.6 393.9 324.667 385.833 326.5 382.5C328.167 381 332.7 379.2 337.5 384C342.3 388.8 323.167 391 313 391.5C310.833 386.5 306.8 375.1 308 369.5C309.5 362.5 306.5 328 310.5 334.5C313.7 339.7 324.167 355.667 329 363C332.5 366.333 340 373 342 373C344.5 373 345.5 385.5 344 387C342.5 388.5 381 360 379 352C377.4 345.6 380 335.333 381.5 331C386.667 340.333 397.9 359 401.5 359C405.1 359 431.667 374.667 444.5 382.5L461 385.5C455.5 383.333 443.9 380.6 441.5 387C438.5 395 452 395 454.5 397.5C457 400 467 409.5 469 426C470.6 439.2 479.333 491.833 483.5 516.5L485 535.5C482.833 546.833 477.3 569.8 472.5 571C466.5 572.5 487 561 487 557.5C487 554 490 535 488.5 533.5C487.3 532.3 489.333 527 490.5 524.5C501.833 502.5 525 458.5 527 458.5C529.5 458.5 529 455.5 534.5 458.5C538.9 460.9 548.333 467.167 552.5 470L538 463C535.167 462.333 530.8 461.9 536 465.5C541.2 469.1 547.5 474 550 476L536 472C531.833 470.667 525.1 469.6 531.5 476C537.9 482.4 542.833 483.667 544.5 483.5L529.5 479.5C527.167 479.333 523.4 479.9 527 483.5C530.6 487.1 537.167 490.667 540 492L525 488.5C521.833 487.833 516.5 488 520.5 494C524.5 500 528.167 501.5 529.5 501.5L518.5 498.5C515.167 498 509.8 498.3 515 503.5C520.2 508.7 525.167 511.333 527 512L512 507C507.667 506 500.6 505.6 507 512C513.4 518.4 518.667 521 520.5 521.5L507 518.5C503.667 517.5 498.5 517 504.5 523C510.5 529 514 531.5 515 532L504.5 527.5C502.333 526.833 498.9 526.4 502.5 530C506.1 533.6 508.667 536.167 509.5 537C504.694 534.806 494.466 531.034 492 533.5C488.918 536.582 469 581.5 457.5 585.5C446 589.5 414.5 610 412.5 617.5C410.5 625 403 627.5 416 630C429 632.5 436 630.5 443 641C450 651.5 457 669.5 452.5 686.5C448 703.5 448 717 443 722C438 727 422.5 747 416 747C409.5 747 426.5 741 430 744.5C432.8 747.3 439.833 752.333 443 754.5C443 754.5 301.5 811 264.5 761.5C227.5 712 211.704 949.508 275.5 974.5C324 993.5 363.4 961.987 348 936C324 895.5 249.5 915.5 228.5 921C211.7 925.4 150 949.5 115 949.5H59L1 936"
+            stroke="url(#barberGradient)"
+            strokeWidth="3"
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="barberGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#e74c3c" />
+              <stop offset="50%" stopColor="#3498db" />
+              <stop offset="100%" stopColor="#e74c3c" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="scroll-story__hint">Scroll</div>
+      <div ref={containerRef} className="scroll-story__content">
+        <ScrollSections labels={['Welcome', 'Explore', 'Discover', 'Enjoy']} />
+      </div>
+    </div>
+  )
+}
+
+export const BarberPole: StoryFn = () => <BarberPoleComponent />
+BarberPole.parameters = {
+  docs: {
+    description: {
+      story: `**Complex path with background layer** - Shows layering technique.
+
+Uses default options with a complex decorative path.
+- First path (faded) serves as a background guide
+- Second path (gradient) draws on top as you scroll
+- Demonstrates how to create depth with multiple SVG paths`,
+    },
+  },
+}
+
+const RelaySpiralComponent = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const pathRef1 = useRef<SVGPathElement>(null)
+  const pathRef2 = useRef<SVGPathElement>(null)
+
+  // First spiral: 0% to 60% - draws top to center
+  useScrollDraw(pathRef1, containerRef, { startAt: 0, endAt: 0.6 })
+  // Second spiral: 60% to 100% - draws center to bottom
+  useScrollDraw(pathRef2, containerRef, { startAt: 0.6, endAt: 1 })
+
+  return (
+    <div className="scroll-story">
+      <div className="scroll-story__indicator">
+        <svg viewBox="0 0 284 2600" fill="none">
+          {/* First spiral - top, draws from top down to center */}
+          <path
+            ref={pathRef1}
+            d="M0.5 0.282104C84 122.449 249.7 441.282 244.5 739.282C238 1111.78 0.5 1139.28 0.5 1355.78C0.5 1615.78 283.5 1615.78 283.5 1412.78C283.5 1306.28 177 1290.78 177 1290.78"
+            stroke="url(#relayGradient1)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Second spiral - bottom, draws from center down */}
+          <path
+            ref={pathRef2}
+            d="M107.714 1309.41C107.714 1309.41 1.12533 1324.29 0.503166 1430.79C-0.682736 1633.78 282.312 1635.44 283.831 1895.44C285.096 2111.94 47.7608 2140.82 43.437 2513.36C39.978 2811.38 207.538 3129.24 291.75 3250.92"
+            stroke="url(#relayGradient2)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Center interlock zone indicator */}
+          <circle cx="142" cy="1300" r="6" fill="rgba(255,255,255,0.15)" />
+          <defs>
+            <linearGradient id="relayGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#667eea" />
+              <stop offset="100%" stopColor="#764ba2" />
+            </linearGradient>
+            <linearGradient id="relayGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#f093fb" />
+              <stop offset="100%" stopColor="#f5576c" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="scroll-story__hint">Scroll</div>
+      <div ref={containerRef} className="scroll-story__content">
+        <ScrollSections labels={['First Half', 'Handoff', 'Second Half', 'Complete']} />
+      </div>
+    </div>
+  )
+}
+
+export const RelaySpiral: StoryFn = () => <RelaySpiralComponent />
+RelaySpiral.parameters = {
+  docs: {
+    description: {
+      story: `**Chained animations with startAt/endAt** - Two paths in relay sequence.
+
+Uses \`startAt\` and \`endAt\` options to chain multiple paths:
+- First path: \`{ startAt: 0, endAt: 0.6 }\` - draws from 0% to 60% scroll
+- Second path: \`{ startAt: 0.6, endAt: 1 }\` - draws from 60% to 100% scroll
+- Paths interlock at center (indicated by subtle circle marker)
+- Each path uses its own gradient for visual distinction`,
+    },
+  },
+}
+
+const FullPageComponent = () => {
+  const pathRef = useRef<SVGPathElement>(null)
+
+  useScrollDraw(pathRef)
+
+  return (
+    <div className="scroll-story-fullpage">
+      <div className="scroll-story-fullpage__indicator">
+        <svg viewBox="0 0 445 3887" fill="none" preserveAspectRatio="xMidYMax meet">
+          <path
+            ref={pathRef}
+            d="M242 1L240.908 809.636L231.5 809.5H250.5L241 809.636V836C230.833 835.833 210.565 835.98 210 836C196 836.5 192 847 190 852C189.814 852.464 180.5 878.5 180.5 878.5C180.5 878.5 220.667 885.833 241 889L319 879L307 926C305 932.5 304 944.5 274 955C272.298 955.596 248.936 963.648 248 964C241.35 966.5 241.35 966.5 235 964C234.07 963.634 201.91 952.776 200 952C184 945.5 181 939 176 929C175 927 167.667 892.667 163.5 879.5L241 888L300.5 879C297.167 869.5 290.214 849.5 290 849C288.5 845.5 286.5 836 272 836C261.6 836 247.333 836 241.5 836L241 836.5L243 1579C243 1579 243.379 1618.51 243 1629C241.59 1668 201 1672 201 1719.5C201 1767 271.422 1767 270 1822C268.578 1877 209.441 1865 210 1922C210.5 1973 286 1975 286 2031C286 2083.5 242.5 2075.5 242.5 2140C242.5 2195.2 242.333 2222.33 242.5 2229L243 2234L239 2442.5L240 2464.5C240 2464.5 248.5 2510.42 287.5 2533C297 2538.5 359.5 2557 403 2540.5C408.289 2538.49 443.5 2531.5 443.5 2490C443.5 2442.5 389 2429 359.5 2435C308.881 2445.3 260.5 2475.5 245.5 2483C220.5 2495.5 150 2522.5 73 2522.5C53.5 2522.5 2 2517.5 2 2468C2 2436 54.2018 2409.59 113.5 2440C152.5 2460 197.598 2498 201 2500.5C204.402 2503 324 2587 350.5 2593C368.391 2597.05 403.516 2598.83 407 2562.5C410.5 2526 382.5 2515 341.5 2515C311 2515 232.132 2534.38 211 2540.5C192 2546 164.5 2557 113.5 2557C62.5 2557 58.5 2528 58.5 2520.5C58.5 2513 63 2481.5 113.5 2483C162.978 2484.47 204.693 2537.92 207.5 2542C228.5 2572.5 238.5 2597.5 238.5 2639C238.5 2643.5 242.5 3094 242.5 3095.5C242.5 3096.7 242.5 3623.33 242.5 3886.5M233.5 844V878.5L191 871.5C192.833 865.833 196.314 853.464 196.5 853C197.5 850.5 199 844 209 844C209.785 844 227.333 844 233.5 844ZM248.5 843.917V878.417L290 871.5C288.5 866.5 284 852 283.5 851C283 850 282 843.5 273 844C272.5 844.028 252.667 843.917 248.5 843.917Z"
+            stroke="url(#fullpageGradient)"
+            strokeWidth="3"
+            fill="none"
+          />
+          <defs>
+            <linearGradient id="fullpageGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#fa709a" />
+              <stop offset="50%" stopColor="#fee140" />
+              <stop offset="100%" stopColor="#fa709a" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="scroll-story-fullpage__hint">Scroll</div>
+      <div className="scroll-story-fullpage__content">
+        {['Journey', 'Begins', 'Continue', 'Further', 'Complete'].map((label, i) => (
+          <div key={i} className="scroll-story-fullpage__section">
+            <span className="scroll-story-fullpage__label">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export const FullPage: StoryFn = () => <FullPageComponent />
+FullPage.parameters = {
+  docs: {
+    description: {
+      story: `**Window scroll tracking** - No container ref needed.
+
+Uses \`useScrollDraw(pathRef)\` with no containerRef:
+- Scroll tracked on the window (document scroll)
+- Path travels with the page as you scroll (not fixed in viewport)
+- SVG sized to span full content height (500vh)
+- Ideal for landing pages and long-form content`,
+    },
+  },
+}
