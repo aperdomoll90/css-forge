@@ -4,81 +4,70 @@ import { ExpandButton } from './ExpandButton'
 import { ExpandButtonProps } from './ExpandButton.types'
 
 export default {
-  title: 'Components/ExpandButton',
+  title: 'Buttons/ExpandButton',
   component: ExpandButton,
   argTypes: {
+    variant: { control: { type: 'radio' }, options: ['rotate', 'collapse'] },
     active: { control: 'boolean' },
     defaultActive: { control: 'boolean' },
-    size: { control: { type: 'range', min: 30, max: 100, step: 5 } },
+    size: { control: { type: 'range', min: 1, max: 4, step: 0.25 } },
+    lineThickness: { control: { type: 'range', min: 0.0625, max: 0.25, step: 0.0625 } },
     color: { control: 'color' },
-    backgroundColor: { control: 'color' },
     ariaLabel: { control: 'text' },
-  },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [{ name: 'dark', value: '#1b1b1c' }],
-    },
   },
 } as Meta
 
-const Template: StoryFn<ExpandButtonProps> = (args) => (
-  <div style={{ padding: '2rem' }}>
-    <ExpandButton {...args} />
-  </div>
-)
+const Template: StoryFn<ExpandButtonProps> = (args) => <ExpandButton {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  size: 50,
-  color: '#fff',
-  backgroundColor: '#4caf50',
+export const ExpandButtonComponent = Template.bind({})
+ExpandButtonComponent.args = {
+  variant: 'rotate',
 }
 
-export const DefaultActive = Template.bind({})
-DefaultActive.args = {
-  size: 50,
-  defaultActive: true,
-  color: '#fff',
-  backgroundColor: '#4caf50',
+export const Comparison: StoryFn<ExpandButtonProps> = () => {
+  const [active, setActive] = useState(false)
+  return (
+    <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
+        <ExpandButton variant="rotate" active={active} onToggle={setActive} size={2} />
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#888' }}>rotate</p>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <ExpandButton variant="collapse" active={active} onToggle={setActive} size={2} />
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#888' }}>collapse</p>
+      </div>
+    </div>
+  )
 }
 
 const ControlledTemplate: StoryFn<ExpandButtonProps> = (args) => {
   const [active, setActive] = useState(false)
   return (
-    <div style={{ padding: '2rem' }}>
+    <div>
       <ExpandButton {...args} active={active} onToggle={setActive} />
-      <p style={{ color: '#fff', marginTop: '1rem' }}>
+      <p style={{ marginTop: '1rem' }}>
         {active ? 'Expanded' : 'Collapsed'}
       </p>
     </div>
   )
 }
 
-export const Controlled = ControlledTemplate.bind({})
-Controlled.args = {
-  size: 50,
-  color: '#fff',
-  backgroundColor: '#4caf50',
-}
+export const ExternalState = ControlledTemplate.bind({})
 
-export const Blue = Template.bind({})
-Blue.args = {
-  size: 50,
-  color: '#fff',
-  backgroundColor: '#2196f3',
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 35,
-  color: '#fff',
-  backgroundColor: '#4caf50',
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 80,
-  color: '#fff',
-  backgroundColor: '#9c27b0',
-}
+export const WithCustomStyle: StoryFn<ExpandButtonProps> = (args) => (
+  <div>
+    <ExpandButton
+      {...args}
+      style={{
+        backgroundColor: '#4caf50',
+        borderRadius: '50%',
+        padding: '0.75rem',
+        width: '3rem',
+        height: '3rem',
+      }}
+    />
+    <p style={{ color: '#888', marginTop: '1rem', fontSize: '0.875rem' }}>
+      Use className to add your own background, shape, hover states etc.
+    </p>
+  </div>
+)

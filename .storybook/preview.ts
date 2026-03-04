@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import React from "react";
+import "./preview.css";
 
 const preview: Preview = {
   parameters: {
@@ -9,7 +11,16 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    layout: "fullscreen",
   },
+  decorators: [
+    (Story) =>
+      React.createElement(
+        "div",
+        { className: "story-wrapper" },
+        React.createElement(Story)
+      ),
+  ],
 };
 
 export default preview;

@@ -1,0 +1,47 @@
+@use '../../variables' as *;
+
+.magnet-area {
+  position: relative;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.magnet-target {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--blue-400) 0%, var(--purple-800) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-100);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  will-change: transform;
+}
+
+.magnet-button {
+  padding: 1.5rem 3rem;
+  background: var(--red-200);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  will-change: transform;
+  transition: background 0.3s;
+
+  &:hover {
+    background: var(--red-400);
+  }
+
+  &__label {
+    color: var(--white-100);
+    font-weight: 600;
+    font-size: 1.25rem;
+    will-change: transform;
+    display: block;
+  }
+}

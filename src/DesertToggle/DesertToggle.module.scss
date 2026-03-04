@@ -1,0 +1,232 @@
+@use '../variables' as *;
+
+.c-desert-toggle-wrapper {
+  display: inline-block;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.c-desert-toggle {
+  --width: 18rem;
+  --height: 7rem;
+  --tumbleweed-track: calc(var(--width) - var(--height) - 100%);
+
+  --sky-color: var(--purple-dark-700);
+
+  --shade-color: var(--purple-dark-800);
+  --cliff-color: var(--purple-dark-400);
+  --hill-one: var(--purple-dark-600);
+  --hill-two: var(--purple-900);
+  --hill-three: var(--purple-dark-100);
+  --hill-four: var(--purple-700);
+  --saguaro: var(--purple-dark-900);
+  --tumbleweed-color: var(--white-100);
+  --flower-color: var(--red-100);
+
+  --color-moon-100: var(--cream-200);
+  --color-moon-inner-halo-100: var(--cream-300);
+  --color-moon-outer-halo-100: var(--cream-400);
+
+  --color-sun-200: var(--cream-100);
+  --color-sun-middle-300: var(--orange-300);
+  --color-sun-outer-400: var(--orange-900);
+
+  display: flex;
+  transform: scale(var(--size, 1));
+  cursor: pointer;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  background: var(--sky-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--orange-400) 5%, var(--orange-300) 15%, var(--blue-100) 40%, var(--blue-600) 70%, var(--navy-900) 100%);
+    background-size: cover;
+    transition: opacity 3s ease-in-out;
+    opacity: 1;
+  }
+
+  svg {
+    position: absolute;
+    bottom: -0.5%;
+    left: 0;
+    transition: transform 2s ease;
+
+    :global(.flower) {
+      fill: var(--flower-color) !important;
+      opacity: 0;
+      transition-delay: 0s;
+      transition: opacity 2s ease;
+    }
+  }
+
+  span {
+    height: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    z-index: 0;
+    transform: rotate(40deg);
+    transition: 2s ease-in-out;
+
+    &::before {
+      content: '';
+      width: 75%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: absolute;
+      top: 5%;
+      right: -50%;
+      z-index: 0;
+      background: var(--color-moon-100);
+      transition: opacity 0.8s ease-in-out, box-shadow 1s ease-in-out;
+      opacity: 0;
+      transition-delay: 0s;
+      box-shadow: 0 0 0 0px var(--color-moon-inner-halo-100), 0 0 0 0px var(--color-moon-outer-halo-100);
+    }
+    &::after {
+      content: '';
+      width: 45%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 20%;
+      left: -20%;
+      z-index: 2;
+      background: var(--color-sun-200);
+      transition: opacity 0.8s ease-in-out, box-shadow 1s ease-in-out;
+      opacity: 1;
+      transition-delay: 1.5s;
+      box-shadow: 0 0 0 6px var(--color-sun-middle-300), 0 0 0 15px var(--color-sun-outer-400);
+    }
+  }
+
+  .tumbleweed {
+    height: 25%;
+    left: 10%;
+
+    path {
+      fill: var(--tumbleweed-color);
+    }
+  }
+  .saguaro {
+    height: 60%;
+    left: auto;
+    right: 20%;
+
+    path {
+      fill: var(--saguaro);
+    }
+  }
+
+  .shade {
+    height: 94%;
+
+    path {
+      fill: var(--shade-color);
+    }
+  }
+
+  .cliff {
+    height: 95%;
+
+    path {
+      fill: var(--cliff-color);
+    }
+  }
+
+  .first-hill,
+  .second-hill,
+  .third-hill,
+  .fourth-hill {
+    width: 100%;
+  }
+
+  .first-hill {
+    transform: translateY(0.5rem);
+    path {
+      fill: var(--hill-one);
+    }
+  }
+
+  .second-hill {
+    transform: translateX(-1rem);
+    path {
+      fill: var(--hill-two);
+    }
+  }
+
+  .third-hill {
+    transform: translateY(0.5rem);
+    path {
+      transform: translateY(0.5rem);
+      fill: var(--hill-three);
+    }
+  }
+
+  .fourth-hill {
+    path {
+      fill: var(--hill-four);
+    }
+  }
+
+  .constellation {
+    width: 100%;
+    left: 0%;
+    top: 5%;
+    transition: transform 1s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+}
+
+.c-desert-toggle[data-checked='true'] {
+  &::before {
+    opacity: 0;
+  }
+  span {
+    transform: rotate(0);
+    &::before {
+      opacity: 1;
+      transition-delay: 1.2s;
+      box-shadow: 0 0 0 10px var(--color-moon-inner-halo-100), 0 0 0 30px var(--color-moon-outer-halo-100);
+    }
+    &::after {
+      opacity: 0;
+      transition-delay: 0s;
+      box-shadow: 0 0 0 0px var(--color-sun-middle-300), 0 0 0 0px var(--color-sun-outer-400);
+    }
+  }
+  svg {
+    :global(.flower) {
+      opacity: 1;
+      transition-delay: 1.9s;
+    }
+  }
+  .tumbleweed {
+    transform: translateX(var(--tumbleweed-track)) rotate(360deg);
+  }
+  .constellation {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .first-hill,
+  .third-hill {
+    transform: translateY(0);
+  }
+  .second-hill {
+    transform: translateX(0);
+  }
+}

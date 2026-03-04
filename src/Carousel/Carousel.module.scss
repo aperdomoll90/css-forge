@@ -1,0 +1,139 @@
+@use '../variables' as *;
+
+.c-carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &:focus {
+    outline: 2px solid var(--button-color, var(--charcoal-300));
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--button-color, var(--charcoal-300));
+    outline-offset: 2px;
+  }
+
+  &__track-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform var(--transition-duration, 250ms) ease-in;
+    will-change: transform;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--button-color, var(--charcoal-300));
+    z-index: 10;
+    transition: opacity 0.2s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--button-color, var(--charcoal-300));
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &[data-direction='left'] {
+      left: 10px;
+    }
+
+    &[data-direction='right'] {
+      right: 10px;
+    }
+
+    &[data-hidden] {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &[data-outer-buttons] {
+    .c-carousel__button {
+      &[data-direction='left'] {
+        left: -40px;
+      }
+
+      &[data-direction='right'] {
+        right: -40px;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 0;
+  }
+
+  &__indicator {
+    height: 15px;
+    width: 15px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--dot-color, rgba(0, 0, 0, 0.3));
+    cursor: pointer;
+    transition: background 250ms ease-in-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--active-dot-color, rgba(0, 0, 0, 0.75));
+      outline-offset: 2px;
+    }
+
+    &[data-current] {
+      background: var(--active-dot-color, rgba(0, 0, 0, 0.75));
+    }
+
+    &:hover {
+      background: var(--active-dot-color, rgba(0, 0, 0, 0.75));
+    }
+  }
+}

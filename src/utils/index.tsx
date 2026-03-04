@@ -1,3 +1,7 @@
 export * from './ColorManipulation'
 export * from './GlobalTypes.types'
+export * from './MagnetizeComponent'
 export * from './MouseEvents'
+export * from './ScrollDraw'
+export * from './ScrollFill'
+export * from './ScrollTrigger'

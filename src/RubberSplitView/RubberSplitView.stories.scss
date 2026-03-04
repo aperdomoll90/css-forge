@@ -1,0 +1,153 @@
+@use '../variables' as *;
+
+.story-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+// Container sizing
+.demo-split-container {
+  width: 90%;
+  height: 80%;
+}
+
+// Content panel sizing and background
+.demo-split-content {
+  background: var(--content-color, var(--charcoal-500));
+}
+
+// Banner content styling
+.demo-banner-content {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: white;
+
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+    opacity: 0.8;
+  }
+}
+
+.demo-banner-btn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Content list styling
+.demo-content-list {
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 4rem;
+
+  h3 {
+    margin: 0 0 1rem;
+  }
+
+  p {
+    opacity: 0.7;
+  }
+}
+
+.demo-card {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+// External controls
+.external-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.demo-ext-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--charcoal-400);
+  color: var(--white-100);
+  border: 2px solid var(--blue-700);
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--charcoal-100);
+  }
+}
+
+// Playground controls
+.playground-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-100);
+    font-size: 0.875rem;
+
+    span {
+      opacity: 0.7;
+    }
+
+    input[type='color'] {
+      width: 3rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    input[type='range'] {
+      width: 120px;
+      accent-color: var(--blue-400);
+    }
+
+    input[type='text'] {
+      width: 80px;
+      padding: 0.25rem 0.5rem;
+      background: var(--charcoal-100);
+      color: var(--gray-100);
+      border: 1px solid var(--gray-800);
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+
+      &::placeholder {
+        color: var(--gray-500);
+      }
+    }
+  }
+}

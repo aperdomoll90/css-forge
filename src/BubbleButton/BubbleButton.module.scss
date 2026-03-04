@@ -1,0 +1,112 @@
+@use '../variables' as *;
+
+.c-bubble {
+  position: absolute;
+  padding: var(--area-default);
+
+  &-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--label-color, var(--white-100));
+    border: none;
+    border-radius: 50%;
+    font-weight: 500;
+    cursor: pointer;
+    padding: var(--pad-default);
+    aspect-ratio: 1;
+    background-position: center bottom;
+    overflow: hidden;
+    background: var(--background-color, var(--charcoal-300));
+    font-size: var(--fs-default);
+    text-decoration: none;
+    transition: scale 0.2s ease-in-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0%;
+      width: 100%;
+      height: 305%;
+      background: radial-gradient(circle, var(--background-hover, var(--purple-dark-500)) 32%, transparent 0%);
+      background-size: 100% 100%;
+      background-position: center bottom;
+      border-radius: 0;
+      z-index: -1;
+      transform: translateY(0);
+      transition: transform 0.4s ease;
+    }
+
+    &__label {
+      line-height: 1;
+    }
+
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.5rem;
+      transition: transform 0.2s ease;
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
+    }
+
+    &:hover::before {
+      transform: translateY(-34%);
+    }
+
+    &:active {
+      scale: 0.9;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .c-bubble {
+    padding: var(--area-sm, var(--area-default, 1rem));
+
+    &-button {
+      font-size: var(--fs-sm, var(--fs-default, 1rem));
+      padding: var(--pad-sm, var(--pad-default, 1rem));
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .c-bubble {
+    padding: var(--area-md, var(--area-sm, var(--area-default, 1rem)));
+
+    &-button {
+      font-size: var(--fs-md, var(--fs-sm, var(--fs-default, 1rem)));
+      padding: var(--pad-md, var(--pad-sm, var(--pad-default, 1rem)));
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .c-bubble {
+    padding: var(--area-mdx, var(--area-md, var(--area-sm, var(--area-default, 1rem))));
+
+    &-button {
+      font-size: var(--fs-mdx, var(--fs-md, var(--fs-sm, var(--fs-default, 1rem))));
+      padding: var(--pad-mdx, var(--pad-md, var(--pad-sm, var(--pad-default, 1rem))));
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .c-bubble {
+    padding: var(--area-lg, var(--area-mdx, var(--area-md, var(--area-sm, var(--area-default, 1rem)))));
+
+    &-button {
+      font-size: var(--fs-lg, var(--fs-mdx, var(--fs-md, var(--fs-sm, var(--fs-default, 1rem)))));
+      padding: var(--pad-lg, var(--pad-mdx, var(--pad-md, var(--pad-sm, var(--pad-default, 1rem)))));
+    }
+  }
+}

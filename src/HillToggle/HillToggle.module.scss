@@ -1,0 +1,204 @@
+@use '../variables' as *;
+
+.c-hill-toggle-wrapper {
+  display: inline-block;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.c-hill-toggle {
+  --hill-length: 18rem;
+  --hill-height: 7rem;
+
+  --hill-sky-day: radial-gradient(circle at 45% 55%, var(--white-300) 0%, var(--purple-100) 20%, var(--purple-200) 40%, var(--sky-100) 60%, var(--blue-900) 85%, var(--blue-800) 100%);
+  --hill-sky-night: linear-gradient(to top, var(--orange-200) 0%, var(--orange-500) 60%, var(--orange-700) 75%, var(--orange-800) 100%);
+
+  --hill-slider-day: var(--slider-200);
+  --hill-slider-night: var(--slider-100);
+
+  --hill-sun-core: linear-gradient(145deg, var(--orange-100) 0%, var(--orange-200) 70%, var(--orange-500) 100%);
+  --hill-sun-glow: var(--sun-glow-100);
+
+  --hill-tree-trunk-day: var(--purple-dark-300);
+  --hill-tree-trunk-night: var(--purple-dark-200);
+  --hill-tree-canopy-day: var(--purple-300);
+  --hill-tree-canopy-night: var(--purple-400);
+
+  --hill-mountain-left: var(--purple-500);
+  --hill-mountain-right: var(--purple-600);
+
+  transform: scale(var(--size, 1));
+  width: var(--hill-length);
+  height: var(--hill-height);
+  background: var(--hill-sky-day);
+  border-radius: 999px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  overflow: hidden;
+
+  span {
+    --slider-padding: 0.25rem;
+    position: absolute;
+    top: var(--slider-padding);
+    left: var(--slider-padding);
+    height: calc(100% - var(--slider-padding) * 2);
+    aspect-ratio: 1;
+    background: var(--hill-slider-day);
+    border-radius: 50%;
+    transition: transform 0.8s ease-in-out, background 0.5s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .tree-large {
+    width: auto;
+    height: 120%;
+    position: absolute;
+    bottom: 0%;
+    left: 10%;
+
+    :global(.canopy) {
+      fill: var(--hill-tree-canopy-day);
+      transition: fill 0.5s ease-in-out;
+    }
+
+    :global(.trunk) {
+      fill: var(--hill-tree-trunk-day);
+      transition: fill 0.5s ease-in-out;
+    }
+  }
+
+  .tree-medium {
+    width: auto;
+    height: 70%;
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+
+    :global(.canopy) {
+      fill: var(--blue-300);
+    }
+
+    :global(.trunk) {
+      fill: var(--blue-200);
+    }
+  }
+
+  .tree-small {
+    width: auto;
+    height: 50%;
+    position: absolute;
+    bottom: 20%;
+    right: 30%;
+
+    :global(.canopy) {
+      fill: var(--blue-300);
+    }
+
+    :global(.trunk) {
+      fill: var(--blue-200);
+    }
+  }
+
+  .mountain-left {
+    width: 70%;
+    height: auto;
+    position: absolute;
+    bottom: -10%;
+    left: -1%;
+
+    path {
+      fill: var(--hill-mountain-left);
+    }
+  }
+
+  .mountain-right {
+    width: 70%;
+    height: auto;
+    position: absolute;
+    bottom: -20%;
+    right: -1%;
+
+    path {
+      fill: var(--hill-mountain-right);
+    }
+  }
+
+  .moon {
+    width: auto;
+    height: 50%;
+    position: absolute;
+    top: 10%;
+    right: 37%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .sun {
+    height: 60%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background: var(--hill-sun-core);
+    box-shadow: 0 0 0.2rem 0.3rem var(--hill-sun-glow);
+    transition: transform 0.9s ease-in-out, box-shadow 0.9s ease-in-out;
+    transform: translateY(6rem);
+  }
+
+  .star-small {
+    width: auto;
+    height: 15%;
+    position: absolute;
+    top: 8%;
+    right: 19%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .star-large {
+    width: auto;
+    height: 22%;
+    position: absolute;
+    top: 18%;
+    right: 22%;
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+.c-hill-toggle[data-checked='true'] {
+  background: var(--hill-sky-night);
+
+  span {
+    background: var(--hill-slider-night);
+    transform: translateX(calc(var(--hill-length) - var(--hill-height)));
+  }
+
+  .tree-large {
+    :global(.canopy) {
+      fill: var(--hill-tree-canopy-night);
+    }
+
+    :global(.trunk) {
+      fill: var(--hill-tree-trunk-night);
+    }
+  }
+
+  .moon {
+    transform: translateY(7rem);
+  }
+
+  .sun {
+    transform: translateY(0);
+    box-shadow: 0 0 1rem 0.65rem var(--hill-sun-glow);
+  }
+
+  .star-small,
+  .star-large {
+    transform: translateY(-4rem);
+  }
+}

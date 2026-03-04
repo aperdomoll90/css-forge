@@ -1,0 +1,50 @@
+// Experimental: enables smooth size interpolation (Safari 17.4+, Chrome 129+)
+:root {
+  interpolate-size: allow-keywords;
+}
+
+.c-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-accordion-item {
+  position: relative;
+  overflow: hidden;
+
+  &__summary {
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::marker {
+      content: none;
+    }
+  }
+}
+
+// Animation for ::details-content pseudo-element
+.c-accordion-item::details-content {
+  display: block;
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 0.4s ease,
+    opacity 0.4s ease,
+    content-visibility 0.4s ease allow-discrete;
+}
+
+.c-accordion-item[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+
+  @starting-style {
+    block-size: 0;
+    opacity: 0;
+  }
+}

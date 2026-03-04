@@ -1,0 +1,40 @@
+.c-expanding-cards {
+  --ec-height: 90%;
+  --ec-gap: 10px;
+  --ec-margin-inline: 50px;
+  --ec-border-radius: 30px;
+  --ec-min-width: 70px;
+  --ec-duration: 0.5s;
+  --ec-timing: ease-in-out;
+  --ec-expanded-grow: 7;
+  --ec-collapsed-grow: 1;
+
+  width: 100%;
+  height: var(--ec-height);
+  display: flex;
+  gap: var(--ec-gap);
+  margin-inline: var(--ec-margin-inline);
+
+  &__card {
+    min-width: var(--ec-min-width);
+    height: 100%;
+    border-radius: var(--ec-border-radius);
+    display: flex;
+    align-items: flex-end;
+    flex-grow: var(--ec-collapsed-grow);
+    position: relative;
+    transition: flex-grow var(--ec-duration) var(--ec-timing);
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover,
+    &[data-expanded='true'] {
+      flex-grow: var(--ec-expanded-grow);
+    }
+
+    &:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+  }
+}
